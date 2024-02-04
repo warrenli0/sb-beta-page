@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+    overflow-x: hidden;
+}
+
+
+.out {
+    position: absolute;
+    height: 100vh;
+}
+
+.ocean { 
+  height: calc(100vh + 198px);
+  width: 105%;
+  position: fixed;
+  bottom: calc(-100vh - 198px);
+  z-index: 5;
+}
+
+.wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    top: 0px;
+}
+
+.wave2 {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+    width: 6400px;
+    height: 198px;
+
+    position: absolute;
+    top: 0px;
+    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite;
+}
+
+.wave-placeholder {
+    height: 197px;
+    width: 100%;
+}
+
+.bottom-wave {
+    height: calc(100% - 198px);
+    width: 100%;
+    background: #015871;
+}
+
+.ocean[wobble='1'] {
+    animation: up1 6s;
+}
+
+
+@keyframes up1 {
+    50% {
+        transform: translateY(calc(-100vh - 198px));
+    }
+    100% {
+        transform: translateY(calc(100vh + 198px));
+    }
+}
+
+@keyframes wave {
+    0% {
+      margin-left: 0;
+    }
+    100% {
+      margin-left: -1600px;
+    }
+  }
+  
+  @keyframes swell {
+    0%, 100% {
+      transform: translate3d(0,-25px,0);
+    }
+    50% {
+      transform: translate3d(0,5px,0);
+    }
+  }
