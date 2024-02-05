@@ -9,7 +9,7 @@ import open_treasure from '../../images/open-treasure-peng-speak.png';
 import useFadeIn from '../../hooks/useFadeIn';
 import { useRef, useState } from "react";
 
-export default function Bottom() {
+export default function Bottom({setShowTopWave, setshowLandingPage}) {
 
     const divRef = useRef(null);
     useFadeIn(divRef);
@@ -32,6 +32,13 @@ export default function Bottom() {
         setChestOpa(1);
     };
 
+    function waveTime() {
+        setShowTopWave(1);
+        setTimeout(function(){
+            setshowLandingPage(false);
+        }, 3000);
+    };
+
     return (
         <div className="ocean-bottom">
             <div className="orange-fish fish2">
@@ -47,7 +54,7 @@ export default function Bottom() {
                 <div className='ocean-header' ref={divRef}>
                     <h1 className="hidden">Launching in early March! Stay tuned!</h1>
                 </div>
-                <div className="ocean-img ocean-scuba-png" ref={divRef2}>
+                <div className="ocean-img ocean-scuba-png" ref={divRef2} onClick={() => waveTime()}>
                     <img src={scuba_peng} className="hidden scuba-peng seawweedo"/>
                 </div>
                 <div className="ocean-img ocean-discord" ref={divRef3}>

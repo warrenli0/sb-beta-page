@@ -10,62 +10,134 @@ html, body {
 
 
 .out {
-    position: absolute;
-    height: 100vh;
+    position: fixed;
+    bottom: 0px;
+    z-index: 5;
 }
 
-.ocean { 
-  height: calc(100vh + 198px);
-  width: 105%;
-  position: fixed;
-  bottom: calc(-100vh - 198px);
-  z-index: 5;
-}
-
-.wave {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+.wave1 {
+    background: url(../images/first-wave.svg) repeat-x; 
     width: 6400px;
     height: 198px;
-    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
     transform: translate3d(0, 0, 0);
     position: absolute;
     top: 0px;
 }
 
-.wave2 {
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
-    width: 6400px;
-    height: 198px;
-
+.wave1-bottom {
     position: absolute;
-    top: 0px;
-    animation: wave 7s cubic-bezier( 0.36, 0.45, 0.63, 0.53) -.125s infinite;
+    top: calc(197px + 0px);
+    height: calc(100vh);
+    width: 100vw;
+    background: #00B4D8;
 }
 
-.wave-placeholder {
-    height: 197px;
-    width: 100%;
-}
-
-.bottom-wave {
-    height: calc(100% - 198px);
-    width: 100%;
-    background: #015871;
-}
-
-.ocean[wobble='1'] {
+.wave1-container[wobble='1'] {
     animation: up1 6s;
 }
 
+.wave2 {
+    background: url(../images/second-wave.svg) repeat-x; 
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -1s infinite;
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    top: 100px;
+}
+
+.wave2-bottom {
+    position: absolute;
+    top: calc(197px + 100px);
+    height: calc(100vh);
+    width: 100vw;
+    background: #1888FE;
+}
+
+.wave2-container[wobble='1'] {
+    animation: up1 5s;
+    animation-delay: .3s;
+}
+
+.wave3 {
+    background: url(../images/third-wave.svg) repeat-x; 
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -2s infinite;
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    top: 200px;
+}
+
+.wave3-bottom {
+    position: absolute;
+    top: calc(197px + 200px);
+    height: calc(100vh);
+    width: 100vw;
+    background: #0049B6;
+}
+
+.wave3-container[wobble='1'] {
+    animation: up1 4s;
+    animation-delay: .6s;
+}
+
+.wave4 {
+    background: url(../images/fourth-wave.svg) repeat-x; 
+    width: 6400px;
+    height: 198px;
+    animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -3s infinite;
+    transform: translate3d(0, 0, 0);
+    position: absolute;
+    top: 300px;
+}
+
+.wave4-bottom {
+    position: absolute;
+    top: calc(197px + 300px);
+    height: calc(100vh);
+    width: 100vw;
+    background: #002D72;
+}
+
+.wave4-container[wobble='1'] {
+    animation: up1 3s;
+    animation-delay: .9s;
+}
+
+#peng {
+    position: absolute;
+    top: 50vh;
+    left: calc(100vw - 200px);
+    z-index: 6;
+    height: 200px;
+}
+
+#peng[wobble='1'] {
+    animation: bub 5s;
+    animation-delay: .9s;
+}
+
+@keyframes bub {
+    50%{
+        
+    }
+    100% {
+        left: 0;
+        transform: rotate(-270deg);
+    }
+}
 
 @keyframes up1 {
     50% {
         transform: translateY(calc(-100vh - 198px));
     }
     100% {
-        transform: translateY(calc(100vh + 198px));
+        transform: translateY(calc(100vh));
     }
 }
+
 
 @keyframes wave {
     0% {
@@ -76,7 +148,7 @@ html, body {
     }
   }
   
-  @keyframes swell {
+@keyframes swell {
     0%, 100% {
       transform: translate3d(0,-25px,0);
     }

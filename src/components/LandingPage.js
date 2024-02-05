@@ -17,7 +17,7 @@ export default function LandingPage({setShowTopWave, showLP, setshowLandingPage}
               <Hook />
               <ThreePingus />
               <SbInfo />
-              <Bottom />
+              <Bottom setShowTopWave={setShowTopWave} setshowLandingPage={setshowLandingPage}/>
             </div>
           )
     }

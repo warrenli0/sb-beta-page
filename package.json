@@ -37,8 +37,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "gh-pages": "^6.1.1"
-  },
   "homepage": "https://warrenli0.github.io/sb-beta-page"
 }
