@@ -1,10 +1,12 @@
 {
   "files": {
-    "main.css": "/sb-beta-page/static/css/main.1c67140b.css",
-    "main.js": "/sb-beta-page/static/js/main.8862d454.js",
+    "main.css": "/sb-beta-page/static/css/main.6e2883d0.css",
+    "main.js": "/sb-beta-page/static/js/main.2cf94ee2.js",
     "static/media/open-treasure-peng-speak.png": "/sb-beta-page/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/cute-hero-penguin.png": "/sb-beta-page/static/media/cute-hero-penguin.75fa2361cc58964e82d9.png",
+    "static/media/coco-tree.png": "/sb-beta-page/static/media/coco-tree.a98cf6fc1d12058d9772.png",
     "static/media/temp-discord.png": "/sb-beta-page/static/media/temp-discord.52064d051cb314f43f56.png",
+    "static/media/start-beach.png": "/sb-beta-page/static/media/start-beach.902c513fd54a8f5c786e.png",
     "static/media/scuba-peng-with-text.png": "/sb-beta-page/static/media/scuba-peng-with-text.d98eb742f453ea9078d8.png",
     "static/media/prac-prob.png": "/sb-beta-page/static/media/prac-prob.ba330bfd6fb595979800.png",
     "static/media/old-dashboard.png": "/sb-beta-page/static/media/old-dashboard.53840675af554d1d306e.png",
@@ -14,16 +16,24 @@
     "static/media/repetition-bubble.png": "/sb-beta-page/static/media/repetition-bubble.edde269e600e27f1b159.png",
     "static/media/accountability-bubble.png": "/sb-beta-page/static/media/accountability-bubble.f62f79fcecaf2093d6b6.png",
     "static/media/community-bubble.png": "/sb-beta-page/static/media/community-bubble.fc9df20c6166657a2bb6.png",
+    "static/media/ACT.png": "/sb-beta-page/static/media/ACT.a788bb011691d4e1f35c.png",
+    "static/media/SAT.png": "/sb-beta-page/static/media/SAT.9b9fa99777ae5f393bc1.png",
     "static/media/figma-bottom-beach.png": "/sb-beta-page/static/media/figma-bottom-beach.e5e9b451681c6f173534.png",
+    "static/media/ping-bubble.png": "/sb-beta-page/static/media/ping-bubble.95326f37bd8a6a90348a.png",
     "static/media/figma-hook-wave.png": "/sb-beta-page/static/media/figma-hook-wave.92cebda024dfc59f274e.png",
     "static/media/figma-three-wave.png": "/sb-beta-page/static/media/figma-three-wave.40819d8297fb5a5639a6.png",
+    "static/media/main-peng.png": "/sb-beta-page/static/media/main-peng.530e8da337ba6dee6fb7.png",
     "static/media/discord-bubble.png": "/sb-beta-page/static/media/discord-bubble.829bb5fa907b4ca77128.png",
     "index.html": "/sb-beta-page/index.html",
-    "main.1c67140b.css.map": "/sb-beta-page/static/css/main.1c67140b.css.map",
-    "main.8862d454.js.map": "/sb-beta-page/static/js/main.8862d454.js.map"
+    "static/media/first-wave.svg": "/sb-beta-page/static/media/first-wave.1aeb8ddd38ecd43c2282.svg",
+    "static/media/fourth-wave.svg": "/sb-beta-page/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
+    "static/media/second-wave.svg": "/sb-beta-page/static/media/second-wave.18dde032feab220bf3b4.svg",
+    "static/media/third-wave.svg": "/sb-beta-page/static/media/third-wave.ee77016635d556354d16.svg",
+    "main.6e2883d0.css.map": "/sb-beta-page/static/css/main.6e2883d0.css.map",
+    "main.2cf94ee2.js.map": "/sb-beta-page/static/js/main.2cf94ee2.js.map"
   },
   "entrypoints": [
-    "static/css/main.1c67140b.css",
-    "static/js/main.8862d454.js"
+    "static/css/main.6e2883d0.css",
+    "static/js/main.2cf94ee2.js"
   ]
 }
