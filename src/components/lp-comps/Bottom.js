@@ -9,7 +9,7 @@ import open_treasure from '../../images/open-treasure-peng-speak.png';
 import useFadeIn from '../../hooks/useFadeIn';
 import { useRef, useState } from "react";
 
-export default function Bottom({setShowTopWave, setshowLandingPage}) {
+export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFinished}) {
 
     const divRef = useRef(null);
     useFadeIn(divRef);
@@ -33,6 +33,7 @@ export default function Bottom({setShowTopWave, setshowLandingPage}) {
     };
 
     function waveTime() {
+        setWavesFinished(false);
         setShowTopWave(1);
         setTimeout(function(){
             setshowLandingPage(false);

@@ -2,11 +2,12 @@ import peng from '../../images/cute-hero-penguin.png';
 import useFadeIn from '../../hooks/useFadeIn';
 import { useRef } from "react";
 
-export default function Hero({setShowTopWave, setshowLandingPage}) {
+export default function Hero({setShowTopWave, setshowLandingPage, setWavesFinished}) {
     const divRef = useRef(null);
     useFadeIn(divRef);
 
     function waveTime() {
+        setWavesFinished(false);
         setShowTopWave(1);
         setTimeout(function(){
             setshowLandingPage(false);

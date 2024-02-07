@@ -8,7 +8,7 @@ function App() {
   // Properties
   const [showLP, setshowLandingPage] = useState(true);
   const [showTopWave, setShowTopWave] = useState(0);
-  const [wavesFinished, setWavesFinished] = useState(false);
+  const [wavesFinished, setWavesFinished] = useState(true);
 
   /*
   if (showLandingPage) {
@@ -18,7 +18,7 @@ function App() {
   }*/
   return (
     <div>
-      <LandingPage setShowTopWave={setShowTopWave} showLP={showLP} setshowLandingPage={setshowLandingPage}/>
+      <LandingPage setShowTopWave={setShowTopWave} showLP={showLP} setshowLandingPage={setshowLandingPage} setWavesFinished={setWavesFinished}/>
       <WaveTransition showTopWave={showTopWave} wavesFinished={wavesFinished} setWavesFinished={setWavesFinished}/>
       <Start showLP={showLP}/>
     </div>

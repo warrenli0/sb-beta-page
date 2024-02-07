@@ -4,9 +4,21 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html, body {
+    overflow-x: hidden;
+}   
+
 .start-page {
     height: 100vh;
     background:radial-gradient(ellipse at center, #ADDDFF 0%, #2AD3FA 100%);
+}
+
+.sb-top-right {
+    position: absolute;
+    top: 0;
+    right: 8px;
+    color: white;
+    text-shadow: 0px 0px 2px #7d7d7d;
 }
 
 .start-text {
@@ -21,15 +33,25 @@
     display: flex;
     gap: 40px;
     z-index: 4;
+    
 }
 
 .choose img {
+    transition-duration: 0.2s;
     width: 30vw;
+}
+
+.choose img[exit='0'] {
     cursor: pointer;
 }
 
-.choose img:hover {
-    
+.choose img[exit='0']:hover {
+    transform: translate(0px, -10px);
+}
+
+.choose img[exit='1'] {
+    animation: backOutLeft 2s forwards; 
+    cursor: auto;
 }
 
 .start-beach {
@@ -42,52 +64,424 @@
     background-size: 101% 102%;
 }
 
-.treeContainer {
-    position: fixed;
-    bottom: 80px;
+.start-skip {
+    color: black;
+    font-weight: 500;
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    cursor: pointer;
+}
+
+.tree-container {
+    position: absolute;
+    bottom: 40px;
     height: 80%;    
 
     width: 30vw;
     min-width: 350px;
     min-height: 366px;
+    max-width: 50vw;
+    /*border: solid red 5px;*/
 }
 
-.coco-tree {
-    position: relative;
+.coconut-tree {
     width: 100%;
     height: 100%;
     object-fit: contain;
     z-index: 2;
 }
 
-.ping-tree {
-    position: absolute;
-    height: 22%;
-    left: 40%;
-    z-index: 1;
-    transform: rotate(10deg);
-}
-
 .text-container{
     position: absolute;
     left: 50vw;
+    top: 10vh;
     transform: translate(-50%, 0%);
-    display: inline-block;
     font-family: 'Poppins', sans-serif;
     font-weight: 700;
+    background-color: white;
+    border-radius: 10px;
+    
 }
 
 .typed-out{
+    position: relative;
     overflow: hidden;
     white-space: nowrap;
-    animation: typing 1.5s steps(43, end) forwards;
-    animation-delay: 1s;
+   
     font-size: 2vw;
     width: 0;
-    background-color: white;
-    text-align: center;
-    border-radius: 10px;
+    animation: typing 1.5s steps(43, end) forwards;
+    animation-delay: 0.5s;
 }
+
+.typed-out[speak='reset'] {
+    animation: none;
+}
+
+.typed-out[speak='1'] {
+    animation: typing 1.5s steps(43, end) forwards;
+}
+
+/* faster typing */
+.typed-out[speak='2'] { 
+    animation: typing 1s steps(12, end) forwards;
+}
+
+@media only screen and (max-width: 784px) {
+    .tree-container {
+    }
+
+    .typed-out {
+        font-size: 14px;
+    }
+}
+
+/* EnterSat.js */
+
+.enter-sat-container {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(100%, -50%);
+    background-color: rgba(0, 24, 60, .5);
+    width: 55vw;
+    height: 53vh;
+    border: solid white 5px;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 45% 45% 10%;
+    animation: backInRightSAT 1.5s forwards; 
+    animation-delay: .4s;
+}
+
+.enter-sat-container[exit='1'] {
+    animation: backOutLeftSAT 2s forwards; 
+    cursor: auto;
+}
+
+.sat-cen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.sat-cen input[type="text"] {
+    background: transparent;
+    border: solid white 5px;
+    border-radius: 5px;
+    height: 50%;
+    width: 70%;
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 700;
+    transition-duration: .2s;
+}
+
+.sat-cen input[type="text"]:focus {
+    outline: 0;
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+}
+
+#math-score[validmath="1"] {
+    animation: shakeX 1.5s; 
+    border-color: rgb(255, 0, 0);
+}
+
+#english-score[validenglish="1"] {
+    animation: shakeX 1.5s; 
+    border-color: rgb(255, 0, 0);
+}
+
+#math-pic {
+    height: 100%;
+    width: 78.24%;
+    object-fit: contain;
+}
+
+#english-pic {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transform: translateY(10px);
+}
+
+.sat-con {
+    color: white;
+    grid-column: span 2;
+    text-align: right;
+    font-weight: 500;
+}
+
+.sat-con span{
+    cursor: pointer;
+    transition-duration: .2s;
+}
+
+.sat-con span:hover {
+    color: #ffb700;
+}
+
+@media only screen and (max-width: 781px) {
+    .sat-cen input[type="text"] {
+        height: 30%;
+        width: 50%;
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
+
+@media only screen and (max-width: 564px) {
+    .enter-sat-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: 22% 22% 22% 22% 12%;
+    }
+    .sat-con {
+        grid-column: span 1;
+        text-align: center;
+    }
+    #english-pic {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        transform: translateY(0px);
+    }
+    #math-pic {
+        height: 78.24%;
+        width: 78.24%;
+        object-fit: contain;
+    }
+    .sat-cen input[type="text"] {
+        height: 60%;
+        width: 50%;
+        font-size: 40px;
+        font-weight: 700;
+    }
+}
+
+/* EnterAct.js */
+
+.enter-act-container {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(100%, -50%);
+    background-color: rgba(0, 24, 60, .5);
+    width: 55vw;
+    height: 48vh;
+    border: solid white 5px;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 4;
+    display: grid;
+    grid-template-columns: 30% 20% 30% 20%;
+    grid-template-rows: 45% 45% 10%;
+    animation: backInRightACT 1.5s forwards; 
+    animation-delay: .4s;
+}
+
+.enter-act-container[exit='1'] {
+    animation: backOutLeftACT 2s forwards; 
+    cursor: auto;
+}
+
+.act-cen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.act-cen input[type="text"] {
+    background: transparent;
+    border: solid white 5px;
+    border-radius: 5px;
+    height: 50%;
+    width: 70%;
+    color: white;
+    text-align: center;
+    font-size: 80px;
+    font-weight: 700;
+    transition-duration: .2s;
+}
+
+.act-cen input[type="text"]:focus {
+    outline: 0;
+    box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.75);
+}
+
+#act-math-score[validmath="1"] {
+    animation: shakeX 1.5s; 
+    border-color: rgb(255, 0, 0);
+}
+
+#act-writing-score[validwriting="1"] {
+    animation: shakeX 1.5s; 
+    border-color: rgb(255, 0, 0);
+}
+
+#act-reading-score[validreading="1"] {
+    animation: shakeX 1.5s; 
+    border-color: rgb(255, 0, 0);
+}
+
+#act-science-score[validscience="1"] {
+    animation: shakeX 1.5s; 
+    border-color: rgb(255, 0, 0);
+}
+
+#act-math-pic {
+    height: 100%;
+    width: 62.6%;
+    object-fit: contain;
+}
+
+#act-writing-pic {
+    height: 100%;
+    width: 89.6%;
+    object-fit: contain;
+}
+
+#act-reading-pic {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    transform: translateY(5px);
+}
+
+#act-science-pic {
+    height: 100%;
+    width: 94.3%;
+    object-fit: contain;
+}
+
+.act-con {
+    color: white;
+    grid-column: span 4;
+    text-align: right;
+    font-weight: 500;
+    padding-right: 10px;
+}
+
+.act-con span{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1122px) {
+    
+    .act-cen input[type="text"] {
+        height: 40%;
+        width: 60%;
+        font-size: 50px;
+    }
+}
+
+@media only screen and (max-width: 838px) {
+    .enter-act-container {
+        grid-template-columns: 65% 35%;
+        grid-template-rows: 22% 22% 22% 22% 12%;
+    }
+    .act-con {
+        grid-column: span 2;
+        text-align: center;
+    }
+    .act-cen input[type="text"] {
+        font-size: 35px;
+    }
+    #act-math-pic {
+        height: 80%;
+        width: 62.6%;
+        object-fit: contain;
+    }
+    
+    #act-writing-pic {
+        height: 100%;
+        width: 89.6%;
+        object-fit: contain;
+    }
+    
+    #act-reading-pic {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+        transform: translateY(5px);
+    }
+    
+    #act-science-pic {
+        height: 90%;
+        width: 94.3%;
+        object-fit: contain;
+    }
+}
+
+/* Begin.js */
+
+.begin-container {
+    position: absolute;
+    left: 50vw;
+    top: 50vh;
+    transform: translate(110%, -50%);
+    background-color: rgba(0, 24, 60, .5);
+    width: 45vw;
+    height: 45vh;
+    border: solid white 5px;
+    border-radius: 8px;
+    padding: 10px;
+    z-index: 4;
+    animation: backInRightBegin 1.5s forwards; 
+    animation-delay: .4s;
+    text-align: center;
+}
+
+.begin-container h1 {
+    font-weight: 400;
+    font-size: 36px;
+    color: white;
+}
+
+.begin-con {
+    color: white;
+    position: absolute;
+    font-size: 40px;
+    font-weight: 600;
+    right: 20px;
+    bottom: 20px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+}
+
+.begin-con:hover {
+    color: #ffb700;
+}
+
+@media only screen and (max-width: 838px) {
+    .begin-container h1 {
+        font-size: 25px;
+    }
+    .begin-con {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .begin-container h1 {
+        font-size: 20px;
+    }
+    .begin-con {
+        font-size: 25px;
+    }
+}
+
+/* Animations */
 
 @keyframes typing {
     from { 
@@ -97,3 +491,164 @@
     to { width: 100%;
         padding: 10px }
 }
+
+/* credit https://animate.style/ */
+@keyframes backOutLeft {
+    0% {
+      opacity: 1;
+    }
+  
+    20% {
+      transform: translateX(0px);
+      opacity: 0.7;
+      width: 20vw;
+    }
+  
+    100% {
+      transform: translateX(-100vw);
+      opacity: 0.7;
+      width: 20vw;
+    }
+  }
+
+/* for SAT */
+  @keyframes backInRightSAT {
+    0% {
+      transform: translate(100%, -50%);
+      opacity: 0.7;
+      width: 45vw;
+      height: 43vh;
+    }
+  
+    80% {
+      transform: translate(-50%, -50%);
+      opacity: 0.7;
+      width: 45vw;
+      height: 43vh;
+    }
+  
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      width: 55vw;
+      height: 53vh;
+    }
+  }
+
+  @keyframes backOutLeftSAT {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      width: 55vw;
+      height: 53vh;
+    }
+  
+    20% {
+      transform: translate(-50%, -50%);
+      opacity: 0.7;
+      width: 45vw;
+      height: 43vh;
+    }
+  
+    100% {
+      transform: translate(-110vw, -50%);
+      opacity: 0.7;
+      width: 45vw;
+      height: 43vh;
+    }
+  }
+
+/* for ACT */
+  @keyframes backInRightACT {
+    0% {
+      transform: translate(100%, -50%);
+      opacity: 0.7;
+      width: 55vw;
+      height: 48vh;
+    }
+  
+    80% {
+      transform: translate(-50%, -50%);
+      opacity: 0.7;
+      width: 55vw;
+      height: 48vh;
+    }
+  
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      width: 65vw;
+      height: 55vh;
+    }
+  }
+
+  @keyframes backOutLeftACT {
+    0% {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+      width: 65vw;
+      height: 55vh;
+    }
+  
+    20% {
+      transform: translate(-50%, -50%);
+      opacity: 0.7;
+      width: 55vw;
+      height: 48vh;
+    }
+  
+    100% {
+      transform: translate(-110vw, -50%);
+      opacity: 0.7;
+      width: 55vw;
+      height: 48vh;
+    }
+  }
+
+  /* for Begin */
+  @keyframes backInRightBegin {
+    0% {
+      transform: translate(110%, -50%);
+      opacity: 0.7;
+      width: 45vw;
+      height: 45vh;
+    }
+  
+    80% {
+      transform: translate(-50%, -50%);
+      opacity: 0.7;
+      width: 45vw;
+      height: 45vh;
+    }
+  
+    100% {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      width: 50vw;
+      height: 50vh;
+    }
+  }
+
+/* credit https://animate.style/ */
+  @keyframes shakeX {
+    from,
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+      transform: translate3d(-10px, 0, 0);
+    }
+  
+    20%,
+    40%,
+    60%,
+    80% {
+      transform: translate3d(10px, 0, 0);
+    }
+  }
+  

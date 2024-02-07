@@ -5,8 +5,7 @@ export default function WaveTransition({showTopWave, wavesFinished, setWavesFini
     // credit to https://codepen.io/tedmcdo/pen/PqxKXg
     //<h1 onClick={() => setWobble(1)}>hello</h1>
 
-    //TODO turn off waves after transition 
-    
+    // turn off waves    
     if (showTopWave == 1) {
         setTimeout(() => {
             setWavesFinished(true);
