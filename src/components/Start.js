@@ -2,11 +2,11 @@ import './Start.css'
 import Choose from './start-comps/Choose';
 import { useState, useEffect } from "react";
 
-export default function Start({showLP}) {
+export default function Start({showLP, setshowMain, showMain, showStart, setshowwholeStart}) {
 
-    if (!showLP) {
+    if (!showLP && showStart) {
         return (
-            <Choose />
+            <Choose setshowMain={setshowMain} showMain={showMain} setshowwholeStart={setshowwholeStart}/>
         )
     }
 };

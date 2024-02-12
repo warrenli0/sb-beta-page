@@ -5,7 +5,7 @@ import EnterAct from './EnterAct';
 import Begin from './Begin';
 import { useState, useEffect } from "react";
 
-export default function Choose({}) {
+export default function Choose({setshowMain, showMain, setshowwholeStart}) {
 
     const [peng_text, setpengText] = useState("Hey there! What test are you preparing for?");
     const [speak, setspeak] = useState("0");
@@ -14,6 +14,7 @@ export default function Choose({}) {
     const [showEnterSAT, setshowEnterSAT] = useState(false);
     const [showEnterACT, setshowEnterACT] = useState(false);
     const [showStart, setshowStart] = useState(false);
+    const [exit, setExit] = useState('0');
 
     
     useEffect(() => {
@@ -73,15 +74,15 @@ export default function Choose({}) {
             )
         }
     }
-
+    
     return (
-        <div className='start-page'>
-            <h1 className='sb-top-right'>SB</h1>
+        <div className='start-page' exit={showMain}>
+            <h1 className='sb-top-right' exit={showMain}>SB</h1>
             <div className='start-text'>
                 <SatAct showChoice={showChoice} setshowChoice={setshowChoice} setchooseSATorACT={setchooseSATorACT} chooseSATorACT={chooseSATorACT}/>
                 <EnterSat showEnterSAT={showEnterSAT} setshowEnterSAT={setshowEnterSAT} chooseSATorACT={chooseSATorACT} setchooseSATorACT={setchooseSATorACT}/>
                 <EnterAct showEnterACT={showEnterACT} setshowEnterACT={setshowEnterACT} chooseSATorACT={chooseSATorACT} setchooseSATorACT={setchooseSATorACT}/>
-                <Begin showStart={showStart} />
+                <Begin showStart={showStart} setshowMain={setshowMain} setshowwholeStart={setshowwholeStart}/>
             </div>
             <div className='start-beach'></div>
 

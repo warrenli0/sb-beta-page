@@ -10,7 +10,8 @@ function App() {
   const [showLP, setshowLandingPage] = useState(true);
   const [showTopWave, setShowTopWave] = useState(0);
   const [wavesFinished, setWavesFinished] = useState(true);
-  const [showMain, setshowMain] = useState(false);
+  const [showStart, setshowwholeStart] = useState(true);
+  const [showMain, setshowMain] = useState('0');
 
   /*
   if (showLandingPage) {
@@ -22,7 +23,7 @@ function App() {
     <div>
       <LandingPage setShowTopWave={setShowTopWave} showLP={showLP} setshowLandingPage={setshowLandingPage} setWavesFinished={setWavesFinished}/>
       <WaveTransition showTopWave={showTopWave} wavesFinished={wavesFinished} setWavesFinished={setWavesFinished}/>
-      <Start showLP={showLP}/>
+      <Start showLP={showLP} setshowMain={setshowMain} showMain={showMain} showStart={showStart} setshowwholeStart={setshowwholeStart}/>
       <Main showMain={showMain}/>
     </div>
   )
