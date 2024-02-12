@@ -1,12 +1,13 @@
 {
   "files": {
-    "main.css": "/sb-beta-page/static/css/main.beb0c999.css",
-    "main.js": "/sb-beta-page/static/js/main.27eb4d78.js",
+    "main.css": "/sb-beta-page/static/css/main.0ec038cc.css",
+    "main.js": "/sb-beta-page/static/js/main.821c20d2.js",
     "static/media/open-treasure-peng-speak.png": "/sb-beta-page/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/cute-hero-penguin.png": "/sb-beta-page/static/media/cute-hero-penguin.75fa2361cc58964e82d9.png",
+    "static/media/start-beach-curr.png": "/sb-beta-page/static/media/start-beach-curr.449d93359364a1280873.png",
     "static/media/peng-on-tree.png": "/sb-beta-page/static/media/peng-on-tree.fd30731fb7049d38a7cf.png",
+    "static/media/surfing-peng.png": "/sb-beta-page/static/media/surfing-peng.c17480cd5344d4875f81.png",
     "static/media/temp-discord.png": "/sb-beta-page/static/media/temp-discord.52064d051cb314f43f56.png",
-    "static/media/start-beach.png": "/sb-beta-page/static/media/start-beach.902c513fd54a8f5c786e.png",
     "static/media/scuba-peng-with-text.png": "/sb-beta-page/static/media/scuba-peng-with-text.d98eb742f453ea9078d8.png",
     "static/media/prac-prob.png": "/sb-beta-page/static/media/prac-prob.ba330bfd6fb595979800.png",
     "static/media/old-dashboard.png": "/sb-beta-page/static/media/old-dashboard.53840675af554d1d306e.png",
@@ -30,15 +31,17 @@
     "static/media/act-math.png": "/sb-beta-page/static/media/act-math.9164da54c1cba3b7fbf8.png",
     "static/media/discord-bubble.png": "/sb-beta-page/static/media/discord-bubble.829bb5fa907b4ca77128.png",
     "index.html": "/sb-beta-page/index.html",
+    "static/media/begin-surf-wave.svg": "/sb-beta-page/static/media/begin-surf-wave.18dde032feab220bf3b4.svg",
+    "static/media/begin-wave.svg": "/sb-beta-page/static/media/begin-wave.254399402bc7d710c04b.svg",
     "static/media/first-wave.svg": "/sb-beta-page/static/media/first-wave.1aeb8ddd38ecd43c2282.svg",
     "static/media/fourth-wave.svg": "/sb-beta-page/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/sb-beta-page/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/sb-beta-page/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.beb0c999.css.map": "/sb-beta-page/static/css/main.beb0c999.css.map",
-    "main.27eb4d78.js.map": "/sb-beta-page/static/js/main.27eb4d78.js.map"
+    "main.0ec038cc.css.map": "/sb-beta-page/static/css/main.0ec038cc.css.map",
+    "main.821c20d2.js.map": "/sb-beta-page/static/js/main.821c20d2.js.map"
   },
   "entrypoints": [
-    "static/css/main.beb0c999.css",
-    "static/js/main.27eb4d78.js"
+    "static/css/main.0ec038cc.css",
+    "static/js/main.821c20d2.js"
   ]
 }
