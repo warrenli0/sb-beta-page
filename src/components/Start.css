@@ -14,7 +14,7 @@ body {
 }
 
 .start-page {
-    height: 100vh;
+    height: 100dvh;
     background:radial-gradient(ellipse at center, #ADDDFF 0%, #2AD3FA 100%);
     transform: translateY(0vh);
 }
