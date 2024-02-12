@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sb-beta-page/static/css/main.0ec038cc.css",
-    "main.js": "/sb-beta-page/static/js/main.821c20d2.js",
+    "main.css": "/sb-beta-page/static/css/main.9415a1ee.css",
+    "main.js": "/sb-beta-page/static/js/main.17bd9f7a.js",
     "static/media/open-treasure-peng-speak.png": "/sb-beta-page/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/cute-hero-penguin.png": "/sb-beta-page/static/media/cute-hero-penguin.75fa2361cc58964e82d9.png",
     "static/media/start-beach-curr.png": "/sb-beta-page/static/media/start-beach-curr.449d93359364a1280873.png",
@@ -37,11 +37,11 @@
     "static/media/fourth-wave.svg": "/sb-beta-page/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/sb-beta-page/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/sb-beta-page/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.0ec038cc.css.map": "/sb-beta-page/static/css/main.0ec038cc.css.map",
-    "main.821c20d2.js.map": "/sb-beta-page/static/js/main.821c20d2.js.map"
+    "main.9415a1ee.css.map": "/sb-beta-page/static/css/main.9415a1ee.css.map",
+    "main.17bd9f7a.js.map": "/sb-beta-page/static/js/main.17bd9f7a.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ec038cc.css",
-    "static/js/main.821c20d2.js"
+    "static/css/main.9415a1ee.css",
+    "static/js/main.17bd9f7a.js"
   ]
 }
