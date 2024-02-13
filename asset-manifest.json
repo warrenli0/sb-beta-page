@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sb-beta-page/static/css/main.7fe51249.css",
-    "main.js": "/sb-beta-page/static/js/main.7cbbb40b.js",
+    "main.css": "/sb-beta-page/static/css/main.9b39eefe.css",
+    "main.js": "/sb-beta-page/static/js/main.213e794f.js",
     "static/media/open-treasure-peng-speak.png": "/sb-beta-page/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/cute-hero-penguin.png": "/sb-beta-page/static/media/cute-hero-penguin.75fa2361cc58964e82d9.png",
     "static/media/start-beach-curr.png": "/sb-beta-page/static/media/start-beach-curr.449d93359364a1280873.png",
@@ -9,17 +9,20 @@
     "static/media/surfing-peng.png": "/sb-beta-page/static/media/surfing-peng.c17480cd5344d4875f81.png",
     "static/media/temp-discord.png": "/sb-beta-page/static/media/temp-discord.52064d051cb314f43f56.png",
     "static/media/scuba-peng-with-text.png": "/sb-beta-page/static/media/scuba-peng-with-text.d98eb742f453ea9078d8.png",
+    "static/media/coral.png": "/sb-beta-page/static/media/coral.2546820a4125c06a92e2.png",
     "static/media/prac-prob.png": "/sb-beta-page/static/media/prac-prob.ba330bfd6fb595979800.png",
     "static/media/old-dashboard.png": "/sb-beta-page/static/media/old-dashboard.53840675af554d1d306e.png",
     "static/media/database.png": "/sb-beta-page/static/media/database.bf78adc1b3bfa9beb274.png",
     "static/media/small-closed-treasure.png": "/sb-beta-page/static/media/small-closed-treasure.4a9ad7576ad62b81821c.png",
     "static/media/figma-beach.png": "/sb-beta-page/static/media/figma-beach.b1bc637caae5f9a22819.png",
     "static/media/repetition-bubble.png": "/sb-beta-page/static/media/repetition-bubble.edde269e600e27f1b159.png",
+    "static/media/review-peng.png": "/sb-beta-page/static/media/review-peng.2e952505eaa76b42e257.png",
     "static/media/accountability-bubble.png": "/sb-beta-page/static/media/accountability-bubble.f62f79fcecaf2093d6b6.png",
     "static/media/community-bubble.png": "/sb-beta-page/static/media/community-bubble.fc9df20c6166657a2bb6.png",
     "static/media/ACT.png": "/sb-beta-page/static/media/ACT.a788bb011691d4e1f35c.png",
     "static/media/SAT.png": "/sb-beta-page/static/media/SAT.9b9fa99777ae5f393bc1.png",
     "static/media/figma-bottom-beach.png": "/sb-beta-page/static/media/figma-bottom-beach.e5e9b451681c6f173534.png",
+    "static/media/huge-whale.png": "/sb-beta-page/static/media/huge-whale.fd2cc3e3756725ab942b.png",
     "static/media/ping-bubble.png": "/sb-beta-page/static/media/ping-bubble.95326f37bd8a6a90348a.png",
     "static/media/sat-english.png": "/sb-beta-page/static/media/sat-english.aa9503cf9127d4f63875.png",
     "static/media/figma-hook-wave.png": "/sb-beta-page/static/media/figma-hook-wave.92cebda024dfc59f274e.png",
@@ -37,11 +40,11 @@
     "static/media/fourth-wave.svg": "/sb-beta-page/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/sb-beta-page/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/sb-beta-page/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.7fe51249.css.map": "/sb-beta-page/static/css/main.7fe51249.css.map",
-    "main.7cbbb40b.js.map": "/sb-beta-page/static/js/main.7cbbb40b.js.map"
+    "main.9b39eefe.css.map": "/sb-beta-page/static/css/main.9b39eefe.css.map",
+    "main.213e794f.js.map": "/sb-beta-page/static/js/main.213e794f.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fe51249.css",
-    "static/js/main.7cbbb40b.js"
+    "static/css/main.9b39eefe.css",
+    "static/js/main.213e794f.js"
   ]
 }
