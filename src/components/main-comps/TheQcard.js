@@ -1,7 +1,7 @@
 import arrow from "../../images/Arrow.png"
 import React, { useState, useRef } from "react";
 
-export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex}) {
+export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setchosenAnswers}) {
     const [showCard, setshowCard] = useState(true);
     const [selectedChoice, setselectedChoice] = useState('0');
     const [exit, setexit] = useState('0');
@@ -10,6 +10,17 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
         if (exit == '0' || exit == '2') {
             setexit('1');
             setbgNum(bgNum + 1);
+            if (prob.options[(+selectedChoice)-1].isCorrect) { // correct answer
+                setchosenAnswers([
+                    ...chosenAnswers,
+                    '1'
+                ]);
+            } else {
+                setchosenAnswers([
+                    ...chosenAnswers,
+                    '0'
+                ]);
+            }
             if (currQIndex == 4) { // last question
                 setTimeout(function(){
                     setshowCard(false); // remove qcard after scrolls up

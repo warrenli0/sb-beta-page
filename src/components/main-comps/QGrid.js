@@ -33,7 +33,7 @@ function Timer({show}) {
     )
   };
 
-export default function QGrid({questions, notesArray, setnotesArray, bgNum, setbgNum}) {
+export default function QGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, setchosenAnswers}) {
     const [showQgrid, setshowQgrid] = useState(true);
     const [currQIndex, setcurrQIndex] = useState(0);
     const [showIcon, setshowIcon] = useState('1');
@@ -66,7 +66,7 @@ export default function QGrid({questions, notesArray, setnotesArray, bgNum, setb
                         <TheNotepad currQIndex={currQIndex} notesArray={notesArray} setnotesArray={setnotesArray} calc={''+(questions[currQIndex].type == 'Math (calc)')} bgNum={bgNum}/>
                     </div>
                     <div className='qcard-container'> {/* qcard */}
-                        <TheQcard prob={questions[currQIndex]} bgNum={bgNum} setbgNum={setbgNum} currQIndex={currQIndex} setcurrQIndex={setcurrQIndex}/>
+                        <TheQcard prob={questions[currQIndex]} bgNum={bgNum} setbgNum={setbgNum} currQIndex={currQIndex} setcurrQIndex={setcurrQIndex} chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers}/>
                     </div>
             </div>
         )

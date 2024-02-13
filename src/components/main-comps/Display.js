@@ -3,7 +3,7 @@ import Review from './Review';
 
 import React, { useState } from "react";
 
-export default function Display({questions, showQCards, setshowQCards, notesArray, setnotesArray}) {
+export default function Display({questions, showQCards, setshowQCards, notesArray, setnotesArray, chosenAnswers, setchosenAnswers}) {
     const [bgNum, setbgNum] = useState(0);
 
     /* close condition
@@ -23,9 +23,9 @@ export default function Display({questions, showQCards, setshowQCards, notesArra
                 <div className='fourth-bg' move={+bgNum}></div>
                 <div className='fifth-bg' move={+bgNum}></div>
                 
-                <Review bgNum={bgNum}/>
+                <Review questions={questions} bgNum={bgNum} chosenAnswers={chosenAnswers}/>
 
-                <QGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum}/>
+                <QGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum} chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers}/>
 
             </div>
         )

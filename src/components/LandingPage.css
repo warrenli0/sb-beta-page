@@ -631,6 +631,20 @@ html, body {
     width: 50px;
 }
 
+.huge_whale {
+    position: absolute;
+    top: 60%;
+    right: 0;
+    opacity: .5;
+    transform: translateX(90%);
+    animation-name: swim-left3;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+}
+.huge_whale img {
+    width: 400px;
+}
+
 .green-fish {
     position: absolute;
     top: 20%;
@@ -652,6 +666,7 @@ html, body {
     animation-iteration-count: infinite;
 }
 
+
 .green-fish2 img {
     width: 60px;
 }
@@ -667,11 +682,25 @@ html, body {
     animation-delay: .5s;
 }
 
+.green-fish-right2 {
+    position: absolute;
+    top: 40%;
+    left: 0;
+    transform: translateX(-100%);
+    animation-name: swim-right;
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+    animation-delay: .5s;
+}
+
 .green-fish img {
     width: 60px;
 }
 
 .green-fish-right img {
+    width: 60px;
+}
+.green-fish-right2 img {
     width: 60px;
 }
 
@@ -744,6 +773,16 @@ html, body {
 @keyframes swim-left {
     0% {
       transform: translateX(110%);
+      animation-timing-function: ease-in-out;
+    }
+    100% {
+      transform: translateX(-100vw);
+    }
+  }
+
+  @keyframes swim-left3 {
+    0% {
+      transform: translateX(90%);
       animation-timing-function: ease-in-out;
     }
     100% {
