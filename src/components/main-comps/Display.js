@@ -1,4 +1,5 @@
 import QGrid from './QGrid';
+import Review from './Review';
 
 import React, { useState } from "react";
 
@@ -22,9 +23,7 @@ export default function Display({questions, showQCards, setshowQCards, notesArra
                 <div className='fourth-bg' move={+bgNum}></div>
                 <div className='fifth-bg' move={+bgNum}></div>
                 
-                <div className='start-review-bg' move={+bgNum}>
-                  
-                </div>
+                <Review bgNum={bgNum}/>
 
                 <QGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum}/>
 

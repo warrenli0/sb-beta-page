@@ -11,7 +11,7 @@ html, body {
 /* Wave stuff */
 
 .top-right-sb {
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 8px;
     color: white;
@@ -75,6 +75,14 @@ html, body {
 
 /* qcard stuff */
 
+.main-page {
+    position: absolute;
+    height: 100dvh;
+    width: 100vw;
+    top: 0;
+    transform: translateY(0vh); /* somehow this doesn't let top right SB scroll */
+}
+
 .question-page {
     position: fixed;
     top: 0px;
@@ -123,7 +131,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(101dvh);
+    height: calc(100dvh + 1px);
     width: 100vw;
     background: linear-gradient(#00B4D8, #0096C7);
     animation: up-bg 2s forwards;
@@ -151,7 +159,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(101dvh);
+    height: calc(100dvh + 1px);
     width: 100vw;
     background: linear-gradient(#0096C7, #0077B6);
     animation: up-bg 2s forwards;
@@ -173,7 +181,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(101dvh);
+    height: calc(100dvh + 1px);
     width: 100vw;
     background: linear-gradient(#0077B6, #023E8A);
     animation: up-bg 2s forwards;
@@ -194,7 +202,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(101dvh);
+    height: calc(100dvh + 1px);
     width: 100vw;
     background: linear-gradient(#023E8A, #03045E);
     animation: up-bg 2s forwards;
@@ -658,7 +666,7 @@ html, body {
 
 
 .start-review-bg {
-    display: none;
+    display: block;
     position: absolute;
     top: calc(100dvh);
     height: calc(101dvh);
@@ -667,7 +675,7 @@ html, body {
     animation: up-bg 2s forwards;
 }
 .start-review-bg[move='5'] {
-    display: block;
+   
 }
 
 /* Resizing */
@@ -970,7 +978,7 @@ html, body {
         transform: translateY(calc(-100dvh));
     }
     100% {
-        transform: translateY(calc(-200vh));
+        transform: translateY(calc(-200dvh));
     }
 }
 
