@@ -316,6 +316,9 @@ html, body {
     animation: out-to-left 1s forwards;
     animation-delay: .3s;
 }
+.the-notepad[version='4'] {
+    grid-template-rows: 12% 2% 83% 3%;
+}
 
 .note-cont {
     display: flex;
@@ -487,15 +490,119 @@ html, body {
     position: absolute;
     width: 100%;
     height: 100%;
+    background-color: #73D2DE;
+    border-radius: 0px 0px 15px 15px;
     visibility: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 80% 20%;
 }
 .note-ping-cont[version='3'] {
     visibility: visible;
 }
+.note-ping-beach-cont {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    position: relative;
+}
+.ping-beach {
+    width: 100%;
+    height: 100%;
+}
+.ping-on-beach {
+    width: 60%;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    cursor: pointer;
+}
+.beach-ball {
+    width: 30%;
+    position: absolute;
+    bottom: 15%;
+    right: 5%;
+}
+.beach-umbrella {
+    width: 100%;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    transform: translateY(10%);
+}
+.beach-text-container{
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-radius: 10px;
+    padding: .5em;
+    text-align: left;
+    box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 0.75);
+    opacity: 1;
+    display: none;
+}
+.beach-text-container[story='0'] {
+    opacity: 1;
+}
+.beach-text-container[story='1'] {
+    display: block;
+}
+.beach-text-container[story='2'] {
+    display: block;
+    transition: opacity 2s;
+    opacity: 0;
+}
+.beach-text-container[story='fin'] {
+    display: none;
+}
+.beach-text-container h3[story='0']{
+    width: 0;
+}
+.beach-text-container h3[story='1']{
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: review-typing;
+    animation-duration: .5s;
+    animation-timing-function: steps(200, end);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.beach-text-container h3[story='2']{
+    font-weight: 500;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: review-typing;
+    animation-duration: .5s;
+    animation-timing-function: steps(200, end);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.beach-text-container h3[version='4']{
+    display: none;
+}
+.beach-text-container h3[version='2']{
+    display: none;
+}
+.beach-text-container h3[version='1']{
+    display: none;
+}
+.beach-text-container h3:nth-child(1) {
+    visibility: hidden;
+    animation-delay: 0s;
+}
+.beach-text-container h3:nth-child(2) {
+    visibility: hidden;
+    animation-delay: .5s;
+}
 
 .note-calc-cont {
     position: absolute;
-    width: 100%;
+    width: 99.5%;
     height: 100%;
     visibility: hidden;
 }
@@ -685,7 +792,7 @@ html, body {
     grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 3;
-    overflow-y: auto;
+    overflow: hidden;;
 }
 .notepad-content[calculator='true'] {
     grid-column-end: 5;
