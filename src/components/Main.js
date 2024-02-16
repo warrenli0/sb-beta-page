@@ -8,6 +8,7 @@ export default function Main({showMain}) {
     const [showfirstwave, setshowfirstwave] = useState(true);
     const [showQCards, setshowQCards] = useState(true);
     const [notesArray, setnotesArray] = useState([]);
+    const [drawingArray, setdrawingArray] = useState(['','','','','']);
     const [chosenAnswers, setchosenAnswers] = useState([]);
     
 
@@ -149,7 +150,7 @@ export default function Main({showMain}) {
                 <h1 className='top-right-sb'>SB</h1>
 
                 {/* Qcards + review page + ecards all in one */}
-                <Display questions={questions} showQCards={showQCards} setshowQCards={setshowQCards} notesArray={notesArray} setnotesArray={setnotesArray} chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers}/>
+                <Display questions={questions} showQCards={showQCards} setshowQCards={setshowQCards} notesArray={notesArray} setnotesArray={setnotesArray} chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers} drawingArray={drawingArray} setdrawingArray={setdrawingArray}/>
 
             </div>
         )

@@ -33,7 +33,7 @@ function Timer({show}) {
     )
   };
 
-export default function QGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, setchosenAnswers}) {
+export default function QGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, setchosenAnswers, drawingArray, setdrawingArray}) {
     const [showQgrid, setshowQgrid] = useState(true);
     const [currQIndex, setcurrQIndex] = useState(0);
     const [showIcon, setshowIcon] = useState('1');
@@ -63,7 +63,7 @@ export default function QGrid({questions, notesArray, setnotesArray, bgNum, setb
                       <h3>experience the full version on a larger screen</h3>
                     </div>
                     <div className='qcard-notepad' move={+bgNum}> 
-                        <TheNotepad currQIndex={currQIndex} notesArray={notesArray} setnotesArray={setnotesArray} calc={''+(questions[currQIndex].type == 'Math (calc)')} bgNum={bgNum}/>
+                        <TheNotepad currQIndex={currQIndex} notesArray={notesArray} setnotesArray={setnotesArray} calc={''+(questions[currQIndex].type == 'Math (calc)')} bgNum={bgNum} drawingArray={drawingArray} setdrawingArray={setdrawingArray}/>
                     </div>
                     <div className='qcard-container'> {/* qcard */}
                         <TheQcard prob={questions[currQIndex]} bgNum={bgNum} setbgNum={setbgNum} currQIndex={currQIndex} setcurrQIndex={setcurrQIndex} chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers}/>

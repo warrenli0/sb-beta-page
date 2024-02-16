@@ -5,11 +5,20 @@ import green_fish from '../../images/green-fish-left.png';
 import huge_whale from '../../images/huge-whale.png';
 import React, { useState } from "react";
 
-export default function Review({questions, bgNum, chosenAnswers}) {
+export default function Review({questions, bgNum, setbgNum, chosenAnswers}) {
+    const [showreview, setshowreview] = useState(true);
 
     // use array [1,0,0,1,1] to indicate color via identifier in flex
+    function nextQ() {
+        if (bgNum == 5) {
+            setbgNum(6);
+            setTimeout(function(){
+                setshowreview(false); // remove qcard after scrolls up
+            }, 2100);
+        }
+    }
 
-    if (bgNum == 5) {
+    if ((bgNum == 5 || bgNum == 6) && showreview) {
         return (
             <div className='start-review-bg' move={+bgNum}>
                 <div className="green-fish-right2">
@@ -28,23 +37,23 @@ export default function Review({questions, bgNum, chosenAnswers}) {
                     </div>
                   </div>
                   <div className="review-flex">
-                        <div className='review-color' color={chosenAnswers[0]}>
+                        <div className='review-color' color={chosenAnswers[0][0]}>
                             <h3>Question 1</h3>
                             <h4><i>{questions[0].type}</i></h4>
                         </div>
-                        <div className='review-color' color={chosenAnswers[1]}>
+                        <div className='review-color' color={chosenAnswers[1][0]}>
                             <h3>Question 2</h3>
                             <h4><i>{questions[1].type}</i></h4>
                         </div>
-                        <div className='review-color' color={chosenAnswers[2]}>
+                        <div className='review-color' color={chosenAnswers[2][0]}>
                             <h3>Question 3</h3>
                             <h4><i>{questions[2].type}</i></h4>
                         </div>
-                        <div className='review-color' color={chosenAnswers[3]}>
+                        <div className='review-color' color={chosenAnswers[3][0]}>
                             <h3>Question 4</h3>
                             <h4><i>{questions[3].type}</i></h4>
                         </div>
-                        <div className='review-color' color={chosenAnswers[4]}>
+                        <div className='review-color' color={chosenAnswers[4][0]}>
                             <h3>Question 5</h3>
                             <h4><i>{questions[4].type}</i></h4>
                         </div>
@@ -59,8 +68,8 @@ export default function Review({questions, bgNum, chosenAnswers}) {
                     <img src={coral} className='display-review-coral'/>
                   </div>
                   <div className='review-button-cont'>
-                        <h1>Start Review</h1>
-                    <img src={coral} className='review-coral'/>
+                        <h1 onClick={() => {nextQ()}}>Start Review</h1>
+                        <img src={coral} className='review-coral'/>
                   </div>
                   <h3 className='review-message'>Continue to the end for early access at release.</h3>
             </div>

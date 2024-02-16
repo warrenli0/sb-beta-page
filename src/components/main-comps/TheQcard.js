@@ -13,12 +13,12 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
             if (prob.options[(+selectedChoice)-1].isCorrect) { // correct answer
                 setchosenAnswers([
                     ...chosenAnswers,
-                    '1'
+                    ['1',selectedChoice] // [T/F, chosen prob 1-indexed]
                 ]);
             } else {
                 setchosenAnswers([
                     ...chosenAnswers,
-                    '0'
+                    ['0',selectedChoice]
                 ]);
             }
             if (currQIndex == 4) { // last question
