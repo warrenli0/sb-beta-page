@@ -502,6 +502,10 @@ html, body {
 .note-calc-cont[version='4'] {
     visibility: visible;
 }
+.calculator-desmos {
+    width: 100%;
+    height: 100%;
+}
 
 .qcard-ping {
     display: flex;

@@ -7,7 +7,8 @@ import eraser from "../../images/eraser.png"
 import pen from "../../images/pen.png"
 
 import Whiteboard from "./Whiteboard";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
+// import Desmos from 'desmos'
 
 function Content({version, calc, currQIndex, notesArray, setnotesArray, bgNum, drawingArray, setdrawingArray}) {
     const [noteText, setnoteText] = useState('');
@@ -15,6 +16,29 @@ function Content({version, calc, currQIndex, notesArray, setnotesArray, bgNum, d
     const [drawColor, setDrawColor] = useState('black');
     const [drawWidth, setdrawWidth] = useState(5);
     const [trash, setTrash] = useState('0');
+    const calculatorRef = useRef(null);
+
+    useEffect(() => {
+        // if (!window.Desmos) {
+        //     const script = document.createElement('script');
+        //     script.src = 'https://www.desmos.com/api/v1.6/calculator.js';
+        //     script.async = true;
+        //     script.onload = () => {
+        //         if (calculatorRef.current) {
+        //             const calculator = window.Desmos.GraphingCalculator(calculatorRef.current);
+        //         }
+        //     };
+        //     document.body.appendChild(script);
+
+        //     return () => {
+        //         document.body.removeChild(script);
+        //     };
+        // } else {
+            if (calculatorRef.current) {
+                const calculator = window.Desmos.GraphingCalculator(calculatorRef.current);
+            }
+        // }
+    }, []);
 
     function penClick() {
         setdrawChoice('1');
@@ -70,9 +94,9 @@ function Content({version, calc, currQIndex, notesArray, setnotesArray, bgNum, d
             <div className="note-ping-cont" version={version}>
                 <h1>ping time</h1>
             </div>
-            <div className="note-calc-cont" version={version}>
-                <h1>calc time</h1>
-            </div>
+            {/* desmos calculator */}
+            <div className="note-calc-cont" ref={calculatorRef} version={version.toString()}/>
+
         </div>
     )
 }

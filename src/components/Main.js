@@ -16,6 +16,19 @@ export default function Main({showMain}) {
     useEffect(() => {
         //Runs only on the first render to get batch of questions
         setquestions([
+          {
+            text: "At Luffy's High School, approximately 7 percent of enrolled juniors and 5 percent of enrolled seniors were inducted into the National Pirate Society last year. If there were 562 juniors and 602 seniors enrolled at Luffy's High School last year, which is closest to the total number of juniors and seniors at Luffy's High School last year who were inducted into the National Pirate Society?",
+            options: [
+              { id: 0, text: "140", isCorrect: false },
+              { id: 1, text: "30", isCorrect: false },
+              { id: 2, text: "69", isCorrect: true },
+              { id: 3, text: "39", isCorrect: false },
+            ],
+            type: "Math (calc)",
+            explanation: "Since 7 percent of the 562 juniors is 0.07(562) and 5 percent of the 602 seniors is 0.05(602), the expression 0.07(562) + 0.05(602) can be evaluated to determine the total number of juniors and seniors inducted into the National Pirate Society. Of the given choices, 69 is closest to the value of the expression.",
+            has_img: true,
+            img_link: "https://i.pinimg.com/736x/92/9f/b5/929fb508fc6c76f8df83486b87e74e6e.jpg",
+          },
             {
               text: "Maria is staying at a hotel that charges $99.95 per night plus tax for a room. A tax of 8% is applied to the room rate, and an additional onetime untaxed fee of $5.00 is charged by the hotel. Which of the following represents Maria’s total charge, in dollars, for staying x nights?",
               options: [
@@ -52,19 +65,6 @@ export default function Main({showMain}) {
               has_img: false,
               passage: "Mr. and Mrs. Dursley, of number four, Privet Drive, wereproud to say that they were perfectly normal, thankyou very much. They were the last people you’d expect to be in-volved in anything strange or mysterious, because they just didn’thold with such nonsense.Mr. Dursley was the director of a firm called Grunnings, whichmade drills. He was a big, beefy man with hardly any neck, al-though he did have a very large mustache. Mrs. Dursley was thinand blonde and had nearly twice the usual amount of neck, whichcame in very useful as she spent so much of her time craning overgarden fences, spying on the neighbors. The Dursleys had a smallson called Dudley and in their opinion there was no finer boyanywhere.",
               explanation: "Read the first book of the world of witchcraft and wizardry.",
-            },
-            {
-              text: "At Luffy's High School, approximately 7 percent of enrolled juniors and 5 percent of enrolled seniors were inducted into the National Pirate Society last year. If there were 562 juniors and 602 seniors enrolled at Luffy's High School last year, which is closest to the total number of juniors and seniors at Luffy's High School last year who were inducted into the National Pirate Society?",
-              options: [
-                { id: 0, text: "140", isCorrect: false },
-                { id: 1, text: "30", isCorrect: false },
-                { id: 2, text: "69", isCorrect: true },
-                { id: 3, text: "39", isCorrect: false },
-              ],
-              type: "Math (calc)",
-              explanation: "Since 7 percent of the 562 juniors is 0.07(562) and 5 percent of the 602 seniors is 0.05(602), the expression 0.07(562) + 0.05(602) can be evaluated to determine the total number of juniors and seniors inducted into the National Pirate Society. Of the given choices, 69 is closest to the value of the expression.",
-              has_img: true,
-              img_link: "https://i.pinimg.com/736x/92/9f/b5/929fb508fc6c76f8df83486b87e74e6e.jpg",
             },
             {
               text: "Yogurt manufacturers, food '/*scientists; and/*' government officials are also working together to develop additional solutions for reusing whey.",
