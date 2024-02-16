@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sb-beta-page/static/css/main.4788ae8f.css",
-    "main.js": "/sb-beta-page/static/js/main.353683de.js",
+    "main.css": "/sb-beta-page/static/css/main.6d23d578.css",
+    "main.js": "/sb-beta-page/static/js/main.36894bf6.js",
     "static/media/open-treasure-peng-speak.png": "/sb-beta-page/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/cute-hero-penguin.png": "/sb-beta-page/static/media/cute-hero-penguin.75fa2361cc58964e82d9.png",
     "static/media/start-beach-curr.png": "/sb-beta-page/static/media/start-beach-curr.449d93359364a1280873.png",
@@ -28,10 +28,14 @@
     "static/media/figma-hook-wave.png": "/sb-beta-page/static/media/figma-hook-wave.92cebda024dfc59f274e.png",
     "static/media/figma-three-wave.png": "/sb-beta-page/static/media/figma-three-wave.40819d8297fb5a5639a6.png",
     "static/media/act-reading.png": "/sb-beta-page/static/media/act-reading.32982e75d5be44224989.png",
+    "static/media/main-peng.png": "/sb-beta-page/static/media/main-peng.530e8da337ba6dee6fb7.png",
     "static/media/act-writing.png": "/sb-beta-page/static/media/act-writing.297f234ed54856d1d8a9.png",
     "static/media/act-science.png": "/sb-beta-page/static/media/act-science.d85b3b46aafde35f3674.png",
     "static/media/sat-math.png": "/sb-beta-page/static/media/sat-math.1aed145f6c42b16b5643.png",
+    "static/media/beach-umbrella.png": "/sb-beta-page/static/media/beach-umbrella.8c6dc7e9b50ba8d54741.png",
     "static/media/act-math.png": "/sb-beta-page/static/media/act-math.9164da54c1cba3b7fbf8.png",
+    "static/media/ping-beach.png": "/sb-beta-page/static/media/ping-beach.72482f4e95f5d0ec87e0.png",
+    "static/media/beach-ball.png": "/sb-beta-page/static/media/beach-ball.a8f1c7b0e555336621e2.png",
     "static/media/discord-bubble.png": "/sb-beta-page/static/media/discord-bubble.829bb5fa907b4ca77128.png",
     "index.html": "/sb-beta-page/index.html",
     "static/media/begin-surf-wave.svg": "/sb-beta-page/static/media/begin-surf-wave.18dde032feab220bf3b4.svg",
@@ -40,11 +44,11 @@
     "static/media/fourth-wave.svg": "/sb-beta-page/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/sb-beta-page/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/sb-beta-page/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.4788ae8f.css.map": "/sb-beta-page/static/css/main.4788ae8f.css.map",
-    "main.353683de.js.map": "/sb-beta-page/static/js/main.353683de.js.map"
+    "main.6d23d578.css.map": "/sb-beta-page/static/css/main.6d23d578.css.map",
+    "main.36894bf6.js.map": "/sb-beta-page/static/js/main.36894bf6.js.map"
   },
   "entrypoints": [
-    "static/css/main.4788ae8f.css",
-    "static/js/main.353683de.js"
+    "static/css/main.6d23d578.css",
+    "static/js/main.36894bf6.js"
   ]
 }
