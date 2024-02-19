@@ -24,9 +24,15 @@ export default function EGrid({questions, notesArray, setnotesArray, bgNum, setb
                         <h1>Review Q.{currQIndex+1}</h1>
                         <h3><i>{questions[currQIndex].type}</i></h3>
                 </div>
+                <div className='ecard-question-type' move={+bgNum}>
+                      <h3><i>{questions[currQIndex].type}</i></h3>
+                </div>
                 <div className='ecard-misc' move={+bgNum}> 
                     <h3>Question by: <b>SB</b></h3>
                 </div>
+                <div className='ecard-version-note' move={+bgNum}>
+                      <h3>experience the full version on a larger screen</h3>
+                    </div>
                 <div className='ecard-notepad' move={+bgNum}> 
                     <TheNotepad currQIndex={currQIndex} notesArray={notesArray} setnotesArray={setnotesArray} calc={''+(questions[currQIndex].type == 'Math (calc)')} bgNum={bgNum} drawingArray={drawingArray} setdrawingArray={setdrawingArray}/>
                 </div>
