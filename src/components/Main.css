@@ -131,7 +131,7 @@ html, body {
 }
 .surf-wave-bottom[move='10'] {
     display: block;
-    animation: mid-bg-from-up 1.65s forwards;
+    animation: mid-bg-from-up 1.67s forwards;
 }
 .surf-wave-bottom[move='11'] {
     display: none; /* think about transition for dashboard */

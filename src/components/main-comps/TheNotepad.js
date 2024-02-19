@@ -75,8 +75,8 @@ function Content({version, calc, currQIndex, notesArray, setnotesArray, bgNum, d
                 ...notesArray,
                 noteText
             ]);
-            setnoteText('');  
             if (bgNum <= 5) {
+                setnoteText('');  
                 trashClick('2'); // clear canvas before next question (only for qcards)
             }
         }

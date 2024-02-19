@@ -11,12 +11,13 @@ export default function Whiteboard({drawColor, drawWidth, trash, drawingArray, s
             image.src = drawingArray[bgNum-6];
             const canvas = canvasRef.current;
             const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
             // Draw the image onto the canvas
             image.onload = () => {
                 ctx.drawImage(image, 0, 0);
             };
         }
-    }, [bgNum]);
+    }, [currQIndex]);
 
     // https://stackoverflow.com/questions/62846043/react-js-useeffect-with-window-resize-event-listener-not-working
     const handleResize = () => {
