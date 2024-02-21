@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/sb-beta-page/static/css/main.796ec4c5.css",
-    "main.js": "/sb-beta-page/static/js/main.7d4ee7cd.js",
+    "main.css": "/sb-beta-page/static/css/main.b180f6e9.css",
+    "main.js": "/sb-beta-page/static/js/main.8725bf8d.js",
     "static/media/open-treasure-peng-speak.png": "/sb-beta-page/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/cute-hero-penguin.png": "/sb-beta-page/static/media/cute-hero-penguin.75fa2361cc58964e82d9.png",
     "static/media/start-beach-curr.png": "/sb-beta-page/static/media/start-beach-curr.449d93359364a1280873.png",
@@ -17,6 +17,7 @@
     "static/media/figma-beach.png": "/sb-beta-page/static/media/figma-beach.b1bc637caae5f9a22819.png",
     "static/media/repetition-bubble.png": "/sb-beta-page/static/media/repetition-bubble.edde269e600e27f1b159.png",
     "static/media/review-peng.png": "/sb-beta-page/static/media/review-peng.2e952505eaa76b42e257.png",
+    "static/media/ping-floatie.png": "/sb-beta-page/static/media/ping-floatie.157478cc757e85694757.png",
     "static/media/accountability-bubble.png": "/sb-beta-page/static/media/accountability-bubble.f62f79fcecaf2093d6b6.png",
     "static/media/community-bubble.png": "/sb-beta-page/static/media/community-bubble.fc9df20c6166657a2bb6.png",
     "static/media/ACT.png": "/sb-beta-page/static/media/ACT.a788bb011691d4e1f35c.png",
@@ -40,15 +41,16 @@
     "index.html": "/sb-beta-page/index.html",
     "static/media/begin-surf-wave.svg": "/sb-beta-page/static/media/begin-surf-wave.18dde032feab220bf3b4.svg",
     "static/media/begin-wave.svg": "/sb-beta-page/static/media/begin-wave.254399402bc7d710c04b.svg",
+    "static/media/behind-dash-wave.svg": "/sb-beta-page/static/media/behind-dash-wave.a23370857d0e742ee33d.svg",
     "static/media/first-wave.svg": "/sb-beta-page/static/media/first-wave.1aeb8ddd38ecd43c2282.svg",
     "static/media/fourth-wave.svg": "/sb-beta-page/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/sb-beta-page/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/sb-beta-page/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.796ec4c5.css.map": "/sb-beta-page/static/css/main.796ec4c5.css.map",
-    "main.7d4ee7cd.js.map": "/sb-beta-page/static/js/main.7d4ee7cd.js.map"
+    "main.b180f6e9.css.map": "/sb-beta-page/static/css/main.b180f6e9.css.map",
+    "main.8725bf8d.js.map": "/sb-beta-page/static/js/main.8725bf8d.js.map"
   },
   "entrypoints": [
-    "static/css/main.796ec4c5.css",
-    "static/js/main.7d4ee7cd.js"
+    "static/css/main.b180f6e9.css",
+    "static/js/main.8725bf8d.js"
   ]
 }
