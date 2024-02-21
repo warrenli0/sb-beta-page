@@ -8,7 +8,6 @@ import React, { useState, useRef } from "react";
 
 export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers}) {
     const [showCard, setshowCard] = useState(true);
-    const [selectedChoice, setselectedChoice] = useState('0');
     const [exit, setexit] = useState('0');
     const [thumbUp, setthumbUp] = useState('0');
     const [thumbDown, setthumbDown] = useState('0');

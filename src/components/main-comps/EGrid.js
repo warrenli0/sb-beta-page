@@ -7,14 +7,12 @@ import React, { useState } from "react";
 export default function EGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, drawingArray, setdrawingArray}) {
     const [showEgrid, setshowEgrid] = useState(true);
     const [currQIndex, setcurrQIndex] = useState(0);
-    const [showIcon, setshowIcon] = useState('1');
 
-    /*
-    if (bgNum == 5) { // last question done
+    if (bgNum >= 11) { // last question done
         setTimeout(function(){
-            setshowQgrid(false); // remove qcard after everything goes away
+            setshowEgrid(false); // remove qcard after everything goes away
         }, 1500);
-    }*/
+    }
 
     // only show from bg 6 onwards
     if (bgNum > 5 && showEgrid) {

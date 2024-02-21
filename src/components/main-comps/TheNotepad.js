@@ -66,12 +66,11 @@ function Content({version, calc, currQIndex, notesArray, setnotesArray, bgNum, d
     useEffect(() => {
         //Runs on the first render And any time any dependency value changes
         // want to update arrays when q index is 1-5 (indicating next question)
-
         if (bgNum > 5) { // display old note for ecard
             setnoteText(notesArray[currQIndex]);
         }
         if (currQIndex != 0) { // update notes array before going to next question (this also saves for changes in ecard notes)
-            setnotesArray([
+            setnotesArray([ // curently just appending to array, so list gets duplicated duing ecard section
                 ...notesArray,
                 noteText
             ]);

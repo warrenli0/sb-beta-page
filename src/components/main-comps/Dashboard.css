@@ -1,0 +1,29 @@
+body {
+    overflow-y: hidden;
+}
+
+.dashboard-bg {
+    width: 100vw;
+    height: calc(100dvh + 0px);
+    position: fixed;
+    top: calc(-100dvh);
+    background-color: #000023;
+    animation: down-dash 4s forwards;
+}
+
+.dashboard-temp {
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    bottom: 0;
+    background-color: goldenrod;
+}
+
+@keyframes down-dash {
+    0% {
+        top: calc(-100dvh);
+    }
+    100% {
+        top: 0px;
+    }
+}

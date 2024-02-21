@@ -25,6 +25,9 @@ html, body {
     z-index: 5;
     width: 100vw;
 }
+.first-wave-out[version='2'] {
+    top: 0px;
+}
 
 .first-wave {
     background: url(../images/begin-surf-wave.svg) repeat-x;
@@ -55,7 +58,9 @@ html, body {
 .first-wave-container {
     animation: up 6s forwards;
 }
-
+.first-wave-container[version='2'] {
+    animation: down 4s forwards;
+}
 
 .surf-wave {
     background: url(../images/begin-wave.svg) repeat-x; 
@@ -71,7 +76,87 @@ html, body {
     animation: up 6s forwards;
     animation-delay: .3s;
 }
+.surf-wave-container[version='2'] {
+    animation: down 4s forwards;
+    animation-delay: .3s;
+}
 
+.dash-wave-cont {
+    display: none;
+}
+.dash-wave-cont[move='11'] {
+    display: block;
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+    z-index: 5;
+    animation: down 6s forwards;
+}
+.dash-wave {
+    display: block;
+    background: url(../images/begin-wave.svg) repeat-x;
+    width: 6400px;
+    height: 198px;
+    animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53);
+    transform: translateY(-198px);
+    position: absolute;
+    top: 0px;
+    z-index: 5;
+}
+.behind-dash-wave {
+    display: block;
+    background: url(../images/behind-dash-wave.svg) repeat-x;
+    width: 6400px;
+    height: 198px;
+    animation: wave 10s cubic-bezier(0.36, 0.45, 0.63, 0.53);
+    transform: translateY(-298px);
+    position: absolute;
+    top: 0px;
+    z-index: 5;
+}
+.behind-bottom {
+    width: 100vw;
+    height: 100px;
+    position: absolute;
+    top: 0px;
+    transform: translateY(-100px);
+    background-color: #01019F;
+}
+.floatie-peng {
+    position: absolute;
+    width: 150px;
+    left: 15vw;
+    top: 0px;
+    transform: translateY(-200px);
+    z-index: 6;
+    animation-name: pingshakeY;
+    animation-iteration-count: infinite;
+    animation-duration: 7s;
+}
+
+@keyframes pingshakeY {
+    from,
+    to {
+        transform: translateY(-200px);
+    }
+  
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+        transform: translateY(-205px);
+      animation-timing-function: ease-in-out;
+    }
+  
+    20%,
+    40%,
+    60%,
+    80% {
+        transform: translateY(-195px);
+      animation-timing-function: ease-in-out;
+    }
+  }
 
 /* qcard stuff */
 
@@ -131,10 +216,10 @@ html, body {
 }
 .surf-wave-bottom[move='10'] {
     display: block;
-    animation: mid-bg-from-up 1.67s forwards;
+    animation: mid-bg-from-up 2s forwards;
 }
 .surf-wave-bottom[move='11'] {
-    display: none; /* think about transition for dashboard */
+    animation: down 6s forwards;
 }
 
 .second-bg {
@@ -1541,6 +1626,15 @@ html, body {
 @keyframes up {
     100% {
         transform: translateY(calc(-100dvh - 297px));
+    }
+}
+
+@keyframes down {
+    0% {
+        top: 0;
+    }
+    100% {
+        top: calc(100dvh + 197px + 100px);
     }
 }
 

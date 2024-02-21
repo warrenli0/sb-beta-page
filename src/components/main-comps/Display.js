@@ -1,22 +1,38 @@
 import QGrid from './QGrid';
 import Review from './Review';
 import EGrid from './EGrid';
+import floatie from '../../images/ping-floatie.png';
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function Display({questions, showQCards, setshowQCards, notesArray, setnotesArray, chosenAnswers, setchosenAnswers, drawingArray, setdrawingArray}) {
+export default function Display({questions, showQCards, setshowQCards, notesArray, setnotesArray, chosenAnswers, setchosenAnswers, drawingArray, setdrawingArray, setshowDashoard}) {
     const [bgNum, setbgNum] = useState(0);
 
-    /* close condition
-    if (bgNum == 5) {
-      setTimeout(function(){
-        setshowQCards(false);
-      }, 1500);
-    } */
+    
+
+    useEffect(() => {
+      //Runs on the first render
+      //And any time any dependency value changes
+      /* close condition */
+      if (bgNum == 11) {
+        setshowDashoard(true); 
+        setTimeout(function(){
+          setshowQCards(false);
+        }, 6100);
+      } 
+    }, [bgNum]);
 
     if (showQCards) {
         return (
             <div className='question-page'> {/* Fixed container to position off of */}
+
+                {/* Waves for when review done */}
+                <div className='dash-wave-cont' move={+bgNum}>
+                  <div className='behind-dash-wave'></div>
+                  <img src={floatie} className="floatie-peng"/>
+                  <div className='behind-bottom'></div>
+                  <div className='dash-wave'></div>
+                </div>
                 
                 <div className='surf-wave-bottom' move={+bgNum}></div> {/* First bg that moves up */}
                 <div className='second-bg' move={+bgNum}></div>

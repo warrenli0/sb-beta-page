@@ -25,7 +25,6 @@ export default function FirstWave({showfirstwave, setshowfirstwave}) {
                 </div>
             </div>
         )
-    }
-
+    } 
 };
   

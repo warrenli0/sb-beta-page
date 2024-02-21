@@ -23,6 +23,7 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
             }
             if (currQIndex == 4) { // last question
                 setTimeout(function(){
+                    setcurrQIndex(currQIndex + 1);
                     setshowCard(false); // remove qcard after scrolls up
                 }, 1500);
             } else {
