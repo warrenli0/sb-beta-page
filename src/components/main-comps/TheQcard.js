@@ -1,7 +1,7 @@
 import arrow from "../../images/Arrow.png"
 import React, { useState, useRef } from "react";
 
-export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setchosenAnswers}) {
+export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setchosenAnswers, setActData, actData}) {
     const [showCard, setshowCard] = useState(true);
     const [selectedChoice, setselectedChoice] = useState('0');
     const [exit, setexit] = useState('0');
@@ -15,11 +15,45 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     ...chosenAnswers,
                     ['1',selectedChoice] // [T/F, chosen prob 1-indexed]
                 ]);
+                if (prob.type.substring(0, 4) == "Math") {
+                    setActData({
+                        ...actData, // copy other fields
+                        Math: {
+                            ...actData.Math,
+                            Set1: [actData.Math.Set1[0] + 1, actData.Math.Set1[1] + 1, actData.Math.Set1[2], actData.Math.Set1[3]]
+                        }
+                    });
+                } else {
+                    setActData({
+                        ...actData, // copy other fields
+                        [prob.type]: {
+                            ...actData[prob.type],
+                            Set1: [actData[prob.type].Set1[0] + 1, actData[prob.type].Set1[1] + 1, actData.Math.Set1[2], actData.Math.Set1[3]]
+                        }
+                    });
+                }
             } else {
                 setchosenAnswers([
                     ...chosenAnswers,
                     ['0',selectedChoice]
                 ]);
+                if (prob.type.substring(0, 4) == "Math") {
+                    setActData({
+                        ...actData, // copy other fields
+                        Math: {
+                            ...actData.Math,
+                            Set1: [actData.Math.Set1[0] + 1, actData.Math.Set1[1], 0]
+                        }
+                    });
+                } else {
+                    setActData({
+                        ...actData, // copy other fields
+                        [prob.type]: {
+                            ...actData[prob.type],
+                            Set1: [actData[prob.type].Set1[0] + 1, actData[prob.type].Set1[1], 0]
+                        }
+                    });
+                }
             }
             if (currQIndex == 4) { // last question
                 setTimeout(function(){

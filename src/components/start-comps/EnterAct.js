@@ -4,7 +4,7 @@ import reading from '../../images/act-reading.png';
 import science from '../../images/act-science.png';
 import { useState } from "react";
 
-export default function EnterAct({showEnterACT, setshowEnterACT, chooseSATorACT, setchooseSATorACT}) {
+export default function EnterAct({showEnterACT, setshowEnterACT, chooseSATorACT, setchooseSATorACT, setActScores}) {
 
     // used to trigger the exit animation
     const [exit, setExit] = useState('0');
@@ -70,6 +70,7 @@ export default function EnterAct({showEnterACT, setshowEnterACT, chooseSATorACT,
             }
         } else { // next page
             if (exit == '0'){ // in case someone tries to click a couple buttons
+                setActScores([wri, mat, red, sci]);
                 setExit('1'); // triggers animation
                 setchooseSATorACT('3'); // bring in next page
                 setTimeout(function(){

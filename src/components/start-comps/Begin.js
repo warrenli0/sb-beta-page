@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 export default function Begin({showStart, setshowMain, setshowwholeStart}) {
 
     function beginThing() {
@@ -6,6 +7,11 @@ export default function Begin({showStart, setshowMain, setshowwholeStart}) {
             setshowwholeStart(false); // time to move on
         }, 6100);
     }
+
+    useEffect(() => {
+        //Runs only on the first render
+        setshowMain('2'); // triggers the questions to be loaded in before begin
+      }, []);
 
     if (showStart) {
         return (

@@ -4,7 +4,7 @@ import TheEcard from './TheEcard';
 
 import React, { useState } from "react";
 
-export default function EGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, drawingArray, setdrawingArray}) {
+export default function EGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, drawingArray, setdrawingArray, setActData, actData}) {
     const [showEgrid, setshowEgrid] = useState(true);
     const [currQIndex, setcurrQIndex] = useState(0);
 
@@ -35,7 +35,7 @@ export default function EGrid({questions, notesArray, setnotesArray, bgNum, setb
                     <TheNotepad currQIndex={currQIndex} notesArray={notesArray} setnotesArray={setnotesArray} calc={''+(questions[currQIndex].type == 'Math (calc)')} bgNum={bgNum} drawingArray={drawingArray} setdrawingArray={setdrawingArray}/>
                 </div>
                 <div className='ecard-container'> {/* ecard */}
-                    <TheEcard prob={questions[currQIndex]} bgNum={bgNum} setbgNum={setbgNum} currQIndex={currQIndex} setcurrQIndex={setcurrQIndex} chosenAnswers={chosenAnswers}/>
+                    <TheEcard prob={questions[currQIndex]} bgNum={bgNum} setbgNum={setbgNum} currQIndex={currQIndex} setcurrQIndex={setcurrQIndex} chosenAnswers={chosenAnswers} setActData={setActData} actData={actData}/>
                 </div>
             </div>
         )

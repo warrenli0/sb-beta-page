@@ -9,14 +9,238 @@ body {
     top: calc(-100dvh);
     background-color: #000023;
     animation: down-dash 4s forwards;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 12% 38% 38% 12%;
 }
 
-.dashboard-temp {
-    width: 100vw;
-    height: 100px;
+.dash-stars {
     position: absolute;
-    bottom: 0;
-    background-color: goldenrod;
+    width: 100%;
+    height: 100%;
+}
+.dash-stars img {
+    width: 100%;
+    height: 100%;
+    opacity: .2;
+    object-fit: cover;
+}
+
+.dash-header{
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 1;
+    grid-row-end: 1;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dash-pie {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    color: white;
+    text-align: center;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr); /* triggers reszize horizontally somehow https://itnext.io/a-fully-responsive-chart-js-chart-91a72ef5e2c */
+    grid-template-rows: 25% 75% ;    
+    padding-top: 6.5%;
+}
+.dash-pie h4 {
+    font-weight: 500;
+}
+
+.pie-container {
+    position: relative; /* needed for canvas */
+}
+
+.pie-legend {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.legend-cont {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.pie-box{
+    width: 30px;
+    height: 15px;
+}
+.english-orange{
+    background-color: #EF6C00;
+}
+.math-red{
+    background-color: #F73508;
+}
+.reading-blue{
+    background-color: #08CAF7;
+}
+.science-green{
+    background-color: #00ED0B;
+}
+.pie-legend h4{
+    display: inline;
+    font-size: 13px;
+}
+
+.score-style {
+    color: white;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+.score-cont0 {
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.score-cont1 {
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.score-cont2 {
+    grid-column-start: 3;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.score-cont3 {
+    grid-column-start: 4;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.score-head {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.correct-chart h3{
+    font-weight: 500;
+}
+.correct-bar {
+    width: 100%;
+    height: 27.5px;
+    border-radius: 15px;
+    background-color: #001E2B;
+    position: relative;
+}
+.inside-correct-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    transition: width 1s;
+    height: 27.5px;
+    background-color: #EF6C00;
+    border-radius: 15px;
+    box-sizing: border-box;
+    border: 2px solid black;
+}
+
+.line-header {
+    position: relative;
+    z-index: 3;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+}
+.line-header select {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    border: solid white 2px;
+    border-radius: 2px;
+    padding-left: 2px;
+}
+
+.line-chart {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 10% 90%;    
+}
+.line-chart h3 {
+    color: white;
+    text-align: center;
+}
+
+.line-container {
+    position: relative;
+}
+
+.dash-try{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dash-try h1 {
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    transition: all .2s;
+}
+.dash-try h1:hover {
+    transform: scale(1.1);
+}
+.dash-try h4 {
+    font-weight: 500;
+}
+
+.dash-beach {
+    grid-column-start: 1;
+    grid-column-end: 7;
+    grid-row-start: 4;
+    grid-row-end: 4;
+}
+
+.dash-beach img{
+    width: 102%;
+    height: 100%;
+    object-fit: fill;
+    transform: translateX(-1%); /* get rid of blue around edge */
+}
+
+.dash-cont {
+    grid-column-start: 6;
+    grid-column-end: 6;
+    grid-row-start: 4;
+    grid-row-end: 4;
+    color: white;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 10px;
+    z-index: 1;
+}
+.dash-cont img{
+    width: 120px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.dash-cont img:hover {
+    transform: scale(1.1);
 }
 
 @keyframes down-dash {

@@ -6,7 +6,7 @@ import thumbs_down from "../../images/thumbs-down.png"
 import red_thumbs_down from "../../images/red-thumbs-down.png"
 import React, { useState, useRef } from "react";
 
-export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers}) {
+export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setActData, actData}) {
     const [showCard, setshowCard] = useState(true);
     const [exit, setexit] = useState('0');
     const [thumbUp, setthumbUp] = useState('0');
@@ -18,6 +18,28 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
         if (exit == '0' || exit == '2') {
             setexit('1');
             setbgNum(bgNum + 1);
+
+            // update understood value
+            if (checked) {
+                if (prob.type.substring(0, 4) == "Math") {
+                    setActData({
+                        ...actData, // copy other fields
+                        Math: {
+                            ...actData.Math,
+                            Set1: [actData.Math.Set1[0], actData.Math.Set1[1], actData.Math.Set1[2] + 1, actData.Math.Set1[3]]
+                        }
+                    });
+                } else {
+                    setActData({
+                        ...actData, // copy other fields
+                        [prob.type]: {
+                            ...actData[prob.type],
+                            Set1: [actData[prob.type].Set1[0], actData[prob.type].Set1[1], actData[prob.type].Set1[2] + 1, actData[prob.type].Set1[3]]
+                        }
+                    });
+                }
+            }
+
             if (currQIndex == 4) { // last question
                 setTimeout(function(){
                     setshowCard(false); // remove qcard after scrolls up
