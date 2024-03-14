@@ -1,15 +1,16 @@
 import orange_fish_right from '../../images/orange_fish_right.png';
 import green_fish from '../../images/green-fish-left.png';
 import big_orange from '../../images/big_orange_fish_right.png';
-import scuba_peng from '../../images/scuba-peng-with-text.png';
 import discord_bubble from '../../images/discord-bubble.png';
 import smol_bubble from '../../images/small-bubble.png';
 import closed_treasure from '../../images/small-closed-treasure.png';
 import open_treasure from '../../images/open-treasure-peng-speak.png';
+import book_bubble from '../../images/bubble-book-peng.png';
+import grad_bubble from '../../images/bubble-grad-peng.png';
 import useFadeIn from '../../hooks/useFadeIn';
 import { useRef, useState } from "react";
 
-export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFinished}) {
+export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFinished, setfirstBetaButton, setshowMission}) {
 
     const divRef = useRef(null);
     useFadeIn(divRef);
@@ -19,12 +20,13 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
     useFadeIn(divRef3);
     const divRef4 = useRef(null);
     useFadeIn(divRef4);
-    const divRef5 = useRef(null);
-    useFadeIn(divRef5);
 
     const [chestOpa, setChestOpa] = useState(0);
     const [closedchestOpa, setclosedChestOpa] = useState(1);
     const [closedchestpointer, setclosedChestPointer] = useState("pointer");
+    const [email, setEmail] = useState("");
+    const [dis, setdis] = useState("");
+    const [emMsg, setemMsg] = useState("Know when we release:");
 
     function openTreasure() {
         setclosedChestOpa(0);
@@ -33,12 +35,34 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
     };
 
     function waveTime() {
+        setfirstBetaButton(false); // bottom beta button clicked
         setWavesFinished(false);
         setShowTopWave(1);
         setTimeout(function(){
             setshowLandingPage(false);
         }, 3000);
     };
+
+    function missionTime() {
+        setWavesFinished(false);
+        setShowTopWave(1);
+        setTimeout(function(){
+            setshowMission(true); // show mission page
+            window.scrollTo(0, 0);
+            setshowLandingPage(false);
+        }, 2500);
+    }
+
+    function submitEmail() {
+        const ele = document.getElementById("user_email");
+        //console.log(ele.validity.valid);
+        if (ele.validity.valid && dis!="disabled" && email != "") {
+            //console.log("valid,", email);
+            setdis("disabled");
+            setemMsg("Thank you — we will be in touch soon!");
+            //WAR: email is var with user email
+        }
+    }   
 
     return (
         <div className="ocean-bottom">
@@ -53,23 +77,27 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
             </div>
             <div className="ocean-content">
                 <div className='ocean-header' ref={divRef}>
-                    <h1 className="hidden">Launching in early March! Stay tuned!</h1>
+                    <h1 className="hidden">Launching in early April! Stay tuned!</h1>
+                    <h3 className="hidden">let's achieve your dream score.</h3>
                 </div>
-                <div className="ocean-img ocean-scuba-png" ref={divRef2} onClick={() => waveTime()}>
-                    <img src={scuba_peng} className="hidden scuba-peng seawweedo"/>
+                <div className="ocean-img ocean-scuba-png" ref={divRef2}>
+                    <img src={book_bubble} className="hidden scuba-peng seawweedo"/>
+                    <div className='hidden'>
+                        <h2 className='ocean-button' onClick={() => waveTime()}>Try Our Beta</h2>
+                    </div>
                 </div>
-                <div className="ocean-img ocean-discord" ref={divRef3}>
-                    <img src={discord_bubble} className="seawweedo2 discord-bubu hidden2"/>
-                    <img src={smol_bubble} className="hidden2 small-bub seawweedo3" id="bub1"/>
-                    <img src={smol_bubble} className="hidden2 small-bub seawweedo4" id="bub2"/>
-                    <img src={smol_bubble} className="hidden2 small-bub seawweedo5" id="bub3"/>
-                    <img src={smol_bubble} className="hidden2 small-bub seawweedo6" id="bub4"/>
+                <div className="ocean-img ocean-scuba-png grad-peng" ref={divRef3}>
+                    <img src={grad_bubble} className="hidden2 scuba-peng seawweedo2"/>
+                    <div className='hidden2'>
+                        <h2 className='ocean-button' onClick={() => missionTime()}>Our Mission</h2>
+                    </div>
                 </div>
                 <div className="ocean-text five-probs" ref={divRef4}>
-                    <h3 className="hidden">5 problems, give it your best shot!</h3>
-                </div>
-                <div className="ocean-text join-disc" ref={divRef5}>
-                    <h3 className="hidden2">join our discord for updates and resources</h3>
+                    <h2 className="hidden">{emMsg}</h2>
+                    <input className="hidden" disabled={dis} type="email" id="user_email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
+                    <div className="hidden"> 
+                        <h4 className="ocean-submit" dis={dis} onClick={() => submitEmail()}>Submit</h4>
+                    </div>
                 </div>
             </div>
             <div className="ocean-bottom-beach"></div>

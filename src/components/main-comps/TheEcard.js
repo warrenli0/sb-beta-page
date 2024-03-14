@@ -6,41 +6,133 @@ import thumbs_down from "../../images/thumbs-down.png"
 import red_thumbs_down from "../../images/red-thumbs-down.png"
 import React, { useState, useRef } from "react";
 
-export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setActData, actData}) {
+export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setActData, actData, setActWeightage, actWeightage,
+    currProblemSet, choseSAT, satWeightage, setsatWeightage, satData, setsatData, log, setlog, seconds}) {
     const [showCard, setshowCard] = useState(true);
     const [exit, setexit] = useState('0');
     const [thumbUp, setthumbUp] = useState('0');
     const [thumbDown, setthumbDown] = useState('0');
     const [checked, setchecked] = useState(false);
     const [mobile, setmobile] = useState('0');
+    const [currseconds, setcurrseconds] = useState(0);
 
     function nextQ() {
         if (exit == '0' || exit == '2') {
             setexit('1');
             setbgNum(bgNum + 1);
+            var setNum = "Set" + currProblemSet;
+
+            var thum = 0;
+            if (thumbUp == '1') {
+                thum = 1;
+            } else if (thumbDown == '1') {
+                thum = 2;
+            }
+             // update log
+             setlog({
+                ...log,
+                [setNum]: {
+                    ...log[setNum],
+                    [prob.id]: {
+                        ...log[setNum][prob.id],
+                        eTime: (seconds - currseconds),
+                        eThumbs: thum,
+                        understood: checked,
+                    }
+                }
+            });
+            setcurrseconds(seconds);
 
             // update understood value
             if (checked) {
-                if (prob.type.substring(0, 4) == "Math") {
-                    setActData({
-                        ...actData, // copy other fields
-                        Math: {
-                            ...actData.Math,
-                            Set1: [actData.Math.Set1[0], actData.Math.Set1[1], actData.Math.Set1[2] + 1, actData.Math.Set1[3]]
-                        }
-                    });
-                } else {
-                    setActData({
-                        ...actData, // copy other fields
+                if (choseSAT) { // SAT
+                    setsatData({
+                        ...satData, // copy other fields
                         [prob.type]: {
-                            ...actData[prob.type],
-                            Set1: [actData[prob.type].Set1[0], actData[prob.type].Set1[1], actData[prob.type].Set1[2] + 1, actData[prob.type].Set1[3]]
+                            ...satData[prob.type],
+                            [setNum]: [satData[prob.type][setNum][0], satData[prob.type][setNum][1], satData[prob.type][setNum][2] + 1, satData[prob.type][setNum][3]],
+                            Overall: [satData[prob.type].Overall[0], satData[prob.type].Overall[1], satData[prob.type].Overall[2] + 1, satData[prob.type].Overall[3]]
                         }
                     });
+                } else { // ACT
+                    if (prob.type.substring(0, 4) == "Math") {
+                        setActData({
+                            ...actData, // copy other fields
+                            Math: {
+                                ...actData.Math,
+                                [setNum]: [actData.Math[setNum][0], actData.Math[setNum][1], actData.Math[setNum][2] + 1, actData.Math[setNum][3]],
+                                Overall: [actData.Math.Overall[0], actData.Math.Overall[1], actData.Math.Overall[2] + 1, actData.Math.Overall[3]]
+                            }
+                        });
+                    } else {
+                        setActData({
+                            ...actData, // copy other fields
+                            [prob.type]: {
+                                ...actData[prob.type],
+                                Set1: [actData[prob.type][setNum][0], actData[prob.type][setNum][1], actData[prob.type][setNum][2] + 1, actData[prob.type][setNum][3]],
+                                Overall: [actData[prob.type].Overall[0], actData[prob.type].Overall[1], actData[prob.type].Overall[2] + 1, actData[prob.type].Overall[3]]
+                            }
+                        });
+                    }
+                }
+            } else { // not understood 
+                if (choseSAT) { // SAT
+                    if (prob.type == "Reading") {
+                        if (satWeightage[0]+3 <= 60 && satWeightage[1]-1 >= 10 && satWeightage[2]-1 >= 10 && satWeightage[3]-1 >= 10) {
+                            setsatWeightage([satWeightage[0]+3, satWeightage[1]-1, satWeightage[2]-1, satWeightage[3]-1]);
+                        }
+                    } else if (prob.type == "Writing") {
+                        if (satWeightage[0]-1 >= 10 && satWeightage[1]+3 <= 60 && satWeightage[2]-1 >= 10 && satWeightage[3]-1 >= 10) {
+                            setsatWeightage([satWeightage[0]-1, satWeightage[1]+3, satWeightage[2]-1, satWeightage[3]-1]);
+                        }
+                    } else if (prob.type == "Math (no calc)") {
+                        if (satWeightage[0]-1 >= 10 && satWeightage[1]-1 >= 10 && satWeightage[2]+3 <= 60 && satWeightage[3]-1 >= 10) {
+                            setsatWeightage([satWeightage[0]-1, satWeightage[1]-1, satWeightage[2]+3, satWeightage[3]-1]);
+                        }
+                    } else if (prob.type == "Math (calc)") {
+                        if (satWeightage[0]-1 >= 10 && satWeightage[1]-1 >= 10 && satWeightage[2]-1 >= 10 && satWeightage[3]+3 <= 60) {
+                            setsatWeightage([satWeightage[0]-1, satWeightage[1]-1, satWeightage[2]-1, satWeightage[3]+3]);
+                        }
+                    }
+                } else { // ACT
+                    if (prob.type.substring(0, 4) == "Math") {
+                        if (actWeightage[0]-1 >= 10 && actWeightage[1]+3 <= 60 && actWeightage[2]-1 >= 10 && actWeightage[3]-1 >= 10) {
+                            setActWeightage([actWeightage[0]-1, actWeightage[1]+3, actWeightage[2]-1, actWeightage[3]-1]);
+                        }
+                    } else {
+                        if (prob.type == "English") {
+                            if (actWeightage[0]+3 <= 60 && actWeightage[1]-1 >= 10 && actWeightage[2]-1 >= 10 && actWeightage[3]-1 >= 10) {
+                                setActWeightage([actWeightage[0]+3, actWeightage[1]-1, actWeightage[2]-1, actWeightage[3]-1]);
+                            }
+                        } else if (prob.type == "Reading") {
+                            if (actWeightage[0]-1 >= 10 && actWeightage[1]-1 >= 10 && actWeightage[2]+3 <= 60 && actWeightage[3]-1 >= 10) {
+                                setActWeightage([actWeightage[0]-1, actWeightage[1]-1, actWeightage[2]+3, actWeightage[3]-1]);
+                            }
+                        } else if (prob.type == "Science") {
+                            if (actWeightage[0]-1 >= 10 && actWeightage[1]-1 >= 10 && actWeightage[2]-1 >= 10 && actWeightage[3]+3 <= 60) {
+                                setActWeightage([actWeightage[0]-1, actWeightage[1]-1, actWeightage[2]-1, actWeightage[3]+3]);
+                            }
+                        }
+                    }
                 }
             }
 
             if (currQIndex == 4) { // last question
+                // update log
+                setlog({
+                    ...log,
+                    [setNum]: {
+                        ...log[setNum],
+                        [prob.id]: {
+                            ...log[setNum][prob.id],
+                            eTime: (seconds - currseconds),
+                            eThumbs: thum,
+                            understood: checked,
+                        },
+                        totalEtime: seconds, // store total qcard time
+                    }
+                });
+               
                 setTimeout(function(){
                     setshowCard(false); // remove qcard after scrolls up
                 }, 1500);
@@ -108,16 +200,16 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-2left-e-line" mobile={mobile} format={prob.type}><div className="the-left-e-real-line"></div></div>
                     <div className="answer-choice" id="e-choice1" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
+                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice2" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
+                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice3" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
+                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice4" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
+                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
                     </div>
                     <div className="the-e-line" format={prob.type}><div className="the-e-real-line"></div></div>
                     <div className="the-e-explanation" mobile={mobile} format={prob.type}>
@@ -154,16 +246,16 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-left-e-line" format='Image'><div className="the-left-e-real-line"></div></div>
                     <div className="answer-choice" id="e-choice1" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
+                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice2" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
+                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice3" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
+                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice4" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
+                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
                     </div>
                     <div className="the-e-line" format='Image'><div className="the-e-real-line"></div></div>
                     <div className="the-e-image" mobile={mobile} format='Image'>
@@ -204,16 +296,16 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-left-e-line"><div className="the-left-e-real-line"></div></div>
                     <div className="answer-choice" id="e-choice1" mobile={mobile}>
-                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
+                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice2" mobile={mobile}>
-                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
+                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice3" mobile={mobile}>
-                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
+                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
                     </div>
                     <div className="answer-choice" id="e-choice4" mobile={mobile}>
-                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[0][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
+                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
                     </div>
                     <div className="the-e-line"><div className="the-e-real-line"></div></div>
                     <div className="the-e-explanation" mobile={mobile}>

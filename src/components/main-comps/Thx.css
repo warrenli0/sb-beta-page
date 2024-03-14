@@ -1,0 +1,33 @@
+.thx-cont {
+    position: relative;
+    width: 100vw;
+    height: 100dvh;
+    background-color: wheat;
+}
+
+.mis-text h4{
+    display: inline;
+}
+.mis-text input {
+    width: 50%;
+    height: 10%;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+}
+.mis-text input::placeholder {
+    color: #747474; 
+    font-weight: 800;
+    font-size: large;
+}
+.mis-text input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+  }
+.mis-text input:disabled {
+    background-color: ivory;
+}

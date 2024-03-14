@@ -7,7 +7,7 @@ import Bottom from './lp-comps/Bottom';
 
 import { useState } from "react";
 
-export default function LandingPage({setShowTopWave, showLP, setshowLandingPage, setWavesFinished}) {
+export default function LandingPage({setShowTopWave, showLP, setshowLandingPage, setWavesFinished, setfirstBetaButton, setshowMission}) {
     // fade in on scroll : https://www.freecodecamp.org/news/reveal-on-scroll-in-react-using-the-intersection-observer-api/
 
     if (showLP) {
@@ -17,7 +17,8 @@ export default function LandingPage({setShowTopWave, showLP, setshowLandingPage,
               <Hook />
               <ThreePingus />
               <SbInfo />
-              <Bottom setShowTopWave={setShowTopWave} setshowLandingPage={setshowLandingPage} setWavesFinished={setWavesFinished}/>
+              <Bottom setShowTopWave={setShowTopWave} setshowLandingPage={setshowLandingPage} setWavesFinished={setWavesFinished} 
+              setfirstBetaButton={setfirstBetaButton} setshowMission={setshowMission}/>
             </div>
           )
     }

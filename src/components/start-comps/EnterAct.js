@@ -4,7 +4,7 @@ import reading from '../../images/act-reading.png';
 import science from '../../images/act-science.png';
 import { useState } from "react";
 
-export default function EnterAct({showEnterACT, setshowEnterACT, chooseSATorACT, setchooseSATorACT, setActScores}) {
+export default function EnterAct({showEnterACT, setshowEnterACT, chooseSATorACT, setchooseSATorACT, setActScores, setActWeightage}) {
 
     // used to trigger the exit animation
     const [exit, setExit] = useState('0');
@@ -70,7 +70,58 @@ export default function EnterAct({showEnterACT, setshowEnterACT, chooseSATorACT,
             }
         } else { // next page
             if (exit == '0'){ // in case someone tries to click a couple buttons
-                setActScores([wri, mat, red, sci]);
+                setActScores([+wri, +mat, +red, +sci]); // update scores
+                // get weightages
+                var lis = [[+wri, "English", 25],[+mat, "Math", 25],[+red, "Reading", 25],[+sci, "Science", 25]] 
+                lis.sort(function(a,b){return a[0]<(b[0]);}); // sort from greatest to least
+                
+                // first diff
+                var d1 = lis[0][0] - lis[1][0];
+                if (d1 >= 10) {
+                    d1 = 10; // ensures max drop off is 15%, so 25% becomes 10%
+                }
+                var mul = Math.floor(d1 / 2);
+                lis[0][2] = lis[0][2] - (3 * mul);
+                lis[1][2] = lis[1][2] + (mul);
+                lis[2][2] = lis[2][2] + (mul);
+                lis[3][2] = lis[3][2] + (mul);
+                // second dif
+                d1 = lis[1][0] - lis[2][0];
+                mul = Math.floor(d1/2);
+                if (lis[0][2] - (2*mul) < 10) {
+                    d1 = lis[0][2] - 10;
+                    mul = Math.floor(d1/2);
+                }
+                lis[0][2] = lis[0][2] - (2 * mul);
+                lis[1][2] = lis[1][2] - (2 * mul);
+                lis[2][2] = lis[2][2] + (2 * mul);
+                lis[3][2] = lis[3][2] + (2 * mul);
+                //third dif
+                d1 = lis[2][0] - lis[3][0];
+                mul = Math.floor(d1/2);
+                if (lis[0][2] - (2*mul) < 10) {
+                    d1 = lis[0][2] - 10;
+                    mul = Math.floor(d1/2);
+                }
+                lis[0][2] = lis[0][2] - (mul);
+                lis[1][2] = lis[1][2] - (mul);
+                lis[2][2] = lis[2][2] - (mul);
+                lis[3][2] = lis[3][2] + (3 * mul);
+
+                const newWeights = [0,0,0,0];
+                for (let i = 0; i < lis.length; i++) {
+                    if (lis[i][1] == "English"){
+                        newWeights[0] = lis[i][2];
+                    } else if (lis[i][1] == "Math"){
+                        newWeights[1] = lis[i][2];
+                    } else if (lis[i][1] == "Reading"){
+                        newWeights[2] = lis[i][2];
+                    } else if (lis[i][1] == "Science"){
+                        newWeights[3] = lis[i][2];
+                    }
+                }
+                setActWeightage(newWeights);
+
                 setExit('1'); // triggers animation
                 setchooseSATorACT('3'); // bring in next page
                 setTimeout(function(){

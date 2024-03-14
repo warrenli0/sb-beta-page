@@ -1,12 +1,13 @@
 import './Start.css'
 import Choose from './start-comps/Choose';
-import { useState, useEffect } from "react";
 
-export default function Start({showLP, setshowMain, showMain, showStart, setshowwholeStart, setActScores, setSatScores}) {
+export default function Start({showLP, setshowMain, showMain, showStart, setshowwholeStart, setActScores, setSatScores, setActWeightage, setchoseSAT,
+    setsatWeightage, showMission}) {
 
-    if (!showLP && showStart) {
+    if (!showLP && showStart && !showMission) {
         return (
-            <Choose setshowMain={setshowMain} showMain={showMain} setshowwholeStart={setshowwholeStart} setActScores={setActScores} setSatScores={setSatScores}/>
+            <Choose setshowMain={setshowMain} showMain={showMain} setshowwholeStart={setshowwholeStart} setActScores={setActScores} 
+            setSatScores={setSatScores} setActWeightage={setActWeightage} setchoseSAT={setchoseSAT} setsatWeightage={setsatWeightage}/>
         )
     }
 };

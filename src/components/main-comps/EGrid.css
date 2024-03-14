@@ -14,6 +14,7 @@
     transform: translateX(-140%);
     animation: e-in-from-left 1s forwards;
     animation-delay: 2.3s;
+    padding-right: 0;
 }
 .ecard-header[move='11'] {
     transform: translateX(0);
@@ -396,6 +397,7 @@
 .the-e-check input{
     height: 30px;
     width: 30px;
+    cursor: pointer;
 }
 .the-e-check label h2{
     display: inline;

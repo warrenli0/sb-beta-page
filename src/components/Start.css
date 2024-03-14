@@ -100,6 +100,10 @@ body {
     max-width: 50vw;
     /*border: solid red 5px;*/
 }
+.tree-container[fin='1'] {
+  z-index: 4;
+  animation: right-to-mid 3s forwards; 
+}
 
 .coconut-tree {
     width: 100%;

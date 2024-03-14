@@ -1,0 +1,384 @@
+.mission-cont {
+
+}
+
+.mis-top-right {
+    position: fixed;
+    top: 0;
+    right: 8px;
+    color: #03045E;
+    text-shadow: 0px 0px 2px #7d7d7d;
+    z-index: 2;
+}
+
+.mis-top {
+    height: 100dvh;
+    background: #ADDDFF;
+    transform: translateY(0vh);
+}
+
+.mis-text-cont {
+    height: 75%;
+    color: #03045E;
+    display: flex;
+    align-items: center;
+    padding-left: 10%;
+}
+
+.mis-text {
+    width: 60%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.mis-text h1 {
+    font-weight: 600;
+}
+.mis-text h4 {
+    color: black;
+}
+
+.mis-button {
+    display: inline-block;
+    background-color: #03045E;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+.mis-button:hover {
+    background-color: #FFB800;
+}
+
+.mis-beach {
+    background-image: url('../images/mission-beach.png');
+    width: 100%;
+    min-width: 1100px;
+    height: 25%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 101% 102%;
+    object-fit: fill;
+}
+
+.cool-cont {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    min-width: 400px;
+    display: flex;
+}
+
+.mis-text-container{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    border-radius: 10px;
+    padding: .5em;
+    text-align: left;
+    box-shadow: 0px 0px 5px 0px rgba(179, 179, 179, 0.75);
+    visibility: hidden;
+}
+.mis-text-container[story='1'] {
+    visibility: visible;
+}
+.mis-text-container h3[story='1']{
+    font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
+    animation-name: review-typing;
+    animation-duration: .5s;
+    animation-timing-function: steps(200, end);
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+.mis-text-container h3:nth-child(1) {
+    visibility: hidden;
+    animation-delay: 0s;
+}
+.mis-text-container h3:nth-child(2) {
+    visibility: hidden;
+    animation-delay: .5s;
+}
+
+.mis-peng {
+    float: right;
+}
+
+.mis-main {
+    background-color: #FFD85F;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.mission-text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.mission-text h1 {
+    text-align: center;
+    color: #00266F;
+    font-weight: 700;
+}
+.mission-text-center {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+}
+.mission-text-center h2 {
+    font-weight: 500;
+}
+
+.mission-text h2{
+    font-weight: 400;
+}
+.mission-text ul{
+    padding-left: 15px; 
+}
+
+.mis-divider {
+    width: 55%;
+    border: solid black 2px;
+}
+.mis-divider-full {
+    width: 100%;
+    border: solid black 2px;
+}
+
+.mis-imp {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mis-imp h1 {
+    text-align: center;
+    color: #00266F;
+    font-weight: 700;
+}
+
+.mis-imp h2 {
+    text-align: center;
+    font-weight: 400;
+}
+
+.mis-imp h3 {
+    text-align: center;
+    font-weight: 400;
+}
+
+.mis-imgs {
+    display: flex;
+    flex: 1 0 auto; 
+    align-items: center;
+    justify-content: space-evenly;
+    height: 150px;
+}
+
+.mis-imgs img{
+    max-height: 90%;
+    max-width: 40%;
+}
+
+.mis-imgs2 {
+    display: flex;
+    flex: 1 0 auto; 
+    align-items: center;
+    justify-content: space-between;
+    height: 150px;
+    gap: 10px;
+}
+
+.mis-imgs2 img{
+    max-height: 80%;
+    max-width: 30%;
+}
+
+.mis-but-cont {
+    text-align: center;
+}
+
+.mis-story {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+}
+
+.mis-story-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.mis-story-cont {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.mis-story-cont h1 {
+    text-align: center;
+    color: #00266F;
+    font-weight: 700;
+}
+
+.mis-story-cont h2 {
+    font-weight: 400;
+}
+
+.mis-story-img {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.mis-img-cont {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 20%;
+}
+
+.mis-img-cont img{
+   max-height: 100%;
+}
+
+.mis-email-cont {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    width: 90%;
+}
+
+.mis-email-enter {
+}
+
+.mis-email-enter input {
+    width: 90%;
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+.mis-email-enter input::placeholder {
+    color: #747474; 
+    font-weight: 800;
+    font-size: large;
+}
+.mis-email-enter input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+.mis-email-enter input:disabled {
+    background-color: ivory;
+}
+
+.mis-submit-cont{
+    text-align: right;
+}
+.mis-submit {
+    font-weight: 500;
+    cursor: pointer;
+    transition: color .2s;
+    display: inline;
+    text-align: right;
+    padding-right: 5%;
+}
+.mis-submit:hover {
+    color: goldenrod; 
+}
+.mis-submit[dis="disabled"] {
+    visibility: hidden;
+}
+
+.mis-caution {
+    width: 80%;
+    text-align: center;
+}
+
+.mis-social {
+    width: 50%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.mis-social img{
+   max-height: 100%;
+}
+
+.mis-q {
+    text-align: center;
+}
+
+.mis-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mis-inputs {
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 30px;
+}
+
+.mis-inputs input {
+    width: 90%;
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+.mis-inputs select {
+    width: 50%;
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    background-color: white;
+}
+.mis-inputs input::placeholder {
+    color: #747474; 
+    font-weight: 800;
+    font-size: large;
+}
+.mis-inputs input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+.mis-inputs input:disabled {
+    background-color: ivory;
+}
+.mis-msg {
+    width: 90%;
+    margin: 0 auto;
+}

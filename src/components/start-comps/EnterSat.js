@@ -2,7 +2,7 @@ import math from '../../images/sat-math.png';
 import english from '../../images/sat-english.png';
 import { useState } from "react";
 
-export default function EnterSat({showEnterSAT, setshowEnterSAT, chooseSATorACT, setchooseSATorACT}) {
+export default function EnterSat({showEnterSAT, setshowEnterSAT, chooseSATorACT, setchooseSATorACT, setSatScores, setsatWeightage}) {
 
     const [exit, setExit] = useState('0'); // used to trigger the exit animation
     const [validMath, setvalidMath] = useState('0'); // used to trigger shake
@@ -45,6 +45,28 @@ export default function EnterSat({showEnterSAT, setshowEnterSAT, chooseSATorACT,
             }
         } else { // next page
             if (exit == '0'){ // in case someone tries to click a couple buttons
+                setSatScores([+eng, +mat]); // update scores
+                // set weightages
+                eng = +eng;
+                mat = +mat;
+                var mathWeight = 50;
+                var englishWeight = 50;
+
+                if (eng > mat) {
+                    var dif = eng - mat;
+                    dif = Math.floor(dif/50);
+                    dif = Math.min(dif, 6)  //max diff is 300 -> 80:20 -> 6 iterations of 5%
+                    englishWeight = 50 - (dif*5);
+                    mathWeight = 50 + (dif * 5);
+                } else if (eng < mat) {
+                    var dif = mat - eng;
+                    dif = Math.floor(dif/50);
+                    dif = Math.min(dif, 6)  //max diff is 300 -> 80:20 -> 6 iterations of 5%
+                    englishWeight = (50 + (dif*5));
+                    mathWeight = (50 - (dif*5));
+                }
+
+                setsatWeightage([englishWeight/2, englishWeight/2, mathWeight/2, mathWeight/2]);
                 setExit('1'); // triggers animation
                 setchooseSATorACT('3'); // bring in next page
                 setTimeout(function(){

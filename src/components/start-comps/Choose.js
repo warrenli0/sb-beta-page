@@ -5,7 +5,7 @@ import EnterAct from './EnterAct';
 import Begin from './Begin';
 import { useState, useEffect } from "react";
 
-export default function Choose({setshowMain, showMain, setshowwholeStart, setActScores, setSatScores}) {
+export default function Choose({setshowMain, showMain, setshowwholeStart, setActScores, setSatScores, setActWeightage, setchoseSAT, setsatWeightage}) {
 
     const [peng_text, setpengText] = useState("Hey there! What test are you preparing for?");
     const [speak, setspeak] = useState("0");
@@ -16,7 +16,11 @@ export default function Choose({setshowMain, showMain, setshowwholeStart, setAct
     const [showStart, setshowStart] = useState(false);
     const [exit, setExit] = useState('0');
 
-    
+    useEffect(() => {
+        //Runs only on the first render
+        document.body.style = 'background: #F3C942;'; // sand bg color lol
+    }, []);
+
     useEffect(() => {
         //Runs on the first render
         //And any time any dependency value changes
@@ -28,6 +32,7 @@ export default function Choose({setshowMain, showMain, setshowwholeStart, setAct
                 setspeak("1");
             }, 2000);
         } else if (chooseSATorACT == '2') {
+            setchoseSAT(false); // FOR ACT
             setspeak("reset");
             setpengText("Enter in your current ACT score!");
             setshowEnterACT(true); // ACT
@@ -80,8 +85,8 @@ export default function Choose({setshowMain, showMain, setshowwholeStart, setAct
             <h1 className='sb-top-right' exit={showMain}>SB</h1>
             <div className='start-text'>
                 <SatAct showChoice={showChoice} setshowChoice={setshowChoice} setchooseSATorACT={setchooseSATorACT} chooseSATorACT={chooseSATorACT}/>
-                <EnterSat showEnterSAT={showEnterSAT} setshowEnterSAT={setshowEnterSAT} chooseSATorACT={chooseSATorACT} setchooseSATorACT={setchooseSATorACT} setSatScores={setSatScores}/>
-                <EnterAct showEnterACT={showEnterACT} setshowEnterACT={setshowEnterACT} chooseSATorACT={chooseSATorACT} setchooseSATorACT={setchooseSATorACT} setActScores={setActScores}/>
+                <EnterSat showEnterSAT={showEnterSAT} setshowEnterSAT={setshowEnterSAT} chooseSATorACT={chooseSATorACT} setchooseSATorACT={setchooseSATorACT} setSatScores={setSatScores} setsatWeightage={setsatWeightage}/>
+                <EnterAct showEnterACT={showEnterACT} setshowEnterACT={setshowEnterACT} chooseSATorACT={chooseSATorACT} setchooseSATorACT={setchooseSATorACT} setActScores={setActScores} setActWeightage={setActWeightage}/>
                 <Begin showStart={showStart} setshowMain={setshowMain} setshowwholeStart={setshowwholeStart}/>
             </div>
             <div className='start-beach'></div>

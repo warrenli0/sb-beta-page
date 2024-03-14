@@ -5,7 +5,10 @@ import floatie from '../../images/ping-floatie.png';
 
 import React, { useState, useEffect } from "react";
 
-export default function Display({questions, showQCards, setshowQCards, notesArray, setnotesArray, chosenAnswers, setchosenAnswers, drawingArray, setdrawingArray, setshowDashoard, setActData, actData}) {
+export default function Display({questions, showQCards, setshowQCards, notesArray, setnotesArray, 
+  chosenAnswers, setchosenAnswers, drawingArray, setdrawingArray, setshowDashoard, setActData, actData, 
+  setActWeightage, actWeightage, currProblemSet, choseSAT, satWeightage, setsatWeightage, satData, setsatData,
+  log, setlog}) {
     const [bgNum, setbgNum] = useState(0);
 
     useEffect(() => {
@@ -19,6 +22,14 @@ export default function Display({questions, showQCards, setshowQCards, notesArra
         }, 6100);
       } 
     }, [bgNum]);
+
+    useEffect(() => {
+      // 5 new problems has been selected, reset bgnum
+      if (currProblemSet > 1) {
+        setbgNum(0);
+        setshowQCards(true);
+      }
+    }, [currProblemSet]);
 
     if (showQCards) {
         return (
@@ -40,9 +51,17 @@ export default function Display({questions, showQCards, setshowQCards, notesArra
                 
                 <Review questions={questions} bgNum={bgNum} setbgNum={setbgNum} chosenAnswers={chosenAnswers}/>
 
-                <QGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum} chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers} drawingArray={drawingArray} setdrawingArray={setdrawingArray} setActData={setActData} actData={actData}/>
+                <QGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum} 
+                chosenAnswers={chosenAnswers} setchosenAnswers={setchosenAnswers} drawingArray={drawingArray} 
+                setdrawingArray={setdrawingArray} setActData={setActData} actData={actData} setActWeightage={setActWeightage} actWeightage={actWeightage}
+                currProblemSet={currProblemSet} choseSAT={choseSAT} satWeightage={satWeightage} setsatWeightage={setsatWeightage} 
+                satData={satData} setsatData={setsatData} log={log} setlog={setlog}/>
 
-                <EGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum} chosenAnswers={chosenAnswers} drawingArray={drawingArray} setdrawingArray={setdrawingArray} setActData={setActData} actData={actData}/>
+                <EGrid questions={questions} notesArray={notesArray} setnotesArray={setnotesArray} bgNum={bgNum} setbgNum={setbgNum} 
+                chosenAnswers={chosenAnswers} drawingArray={drawingArray} setdrawingArray={setdrawingArray} setActData={setActData} 
+                actData={actData} setActWeightage={setActWeightage} actWeightage={actWeightage} currProblemSet={currProblemSet}
+                choseSAT={choseSAT} satWeightage={satWeightage} setsatWeightage={setsatWeightage} satData={satData} setsatData={setsatData}
+                log={log} setlog={setlog}/>
 
             </div>
         )
