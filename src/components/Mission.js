@@ -14,6 +14,11 @@ import fb from '../images/fb.png';
 import disc from '../images/gray-disc.png';
 import insta from '../images/insta.png';
 
+import sleep from '../images/ping-sleep.png';
+import handup from '../images/hand-up-ping.png';
+import lying from '../images/lying-ping.png';
+
+
 export default function Mission({showMission, setshowMission}) {
     const [showStory, setshowStory] = useState('0');
     const [emMsg, setemMsg] = useState("Know when we release:");
@@ -106,13 +111,17 @@ export default function Mission({showMission, setshowMission}) {
                     </div>
                 </div>
                 <div className='mis-main'>
-                    <div className='mission-text'>
-                        <h2>We all know the SAT/ACT is important, but why are the vast majority of students so unmotivated to prepare for it?</h2>
-                        <h2>Well, test prep is boring. It's tedious. It's lonely having to take exam after exam by yourself for hours on end.</h2>
-                        <h2>More-so, standardized test scores correlate with family income. Most students can't afford to pay exuberant pricing for one-on-one tutoring.</h2>
-                        <h2><b>We want to change all of that. We will make SAT/ACT preparation fun, engaging and affordable for every single student.</b></h2>
-                        <h2>This is Scholars Beacon. The only SAT/ACT online prep platform you will need to achieve your dream score.</h2>
-                        <h2>Made by students, for students.</h2>
+                    <div className='mis-cont-part'>
+                        <img src={sleep} className="sleep-peng"/>
+                        <img src={handup} className="hand-peng"/>
+                        <div className='mission-text'>
+                            <h2>We all know the SAT/ACT is important, but why are the vast majority of students so unmotivated to prepare for it?</h2>
+                            <h2>Well, test prep is boring. It's tedious. It's lonely having to take exam after exam by yourself for hours on end.</h2>
+                            <h2>More-so, standardized test scores correlate with family income. Most students can't afford to pay exuberant pricing for one-on-one tutoring.</h2>
+                            <h2><b>We want to change all of that. We will make SAT/ACT preparation fun, engaging and affordable for every single student.</b></h2>
+                            <h2>This is Scholars Beacon. The only SAT/ACT online prep platform you will need to achieve your dream score.</h2>
+                            <h2>Made by students, for students.</h2>
+                        </div>
                     </div>
                     <div className='mis-divider'></div>
                     <div className='mis-imp'>
@@ -180,15 +189,18 @@ export default function Mission({showMission, setshowMission}) {
                         </div>
                     </div>
                     <div className='mis-divider'></div>
-                    <div className='mission-text'>
-                        <h1>We know what students need to succeed.</h1>
-                        <h2>After talking to <b>hundreds</b> of students, tutors, and parents, we learned that:</h2>
-                        <h2><b>Students</b> say they struggle to find the motivation to study on their own.</h2>
-                        <h2><b>Tutors</b> say it is difficult getting students to consistently do practice problems/exams in between sessions.</h2>
-                        <h2><b>Parents</b> say they want to be regularly updated to know if their child is truly improving.</h2>
-                        <h2>We decided to tackle these issues by making a platform that incorporates the three main components that will help any student achieve their dream score: <b>repetition, accountability, community.</b></h2>
-                        <div className='mis-but-cont'>
-                            <h2 className='mis-button' onClick={() => buttonOne()}>I'm interested!</h2>
+                    <div className='mis-cont-part'>
+                        <img src={lying} className="lying-peng"/>
+                        <div className='mission-text'>
+                            <h1>We know what students need to succeed.</h1>
+                            <h2>After talking to <b>hundreds</b> of students, tutors, and parents, we learned that:</h2>
+                            <h2><b>Students</b> say they struggle to find the motivation to study on their own.</h2>
+                            <h2><b>Tutors</b> say it is difficult getting students to consistently do practice problems/exams in between sessions.</h2>
+                            <h2><b>Parents</b> say they want to be regularly updated to know if their child is truly improving.</h2>
+                            <h2>We decided to tackle these issues by making a platform that incorporates the three main components that will help any student achieve their dream score: <b>repetition, accountability, community.</b></h2>
+                            <div className='mis-but-cont'>
+                                <h2 className='mis-button' onClick={() => buttonOne()}>I'm interested!</h2>
+                            </div>
                         </div>
                     </div>
                     <div className='mis-divider'></div>

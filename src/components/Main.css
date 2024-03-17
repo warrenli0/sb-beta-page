@@ -1131,6 +1131,9 @@ html, body {
     display: inline;
     cursor: pointer;
     transition-duration: .2s;
+    border: solid gold 2px;
+    padding: 5px 10px;
+    border-radius: 15px;
 }
 .review-button-cont h1:hover {
     color: #ffd66d;

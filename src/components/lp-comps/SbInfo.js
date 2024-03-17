@@ -4,7 +4,7 @@ import orange_fish_left from '../../images/orange_fish_left.png';
 import big_orange from '../../images/big_orange_fish_right.png';
 import orange_whale from '../../images/big-orange-whale.png';
 import database from '../../images/database.png';
-import dashboard from '../../images/old-dashboard.png';
+import dashboard from '../../images/curr-dash.png';
 import discord from '../../images/white_disc.png';
 import prac from '../../images/prac-problem.png';
 import rep from '../../images/report.png';
