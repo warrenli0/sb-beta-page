@@ -565,7 +565,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     }
 
     //WAR : fEmail for referral
-    function friendEmail() {    
+    async function friendEmail() {    
         // var: fEmail
         const data = {
             email,

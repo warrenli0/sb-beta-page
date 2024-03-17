@@ -70,7 +70,7 @@ export default function Mission({showMission, setshowMission}) {
     }
 
     // WAR
-    function submitFriendEmail() {
+    async function submitFriendEmail() {
         const ele = document.getElementById("friend_email");
         if (ele.validity.valid && dis!="disabled" && friendEmail != "") {
             //console.log("friend", friendEmail);
