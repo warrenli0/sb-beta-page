@@ -103,7 +103,7 @@ function ScoreChart({v, actScores, actData, choseSAT, satScores, satData, fin}) 
 }
 
 export default function Dashboard({showDashoard, setshowDashoard, actScores, actData, actWeightage, currProblemSet, setcurrProblemSet, choseSAT,
-    satWeightage, satScores, satData, setshowThx, log, setlog}) {
+    satWeightage, satScores, satData, setshowThx, log, setlog, firstBetaButton}) {
     const [graphID, setgraphID] = useState('1');
     const [exit, setexit] = useState('0');
     const [fin, setfin] = useState('0');

@@ -103,7 +103,8 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
 
                 <Dashboard showDashoard={showDashoard} setshowDashoard={setshowDashoard} actScores={actScores} actData={actData} 
                 actWeightage={actWeightage} currProblemSet={currProblemSet} setcurrProblemSet={setcurrProblemSet} choseSAT={choseSAT}
-                satWeightage={satWeightage} satScores={satScores} satData={satData} setshowThx={setshowThx} log={log} setlog={setlog}/>
+                satWeightage={satWeightage} satScores={satScores} satData={satData} setshowThx={setshowThx} log={log} setlog={setlog}
+                firstBetaButton={firstBetaButton}/>
 
                 <ThxPage showThx={showThx} setshowThx={setshowThx} choseSAT={choseSAT} actScores={actScores} actData={actData} 
                 actWeightage={actWeightage} currProblemSet={currProblemSet} satWeightage={satWeightage} satScores={satScores} 
