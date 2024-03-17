@@ -17,6 +17,10 @@ import insta from '../images/insta.png';
 import sleep from '../images/ping-sleep.png';
 import handup from '../images/hand-up-ping.png';
 import lying from '../images/lying-ping.png';
+import tea from '../images/tea-ping.png';
+import cake from '../images/cake-ping.png';
+import scarf from '../images/scarf-ping.png';
+import fam from '../images/fam-ping.png';   
 
 
 export default function Mission({showMission, setshowMission}) {
@@ -191,6 +195,7 @@ export default function Mission({showMission, setshowMission}) {
                     <div className='mis-divider'></div>
                     <div className='mis-cont-part'>
                         <img src={lying} className="lying-peng"/>
+                        <img src={tea} className="tea-peng"/>
                         <div className='mission-text'>
                             <h1>We know what students need to succeed.</h1>
                             <h2>After talking to <b>hundreds</b> of students, tutors, and parents, we learned that:</h2>
@@ -204,7 +209,11 @@ export default function Mission({showMission, setshowMission}) {
                         </div>
                     </div>
                     <div className='mis-divider'></div>
+                    <div className='mis-cont-part'>
                     <div className='mission-text'>
+                        <img src={cake} className="cake-peng"/>
+                        <img src={scarf} className="scarf-peng"/>
+                        <img src={fam} className="fam-peng"/>
                         <h1>All the tools needed for success.</h1>
                         <div>
                             <h2><b>Repetition:</b> The best way for students to learn from their mistakes is thoroughly reviewing what they didn't understand and repeating the problem until they get it correct.</h2>
@@ -233,10 +242,11 @@ export default function Mission({showMission, setshowMission}) {
                             </ul>
                         </div>
                     </div>
+                    </div>
                     <div className='mis-divider-full'></div>
                     <div className='mission-text-center'>
-                        <h2>This is Scholars Beacon.</h2>
-                        <h2><i>Official Release in April</i></h2>
+                        <h1>Scholars Beacon</h1>
+                        <h1><i>Official Release in April</i></h1>
                     </div>  
                     <div className='mis-divider-full'></div>
                     <div className='mis-email-cont'>

@@ -142,6 +142,34 @@
     top: 5%;
 }
 
+.tea-peng {
+    position: absolute;
+    width: 12%;
+    left: 2%;
+    bottom: 5%;
+}
+
+.cake-peng {
+    position: absolute;
+    width: 15%;
+    left: 2%;
+    top: 20%;
+}
+
+.scarf-peng {
+    position: absolute;
+    width: 12%;
+    right: 2%;
+    bottom: 30%;
+}
+
+.fam-peng {
+    position: absolute;
+    width: 12%;
+    left: 3%;
+    bottom: 0%;
+}
+
 .mission-text {
     width: 50%;
     display: flex;
@@ -158,6 +186,11 @@
     flex-direction: column;
     gap: 20px;
     text-align: center;
+}
+.mission-text-center h1 {
+    text-align: center;
+    color: #00266F;
+    font-weight: 700;
 }
 .mission-text-center h2 {
     font-weight: 500;
