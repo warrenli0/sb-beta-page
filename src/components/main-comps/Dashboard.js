@@ -567,6 +567,29 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     //WAR : fEmail for referral
     function friendEmail() {    
         // var: fEmail
+        const data = {
+            email,
+        };
+
+        try {
+            const response = await fetch('https://sbapidev.com/submit-referral', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const responseData = await response.json();
+            console.log(responseData.message);
+    
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+        }
     }
 
     if (showDashoard) {

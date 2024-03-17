@@ -45,7 +45,7 @@ export default function Mission({showMission, setshowMission}) {
         };
 
         try {
-            const response = await fetch('https://sbapidev.com/submit-email', { // Make sure the URL matches your backend's address
+            const response = await fetch('https://sbapidev.com/submit-email', { 
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -59,11 +59,9 @@ export default function Mission({showMission, setshowMission}) {
     
             const responseData = await response.json();
             console.log(responseData.message);
-            // Handle success (e.g., show a success message or redirect the user)
     
         } catch (error) {
             console.error('There was a problem with the fetch operation:', error);
-            // Handle errors (e.g., show an error message)
         }
     }
 
@@ -74,6 +72,30 @@ export default function Mission({showMission, setshowMission}) {
             //console.log("friend", friendEmail);
             setfriendMsg("Share with more friends!");
             setfriendEmail("");
+        }
+
+        const data = {
+            email: document.getElementById("friend_email"),
+        };
+
+        try {
+            const response = await fetch('https://sbapidev.com/submit-referral', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const responseData = await response.json();
+            console.log(responseData.message);
+    
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
         }
     }
 
