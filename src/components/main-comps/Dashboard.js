@@ -528,7 +528,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     }
 
      //WAR : email
-    async function submitEmail() {
+     async function submitEmail() {
         const data = {
             email,
             choseSAT,
@@ -539,9 +539,10 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             firstBetaButton,
             "log": JSON.stringify(log),
         };
+        console.log(email);
     
         try {
-            const response = await fetch('http://localhost:5000/submit-info', { // Make sure the URL matches your backend's address
+            const response = await fetch('https://sbapidev.com/submit-info', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -566,6 +567,29 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     //WAR : fEmail for referral
     function friendEmail() {    
         // var: fEmail
+        const data = {
+            email,
+        };
+
+        try {
+            const response = await fetch('https://sbapidev.com/submit-referral', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+    
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+    
+            const responseData = await response.json();
+            console.log(responseData.message);
+    
+        } catch (error) {
+            console.error('There was a problem with the fetch operation:', error);
+        }
     }
 
     if (showDashoard) {

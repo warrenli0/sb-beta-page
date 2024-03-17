@@ -45,6 +45,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               img_link: question.img_link ?? '',
               passage: question.passage ?? '',
               explanation: question.explanation ?? '',
+              author: question.author ?? '',
             }));
 
             console.log(mappedQuestions);
