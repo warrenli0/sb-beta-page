@@ -105,7 +105,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
         }
 
         const data = {
-            email: document.getElementById("friend_email"),
+            email: friendEmail,
         };
 
         try {
