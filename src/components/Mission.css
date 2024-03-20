@@ -1,6 +1,10 @@
 .mission-cont {
-
+   
 }
+
+body { 
+    scroll-behavior: smooth;
+  }
 
 .mis-top-right {
     position: fixed;
@@ -15,28 +19,96 @@
     height: 100dvh;
     background: #ADDDFF;
     transform: translateY(0vh);
+    position: relative;
 }
 
 .mis-text-cont {
     height: 75%;
     color: #03045E;
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 10% 80% 20%;
+    padding: 20px;
 }
 
 .mis-text {
-    width: 60%;
-    height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
+    padding-left: 5%;
 }
 .mis-text h1 {
     font-weight: 600;
 }
 .mis-text h4 {
     color: black;
+}
+
+.mis-vid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    grid-column-start: 2;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: 2;
+}
+.mis-vid iframe {
+    height: auto;
+    width: 90%;
+    aspect-ratio: 16 / 9;
+}
+
+.mis-read {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 3;
+    grid-row-end: 3;
+}
+.mis-read h3 {
+    color: black;
+    text-align: center;
+}
+
+.hero-email-enter input {
+    width: 90%;
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+.hero-email-enter input::placeholder {
+    color: #747474; 
+    font-weight: 800;
+    font-size: large;
+}
+.hero-email-enter input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+.hero-email-enter input:disabled {
+    background-color: ivory;
+}
+.hero-submit {
+    font-weight: 500;
+    cursor: pointer;
+    transition: color .2s;
+}
+.hero-submit:hover {
+    color: goldenrod; 
+}
+.hero-submit[dis="disabled"] {
+    visibility: hidden;
 }
 
 .mis-button {
@@ -107,6 +179,7 @@
 }
 
 .mis-main {
+    position: relative;
     background-color: #FFD85F;
     display: flex;
     flex-direction: column;
@@ -262,8 +335,11 @@
     max-width: 30%;
 }
 
-.mis-but-cont {
+.hero-but-cont {
+    position: absolute;
     text-align: center;
+    bottom: 10px;
+    left: 10px;
 }
 
 .mis-story {
@@ -322,9 +398,6 @@
     width: 90%;
 }
 
-.mis-email-enter {
-}
-
 .mis-email-enter input {
     width: 90%;
     height: 50px;
@@ -348,6 +421,17 @@
 }
 .mis-email-enter input:disabled {
     background-color: ivory;
+}
+
+/*
+.mis-email-enter input[highlight='1'] {
+    border: solid #2d57a4 5px;
+    animation: border-fade 3s forwards; 
+}*/
+
+
+#user-email {
+    border: solid gold 2px;
 }
 
 .mis-submit-cont{
@@ -405,30 +489,20 @@
 }
 
 .mis-inputs input {
-    width: 90%;
+    width: calc(100% - 10px);
     height: 50px;
-    padding: 0 10px;
     font-weight: 600;
     font-size: large;
     border-radius: 10px;
     border: none;
     margin-bottom: 10px;
-}
-.mis-inputs select {
-    width: 50%;
-    height: 50px;
-    padding: 0 10px;
-    font-weight: 600;
-    font-size: large;
-    border-radius: 10px;
-    border: none;
-    margin-bottom: 10px;
-    background-color: white;
+    padding-left: 10px;
 }
 .mis-inputs input::placeholder {
     color: #747474; 
     font-weight: 800;
     font-size: large;
+    padding-left: 10px;
 }
 .mis-inputs input:invalid {
     background-color: ivory;
@@ -439,7 +513,61 @@
 .mis-inputs input:disabled {
     background-color: ivory;
 }
+.mis-inputs select {
+    width: 100%;
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+    background-color: white;
+    cursor: pointer;
+}
 .mis-msg {
-    width: 90%;
+    width: calc(90% - 20px);
     margin: 0 auto;
+    padding: 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    resize: none;
+    height: 300px;
+}
+.mis-msg::placeholder {
+    color: #747474; 
+    font-weight: 800;
+    font-size: large;
+    padding-left: 10px;
+}
+.fed-submit {
+    font-weight: 500;
+    cursor: pointer;
+    transition: color .2s;
+    display: inline;
+    text-align: center;
+}
+.fed-submit:hover {
+    color: goldenrod; 
+}
+.fed-submit[dis="disabled"] {
+    visibility: hidden;
+}
+
+.mis-note {
+    margin-bottom: 20px;
+}
+.tower-peng {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 200px;
+}
+
+@keyframes border-fade {
+    100% {
+        border: solid white 0px;
+    }
 }

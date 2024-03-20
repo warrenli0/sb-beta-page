@@ -25,7 +25,7 @@ export default function EGrid({questions, notesArray, setnotesArray, bgNum, setb
         // set seconds to 0, time to show ecards
         if (bgNum == 6) {
             setSeconds(-1);
-            console.log("done");
+            //console.log("done");
         }
     }, [bgNum]);
 

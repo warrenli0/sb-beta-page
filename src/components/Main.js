@@ -23,7 +23,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
     useEffect(() => {
       const fetchQuestions = async () => {
         if (choseSAT) {
-          console.log("Chose SAT");
+          //console.log("Chose SAT");
           try {
             // Specify the full URL for the backend endpoint
             const response = await fetch('https://sbapidev.com/five-sat');
@@ -48,14 +48,14 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               author: question.author ?? '',
             }));
 
-            console.log(mappedQuestions);
+            //console.log(mappedQuestions);
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {
             console.error('Error fetching SAT questions:', error);
           }
         } else {
-          console.log("Chose ACT");
+          //console.log("Chose ACT");
           try {
             // Specify the full URL for the backend endpoint
             const response = await fetch('https://sbapidev.com/five-act');
@@ -79,7 +79,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               explanation: question.explanation ?? '',
             }));
 
-            console.log(mappedQuestions);
+            //console.log(mappedQuestions);
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {

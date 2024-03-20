@@ -1,7 +1,7 @@
 import './Mission.css'
 import React, { useState, useEffect } from "react";
+import { scroller } from 'react-scroll';
 
-import cool from '../images/cool-peng.png';
 import brown from '../images/brown.png';
 import yale from '../images/yale.png';
 import pur from '../images/purdue.png';
@@ -20,20 +20,45 @@ import lying from '../images/lying-ping.png';
 import tea from '../images/tea-ping.png';
 import cake from '../images/cake-ping.png';
 import scarf from '../images/scarf-ping.png';
-import fam from '../images/fam-ping.png';   
+import fam from '../images/fam-ping.png';  
+import tower from '../images/ping-tower.png';   
 
 
-export default function Mission({showMission, setshowMission}) {
+export default function Mission({showMission, setshowMission, setWavesFinished, setShowTopWave, setshowLandingPage}) {
     const [showStory, setshowStory] = useState('0');
     const [emMsg, setemMsg] = useState("Know when we release:");
+    const [heroMsg, setheroMsg] = useState("Join the waitlist!");
     const [friendMsg, setfriendMsg] = useState("Share this with friends:");
     const [email, setEmail] = useState("");
     const [friendEmail, setfriendEmail] = useState("");
     const [dis, setdis] = useState("");
+
+    // form states
     const [personType, setpersonType] = useState("Parent");
+    const [fedName, setfedName] = useState("");
+    const [fedEmail, setfedEmail] = useState("");
+    const [fedLoc, setfedLoc] = useState("");
+    const [fedMessage, setfedMessage] = useState("");
 
-    function buttonOne() {
+    function goHome() {
+        setWavesFinished(false);
+        setShowTopWave(1);
+        setTimeout(function(){
+            setshowLandingPage(true);
 
+            window.scrollTo(0, 0);
+            setshowMission(false);
+            setshowStory('0');
+        }, 2500);
+    }
+
+    function buttonOne(){
+        //document.getElementById("da-sb").scrollIntoView();
+        scroller.scrollTo('da-sb', {
+            duration: 1500,
+            smooth: 'easeInOutCubic',
+            // ... other options
+          });
     }
 
     // WAR
@@ -41,6 +66,7 @@ export default function Mission({showMission, setshowMission}) {
         const ele = document.getElementById("user_email");
         if (ele.validity.valid && dis!="disabled" && email != "") {
             setdis("disabled");
+            setheroMsg("Thank you — we will be in touch soon!");
             setemMsg("Thank you — we will be in touch soon!");
         }
 
@@ -103,14 +129,6 @@ export default function Mission({showMission, setshowMission}) {
         }
     }
 
-    useEffect(() => {
-        if (showMission) {
-            setTimeout(function(){
-                setshowStory('1'); // show text
-            }, 2000);
-        }
-    }, [showMission]);
-
     if (showMission) {
         return (
             <div className='mission-cont'>
@@ -118,28 +136,29 @@ export default function Mission({showMission, setshowMission}) {
                 <div className='mis-top'>
                     <div className='mis-text-cont'>
                         <div className='mis-text'>
-                            <h1><b>We give students the motivation to score well.</b> Scholars Beacon provides the tools and guidance students need to conquer the SAT & ACT.</h1>
-                            <div>
-                                <h2 className='mis-button' onClick={() => buttonOne()}>I'm interested!</h2>
+                            <h1><b>We give students the motivation to score well.</b> Scholars Beacon provides the tools and guidance students need to crack the SAT & ACT.</h1>
+                            <div className='hero-email-enter'>
+                                <h1>{heroMsg}</h1>
+                                <input type="email" id="user_email" highlight='1' disabled={dis} placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                                <h2 className='hero-submit' dis={dis} onClick={() => submitEmail()}>Submit</h2>
                             </div>
-                            <h4>Read about our mission below</h4>
                         </div>
+                        <div className='mis-vid'>
+                        <iframe src="https://www.youtube.com/embed/IlsD3EM_KSk?si=3VFm_jeDAJRhG1FL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+                        </div>
+                        <div className='mis-read'>
+                            <h3>Read about our mission below</h3>
+                        </div>
+                    </div>
+                    <div className='hero-but-cont'>
+                        <h2 className='mis-button' onClick={() => goHome()}>Home</h2>
                     </div>
                     <div className='mis-beach'></div>
-                    <div className='cool-cont'>
-                        <div>
-                            <div className='mis-text-container' story={showStory}>
-                                <h3 story={showStory}>Mission: Crack</h3>
-                                <h3 story={showStory}>the SAT / ACT</h3>
-                            </div>
-                        </div>
-                        <img src={cool} className="mis-peng"/>
-                    </div>
                 </div>
                 <div className='mis-main'>
                     <div className='mis-cont-part'>
-                        <img src={sleep} className="sleep-peng"/>
-                        <img src={handup} className="hand-peng"/>
+                        <img draggable="false" src={sleep} className="sleep-peng"/>
+                        <img draggable="false" src={handup} className="hand-peng"/>
                         <div className='mission-text'>
                             <h2>We all know the SAT/ACT is important, but why are the vast majority of students so unmotivated to prepare for it?</h2>
                             <h2>Well, test prep is boring. It's tedious. It's lonely having to take exam after exam by yourself for hours on end.</h2>
@@ -154,13 +173,13 @@ export default function Mission({showMission, setshowMission}) {
                         <h1>These tests are more important now than ever.</h1>
                         <h2>Schools are <b>REINSTATING REQUIREMENTS</b> for the SAT & ACT!</h2>
                         <div className='mis-imgs'>
-                            <img src={brown} className=""/>
-                            <img src={yale} className=""/>
+                            <img draggable="false" src={brown} className=""/>
+                            <img draggable="false" src={yale} className=""/>
                         </div>
                         <div className='mis-imgs2'>
-                            <img src={pur} className=""/>
-                            <img src={geo} className=""/>
-                            <img src={mit} className=""/>
+                            <img draggable="false" src={pur} className=""/>
+                            <img draggable="false" src={geo} className=""/>
+                            <img draggable="false" src={mit} className=""/>
                         </div>
                         <div></div>
                         <h2>The SAT & ACT is <b>7x more indicative</b> of college success than high school GPA. Studies have shown that higher test scores lead to higher first-year college GPAs.</h2>
@@ -181,7 +200,7 @@ export default function Mission({showMission, setshowMission}) {
                             </div>
                             <div className='mis-story-img'>
                                 <div className='mis-img-cont'>
-                                    <img src={ani} className=""/>
+                                    <img draggable="false" src={ani} className=""/>
                                     <div className='mis-img-txt'>
                                         <h2><b>Aniket Nayak</b></h2>
                                         <ul>
@@ -191,7 +210,7 @@ export default function Mission({showMission, setshowMission}) {
                                     </div>
                                 </div>
                                 <div className='mis-img-cont'>
-                                    <img src={war} className=""/>
+                                    <img draggable="false" src={war} className=""/>
                                     <div className='mis-img-txt'>
                                         <h2><b>Warren Li</b></h2>
                                         <ul>
@@ -201,7 +220,7 @@ export default function Mission({showMission, setshowMission}) {
                                     </div>
                                 </div>
                                 <div className='mis-img-cont'>
-                                    <img src={aru} className=""/>
+                                    <img draggable="false" src={aru} className=""/>
                                     <div className='mis-img-txt'>
                                         <h2><b>Arun Khemani</b></h2>
                                         <ul>
@@ -216,8 +235,8 @@ export default function Mission({showMission, setshowMission}) {
                     </div>
                     <div className='mis-divider'></div>
                     <div className='mis-cont-part'>
-                        <img src={lying} className="lying-peng"/>
-                        <img src={tea} className="tea-peng"/>
+                        <img draggable="false" src={lying} className="lying-peng"/>
+                        <img draggable="false" src={tea} className="tea-peng"/>
                         <div className='mission-text'>
                             <h1>We know what students need to succeed.</h1>
                             <h2>After talking to <b>hundreds</b> of students, tutors, and parents, we learned that:</h2>
@@ -233,9 +252,9 @@ export default function Mission({showMission, setshowMission}) {
                     <div className='mis-divider'></div>
                     <div className='mis-cont-part'>
                     <div className='mission-text'>
-                        <img src={cake} className="cake-peng"/>
-                        <img src={scarf} className="scarf-peng"/>
-                        <img src={fam} className="fam-peng"/>
+                        <img draggable="false" src={cake} className="cake-peng"/>
+                        <img draggable="false" src={scarf} className="scarf-peng"/>
+                        <img draggable="false" src={fam} className="fam-peng"/>
                         <h1>All the tools needed for success.</h1>
                         <div>
                             <h2><b>Repetition:</b> The best way for students to learn from their mistakes is thoroughly reviewing what they didn't understand and repeating the problem until they get it correct.</h2>
@@ -267,14 +286,14 @@ export default function Mission({showMission, setshowMission}) {
                     </div>
                     <div className='mis-divider-full'></div>
                     <div className='mission-text-center'>
-                        <h1>Scholars Beacon</h1>
+                        <h1 id="da-sb">Scholars Beacon</h1>
                         <h1><i>Official Release in April</i></h1>
                     </div>  
                     <div className='mis-divider-full'></div>
                     <div className='mis-email-cont'>
                         <div className='mis-email-enter'>
                             <h1>{emMsg}</h1>
-                            <input type="email" id="user_email" disabled={dis} placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
+                            <input type="email" id="user_email" highlight='1' disabled={dis} placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                             <div className='mis-submit-cont'>
                                 <h4 className="mis-submit" dis={dis} onClick={() => submitEmail()}>Submit</h4>
                             </div>
@@ -291,35 +310,45 @@ export default function Mission({showMission, setshowMission}) {
                         <p>We collect and store your information solely for the purpose of sending relevant communications about our platform. We do not sell or share this information with third parties.</p>
                     </div>
                     <div className='mis-social'>
-                        <img src={fb} className=""/>
-                        <img src={disc} className=""/>
-                        <img src={insta} className=""/>
+                        <img draggable="false" src={fb} className=""/>
+                        <img draggable="false" src={disc} className=""/>
+                        <img draggable="false" src={insta} className=""/>
                     </div>
-                    
-                    {/* 
+                     
                     <div className='mis-q'>
-                        <h2>Inquiries or Questions?</h2>
+                        <h2>Feedback or Questions?</h2>
                     </div>
                     <div className='mis-form'>
                         <div className='mis-inputs'>
-                            <input type="email" id="friend_email" placeholder="Name" value={friendEmail} onChange={(e) => setfriendEmail(e.target.value)}></input>
-                            <select id="mis-type" onChange={(e=> setpersonType(e.target.value))}>
-                                <option value = "Parent">Parent</option>
-                                <option value = "Student">Student</option>
-                                <option value = "Tutor">Tutor</option>
-                                <option value = "Other">Other</option>
-                            </select>
+                            <div>                            
+                                <input id="fed_name" placeholder="Name" value={fedName} onChange={(e) => setfedName(e.target.value)}></input>
+                            </div>
+                            <div>
+                                <select id="fed_type" onChange={(e=> setpersonType(e.target.value))}>
+                                    <option value = "Parent">Parent</option>
+                                    <option value = "Student">Student</option>
+                                    <option value = "Tutor">Tutor</option>
+                                    <option value = "Other">Other</option>
+                                </select>
+                            </div>
+
                         </div>
                         <div className='mis-inputs'>
-                            <input type="email" id="friend_email" placeholder="Email" value={friendEmail} onChange={(e) => setfriendEmail(e.target.value)}></input>
-                            <input type="email" id="friend_email" placeholder="Company / School" value={friendEmail} onChange={(e) => setfriendEmail(e.target.value)}></input>
+                            <div>
+                                <input type="email" id="fed_email" placeholder={"Email"} value={fedEmail} onChange={(e) => setfedEmail(e.target.value)}></input>
+                            </div>
+                            <div>
+                                <input id="fed_loc" placeholder="Company / School" value={fedLoc} onChange={(e) => setfedLoc(e.target.value)}></input>
+                            </div>
                         </div>
-                        <textarea className='mis-msg'></textarea>  
+                        <textarea className='mis-msg' id="fed_message" placeholder="Message" value={fedMessage} onChange={(e) => setfedMessage(e.target.value)}></textarea> 
+                        <h3 className="fed-submit" onClick={() => submitFriendEmail()}>Submit</h3> 
                     </div>
-                    <h1>temp</h1>
-                    
-                    */}
-                    
+                    <div className='mis-but-cont'>
+                        <h2 className='mis-button' onClick={() => goHome()}>Home</h2>
+                    </div>
+                    <p className='mis-note'>Copyright @ 2024 Scholars Beacon | scholarsbeacon@gmail.com</p>
+                    <img draggable="false" src={tower} className="tower-peng"/>
                 </div>
             </div>
         )

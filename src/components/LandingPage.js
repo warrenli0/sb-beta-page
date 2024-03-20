@@ -5,11 +5,11 @@ import ThreePingus from './lp-comps/ThreePingus';
 import SbInfo from './lp-comps/SbInfo';
 import Bottom from './lp-comps/Bottom';
 
-import { useState } from "react";
+import { useEffect } from "react";
 
 export default function LandingPage({setShowTopWave, showLP, setshowLandingPage, setWavesFinished, setfirstBetaButton, setshowMission}) {
     // fade in on scroll : https://www.freecodecamp.org/news/reveal-on-scroll-in-react-using-the-intersection-observer-api/
-
+    
     if (showLP) {
         return (
             <div>

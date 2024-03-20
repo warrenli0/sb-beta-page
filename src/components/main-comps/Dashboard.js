@@ -3,6 +3,10 @@ import beach from '../../images/mission-beach.png';
 import cont from '../../images/dash-continue.png';
 import stars from '../../images/starsbg.png';
 import ping_tree from '../../images/peng-on-tree.png';
+import towel from '../../images/beach-towel.png';
+import lamp from '../../images/lamp-ping.png';
+import book from '../../images/book-ping.png';
+import sleep from '../../images/beach-sleep.png';
 
 import React, { useState, useEffect } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
@@ -109,7 +113,9 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     const [fin, setfin] = useState('0');
 
     const [email, setEmail] = useState("");
+    const [feMail, setfriendEmail] = useState("");
     const [dis, setdis] = useState("");
+    const [disFriend, setdisFriend] = useState("");
 
     const [pieData, setpieData] = useState({
         labels: ['English', 'Math', 'Reading', 'Science'],
@@ -568,7 +574,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     async function friendEmail() {    
         // var: fEmail
         const data = {
-            email,
+            feMail,
         };
 
         try {
@@ -595,225 +601,275 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     if (showDashoard) {
         // different version if its SAT or ACT
         return (
-            <div className='dashboard-bg' exit={exit}>
-                <div className='dash-stars'>
-                    <img src={stars}/>
-                </div>
-                <div className='dash-header' fin={fin}>
-                    <h1>Let's <span style={{color: "#FFB800"}}>analyze</span>  how you did...</h1>
-                </div>
-                <div className='eng-header' version={+(choseSAT)} fin={fin}>
-                    <h2>English</h2> 
-                    <h2>{(satScores[0])}</h2> 
-                </div>
-                <div className='mat-header' version={+(choseSAT)} fin={fin}>
-                    <h2>Math</h2> 
-                    <h2>{(satScores[1])}</h2>
-                </div>
-                <ScoreChart v={0} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
-                <ScoreChart v={1} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
-                <ScoreChart v={2} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
-                <ScoreChart v={3} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
-                <div className='line-chart' fin={fin}>
-                    <form className='line-header'>
-                        <label htmlFor="cars">Set vs</label>
-                        <select name="cars" id="cars" onChange={(e=> setgraphID(e.target.value))}>
-                            <option value = "1">Avg Solve Time</option>
-                            <option value = "2">% Correct</option>
-                            <option value = "3">% Understood</option>
-                        </select>
-                    </form>
-                    <div className='line-container' version={graphID}>
-                        <Line 
-                        data={timeData} 
-                        options= {{
-                            plugins: {
-                                legend: {
-                                    position: "bottom",
-                                    labels: {
-                                        boxWidth: 20,
+            <div>
+                <div className='dashboard-bg' exit={exit}>
+                    <div className='dash-stars'>
+                        <img src={stars}/>
+                    </div>
+                    <div className='dash-header' fin={fin}>
+                        <h1>Let's <span style={{color: "#FFB800"}}>analyze</span>  how you did...</h1>
+                    </div>
+                    <div className='eng-header' version={+(choseSAT)} fin={fin}>
+                        <h2>English</h2> 
+                        <h2>{(satScores[0])}</h2> 
+                    </div>
+                    <div className='mat-header' version={+(choseSAT)} fin={fin}>
+                        <h2>Math</h2> 
+                        <h2>{(satScores[1])}</h2>
+                    </div>
+                    <ScoreChart v={0} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
+                    <ScoreChart v={1} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
+                    <ScoreChart v={2} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
+                    <ScoreChart v={3} actScores={actScores} actData={actData} choseSAT={choseSAT} satScores={satScores} satData={satData} fin={fin}/>
+                    <div className='line-chart' fin={fin}>
+                        <form className='line-header'>
+                            <label htmlFor="cars">Set vs</label>
+                            <select name="cars" id="cars" onChange={(e=> setgraphID(e.target.value))}>
+                                <option value = "1">Avg Solve Time</option>
+                                <option value = "2">% Correct</option>
+                                <option value = "3">% Understood</option>
+                            </select>
+                        </form>
+                        <div className='line-container' version={graphID}>
+                            <Line 
+                            data={timeData} 
+                            options= {{
+                                plugins: {
+                                    legend: {
+                                        position: "bottom",
+                                        labels: {
+                                            boxWidth: 20,
+                                        },
+                                        onHover: (event, chartElement) => {
+                                            event.native.target.style.cursor = 'pointer';
+                                        },
+                                        onLeave: (event, chartElement) => {
+                                            event.native.target.style.cursor = 'default';
+                                        }
                                     },
-                                    onHover: (event, chartElement) => {
-                                        event.native.target.style.cursor = 'pointer';
-                                    },
-                                    onLeave: (event, chartElement) => {
-                                        event.native.target.style.cursor = 'default';
-                                    }
                                 },
-                            },
-                            layout: {
-                                padding: 10,
-                            },
-                            scales: {
-                                x: {
-                                    title: {
-                                        display: true,
-                                        text: 'Problem Set',
-                                        align: 'center',
-                                    }
+                                layout: {
+                                    padding: 10,
                                 },
-                                y: {
-                                    title: {
-                                        display: true,
-                                        text: 'Avg Solve Time',
-                                        align: 'center',
+                                scales: {
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Problem Set',
+                                            align: 'center',
+                                        }
                                     },
-                                    suggestedMin: 0
+                                    y: {
+                                        title: {
+                                            display: true,
+                                            text: 'Avg Solve Time',
+                                            align: 'center',
+                                        },
+                                        suggestedMin: 0
+                                    }
                                 }
-                            }
-                        }}/>
-                    </div>
-                    <div className='line-container2' version={graphID}>
-                        <Line 
-                        data={corrData} 
-                        options= {{
-                            plugins: {
-                                legend: {
-                                    position: "bottom",
-                                    labels: {
-                                        boxWidth: 20,
+                            }}/>
+                        </div>
+                        <div className='line-container2' version={graphID}>
+                            <Line 
+                            data={corrData} 
+                            options= {{
+                                plugins: {
+                                    legend: {
+                                        position: "bottom",
+                                        labels: {
+                                            boxWidth: 20,
+                                        },
+                                        onHover: (event, chartElement) => {
+                                            event.native.target.style.cursor = 'pointer';
+                                        },
+                                        onLeave: (event, chartElement) => {
+                                            event.native.target.style.cursor = 'default';
+                                        }
                                     },
-                                    onHover: (event, chartElement) => {
-                                        event.native.target.style.cursor = 'pointer';
+                                },
+                                layout: {
+                                    padding: 10,
+                                },
+                                scales: {
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Problem Set',
+                                            align: 'center',
+                                        }
                                     },
-                                    onLeave: (event, chartElement) => {
-                                        event.native.target.style.cursor = 'default';
+                                    y: {
+                                        title: {
+                                            display: true,
+                                            text: '% Correct',
+                                            align: 'center',
+                                        },
+                                        suggestedMin: 0,
+                                        suggestedMax: 100
                                     }
                                 },
-                            },
-                            layout: {
-                                padding: 10,
-                            },
-                            scales: {
-                                x: {
-                                    title: {
-                                        display: true,
-                                        text: 'Problem Set',
-                                        align: 'center',
-                                    }
-                                },
-                                y: {
-                                    title: {
-                                        display: true,
-                                        text: '% Correct',
-                                        align: 'center',
+                            }}/>
+                        </div>
+                        <div className='line-container3' version={graphID}>
+                            <Line 
+                            data={uddData} 
+                            options= {{
+                                plugins: {
+                                    legend: {
+                                        position: "bottom",
+                                        labels: {
+                                            boxWidth: 20,
+                                        },
+                                        onHover: (event, chartElement) => {
+                                            event.native.target.style.cursor = 'pointer';
+                                        },
+                                        onLeave: (event, chartElement) => {
+                                            event.native.target.style.cursor = 'default';
+                                        }
                                     },
-                                    suggestedMin: 0,
-                                    suggestedMax: 100
+                                },
+                                layout: {
+                                    padding: 10,
+                                },
+                                scales: {
+                                    x: {
+                                        title: {
+                                            display: true,
+                                            text: 'Problem Set',
+                                            align: 'center',
+                                        }
+                                    },
+                                    y: {
+                                        title: {
+                                            display: true,
+                                            text: '% Understood',
+                                            align: 'center',
+                                        },
+                                        suggestedMin: 0,
+                                        suggestedMax: 100
+                                    }
                                 }
-                            },
-                        }}/>
+                            }}/>
+                        </div>
+                        <div className='line-message' version={+currProblemSet}>
+                            <p>Do one more practice set to compare results!</p>
+                        </div>
                     </div>
-                    <div className='line-container3' version={graphID}>
-                        <Line 
-                        data={uddData} 
-                        options= {{
-                            plugins: {
-                                legend: {
-                                    position: "bottom",
-                                    labels: {
-                                        boxWidth: 20,
+                    <div className='dash-pie' fin={fin}>
+                        <div className='pie-text'>
+                            <h2>Personalized Algorithm</h2>
+                            <h4><i>This is how we determine what questions you get in the future based on your accuracy, understanding, and scores. We prioritize your weak areas and reinforce your strong ones.</i></h4>
+                        </div>
+                        <div className='pie-container'>
+                            <Pie 
+                            data={pieData} 
+                            options= {{
+                                plugins: {
+                                    legend: {
+                                        display: false,
+                                        position: "right",
+                                        labels: {
+                                            boxWidth: 20,
+                                        },
+                                        onClick: null,
                                     },
-                                    onHover: (event, chartElement) => {
-                                        event.native.target.style.cursor = 'pointer';
-                                    },
-                                    onLeave: (event, chartElement) => {
-                                        event.native.target.style.cursor = 'default';
-                                    }
                                 },
-                            },
-                            layout: {
-                                padding: 10,
-                            },
-                            scales: {
-                                x: {
-                                    title: {
-                                        display: true,
-                                        text: 'Problem Set',
-                                        align: 'center',
-                                    }
-                                },
-                                y: {
-                                    title: {
-                                        display: true,
-                                        text: '% Understood',
-                                        align: 'center',
-                                    },
-                                    suggestedMin: 0,
-                                    suggestedMax: 100
+                                layout: {
+                                    padding: 50,
                                 }
-                            }
-                        }}/>
-                    </div>
-                    <div className='line-message' version={+currProblemSet}>
-                        <p>Do one more practice set to compare results!</p>
-                    </div>
-                </div>
-                <div className='dash-pie' fin={fin}>
-                    <div className='pie-text'>
-                        <h2>Personalized Algorithm</h2>
-                        <h4><i>This is how we determine what questions you get in the future based on your accuracy, understanding, and scores. We prioritize your weak areas and reinforce your strong ones.</i></h4>
-                    </div>
-                    <div className='pie-container'>
-                        <Pie 
-                        data={pieData} 
-                        options= {{
-                            plugins: {
-                                legend: {
-                                    display: false,
-                                    position: "right",
-                                    labels: {
-                                        boxWidth: 20,
-                                    },
-                                    onClick: null,
-                                },
-                            },
-                            layout: {
-                                padding: 50,
-                            }
-                        }}/>
-                    </div>
-                    {/*<div className='pie-legend'>
-                        <div className='legend-cont'>
-                            <div className='pie-box english-orange'></div>
-                            <h4>English</h4>
+                            }}/>
                         </div>
-                        <div className='legend-cont'>
-                            <div className='pie-box math-red'></div>
-                            <h4>Math</h4>
-                        </div>
-                        <div className='legend-cont'>
-                            <div className='pie-box reading-blue'></div>
-                            <h4>Reading</h4>
-                        </div>
-                        <div className='legend-cont'>
-                            <div className='pie-box science-green'></div>
-                            <h4>Science</h4>
-                        </div>
-                    </div>*/}
-                </div>
-                <div className='dash-try' fin={fin}>
-                    <h1 onClick={() => {tryFive()}}>Try <span style={{color: "#FFB800"}}>5 new</span> problems</h1>
-                    <h4><i>adjusted to fit your algorithm!</i></h4>
-                </div>
-                    <div className='dash-tree-container' fin={fin}>
-                    <img src={ping_tree} className="coconut-tree"/>
-                </div>
-                <div className='dash-done' fin={fin}>
-                    <h1>You have completed the <span style={{color: '#FFB800'}}>Beta!</span></h1>
-                    <h2>As promised, input your email below to be in the first group of students to use the full product in late March.</h2>
-                    <input disabled={dis} type="email" id="user_email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
-                    <div className=""> 
+                        {/* <div className='pie-legend'>
+                            <div className='legend-cont'>
+                                <div className='pie-box english-orange'></div>
+                                <h4>English</h4>
+                            </div>
+                            <div className='legend-cont'>
+                                <div className='pie-box math-red'></div>
+                                <h4>Math</h4>
+                            </div>
+                            <div className='legend-cont'>
+                                <div className='pie-box reading-blue'></div>
+                                <h4>Reading</h4>
+                            </div>
+                            <div className='legend-cont'>
+                                <div className='pie-box science-green'></div>
+                                <h4>Science</h4>
+                            </div>
+                        </div>*/}
+                    </div>
+                    <div className='dash-try' fin={fin}>
+                        <h1 onClick={() => {tryFive()}}>Try <span style={{color: "#FFB800"}}>5 new</span> problems</h1>
+                        <h4><i>adjusted to fit your algorithm!</i></h4>
+                    </div>
+                        <div className='dash-tree-container' fin={fin}>
+                        <img src={ping_tree} className="coconut-tree"/>
+                    </div>
+                    <div className='dash-done' fin={fin}>
+                        <h1>You have completed the <span style={{color: '#FFB800'}}>Beta!</span></h1>
+                        <h2>As promised, input your email below to be in the first group of students to use the full product in late March.</h2>
+                        <input disabled={dis} type="email" id="user_email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
                         <h3 className="dash-submit" dis={dis} onClick={() => submitEmail()}>Submit</h3>
+                        <p>read more below</p>
+                        </div>
+                    <div className='dash-beach'>
+                        <img src={beach}/>
+                    </div>
+                    <div className='dash-cont' fin={fin}>
+                        <img src={cont} onClick={() => {finish()}}/>
                     </div>
                 </div>
-                <div className='dash-beach'>
-                    <img src={beach}/>
-                </div>
-                <div className='dash-cont' fin={fin}>
-                    <img src={cont} onClick={() => {finish()}}/>
+                <div className='dash-text' fin={fin}>
+                    <div className='dash-ref'>   
+                        <div>
+                            <img src={towel}/>
+                        </div>
+                        <div className='dash-friend-cont'>
+                            <h2>If you like our beta, be sure to tell your friends. We'd appreciate it!</h2>
+                            <input disabled={disFriend} type="email" id="friend_email" placeholder="Their email" onChange={(e) => setfriendEmail(e.target.value)}></input>
+                            <h3 dis={disFriend} onClick={() => friendEmail()}>Submit</h3>
+                        </div>
+                    </div>
+                    <h1>Why are you here right now?</h1>
+                    <div className='dash-info'>
+                        <div>
+                            <h2>You've just spent 10 minutes (willingly we hope) practicing SAT/ACT problems. Good stuff.</h2>
+                            <br></br>
+                            <h2>You chose to learn and improve, and this is what defines a student who can achieve a great score! We want to provide you with a platform where you can get to the score you want and learn in a fun & engaging manner.</h2>
+                        </div>
+                        <div>
+                            <img src={lamp}/>
+                        </div>
+                    </div>
+                    <h1>Why should you use our platform?</h1>
+                    <div className='dash-info2'>
+                        <div>
+                            <img src={book}/>
+                        </div>
+                        <div>
+                            <h2>Scoring a <b>1600/36</b> comes down to understanding your mistakes. That's it. Work on your weak areas and reinforce your strong ones.</h2>
+                            <br></br>
+                            <h2>You chose to learn and improve, and this is what defines a student who can achieve a great score! We want to provide you with a platform where you can get to the score you want and learn in a fun & engaging manner.</h2>
+                        </div>
+                    </div>
+                    <div className='dash-remain'>
+                        <img draggable="false" src={sleep} className="pillow-peng"/>
+                        <h2>We built this learning platform solely to help you achieve your dream score. <b>Made by students, for students.</b></h2>
+                        <br></br>
+                        <h2>We want to <span style={{color: "#005AE1"}}><b>simplify</b></span> the entire test preparation experience so that you can save your money and your time.</h2>
+                        <br></br>
+                        <h2>The beta is a <span style={{color: "#1E9600"}}><b>snippet</b></span> of what we have to offer in the full product. Weekly mock exams, community activities, hundreds of problems from top prep academies, mini-modules in specific topics, accountability virtual pets, and so much more!</h2>
+                        <br></br>
+                        <h2>Talk to you soon (or today if you join our Discord) — stay in touch below.</h2>
+                        <br></br>
+                        <h2>- SB Team</h2>
+                        <br></br>
+                        <h2><b>We encourage you to join our Discord — learning is expedited with a great community!</b></h2>
+                    </div>
                 </div>
             </div>
+            
         ) 
     }
 }

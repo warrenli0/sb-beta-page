@@ -44,8 +44,8 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
     };
 
     function missionTime() {
-        setWavesFinished(false);
-        setShowTopWave(1);
+        setWavesFinished(false); // trigger the wave
+        setShowTopWave(1); // indicates to c
         setTimeout(function(){
             setshowMission(true); // show mission page
             window.scrollTo(0, 0);

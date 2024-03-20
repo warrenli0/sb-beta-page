@@ -1,16 +1,23 @@
 import './WaveTransition.css'
 import peng from '../images/ping-bubble.png';
 
-export default function WaveTransition({showTopWave, wavesFinished, setWavesFinished}) {
+import { useEffect } from "react";
+
+export default function WaveTransition({showTopWave, wavesFinished, setWavesFinished, setShowTopWave}) {
     // credit to https://codepen.io/tedmcdo/pen/PqxKXg
     //<h1 onClick={() => setWobble(1)}>hello</h1>
 
-    // turn off waves    
-    if (showTopWave == 1) {
-        setTimeout(() => {
-            setWavesFinished(true);
-        }, 6000);
-    }
+    useEffect(() => {
+        // turn off waves    
+        if (showTopWave == 1) {
+            //console.log('waves coming!', Math.floor(Date.now() / 1000));
+            setTimeout(() => {
+                setWavesFinished(true);
+                //console.log('waves gone!', Math.floor(Date.now() / 1000));
+                setShowTopWave(0);
+            }, 5000);
+        }
+      }, [showTopWave]);
 
     if (!wavesFinished) {
         return (

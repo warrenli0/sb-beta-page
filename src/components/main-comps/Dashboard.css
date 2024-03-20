@@ -5,7 +5,7 @@ body {
 .dashboard-bg {
     width: 100vw;
     height: calc(100dvh + 0px);
-    position: fixed;
+    position: relative;
     top: calc(-100dvh);
     background-color: #000023;
     animation: down-dash 4s forwards;
@@ -266,7 +266,6 @@ body {
 
 .line-container {
     position: relative;
-    z-index: 7;
     display: none;
 }
 .line-container[version='1'] {
@@ -401,6 +400,10 @@ body {
 .dash-done input:disabled {
     background-color: ivory;
 }
+.dash-done p {
+    color: white;
+    font-size: .8em;
+}
 
 .dash-submit {
     font-weight: 500;
@@ -432,6 +435,141 @@ body {
     display: block;
     z-index: 4;
     animation: right-to-mid 3s forwards; 
+}
+
+.dash-text {
+    display: none;
+}
+.dash-text[fin='1'] {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    color: white;
+    background-color: #FFD85F;
+}
+.dash-text h1 {
+    text-align: center;
+    color: black;
+}
+
+.dash-ref {
+    height: 30dvh;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+    padding: 0 10%;
+    color: black;
+    position: relative;
+}
+.dash-ref h2{
+    text-align: right;
+    font-weight: 500;
+}
+.dash-ref img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.dash-ref input {
+    width: 80%;
+    height: 50px;
+    padding: 0 10px;
+    font-weight: 600;
+    font-size: large;
+    border-radius: 10px;
+    border: none;
+    margin-bottom: 10px;
+}
+.dash-ref input::placeholder {
+    color: #747474; 
+    font-weight: 800;
+    font-size: large;
+}
+.dash-ref input:invalid {
+    background-color: ivory;
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+.dash-ref input:disabled {
+    background-color: ivory;
+}
+.dash-ref h3 {
+    font-weight: 500;
+    cursor: pointer;
+    transition: color .2s;
+    color: black;
+    text-align: right;
+}
+.dash-ref h3:hover {
+    color:rgba(130, 111, 6, 0.392); 
+}
+.dash-ref h3[dis="disabled"] {
+    visibility: hidden;
+}
+.dash-friend-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.dash-info {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 100%;
+    padding-left: 5%;
+    color: black;
+}
+.dash-info h2{
+    font-weight: 500;
+}
+.dash-info div{
+    position: relative;
+}
+.dash-info img{
+    height: 130%;
+    position: absolute;
+    right: 0;
+    top: -50px;
+}
+
+.dash-info2 {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-rows: 100%;
+    padding-right: 5%;
+    color: black;
+}
+.dash-info2 h2{
+    font-weight: 500;
+}
+.dash-info2 div{
+    position: relative;
+}
+.dash-info2 img{
+    height: 130%;
+    position: absolute;
+    left: 0;
+    top: -50px;
+}
+
+.dash-remain {
+    padding-left: 10%;
+    padding-right: 10%;
+    color: black;
+    position: relative;
+}
+.dash-remain h2{
+    font-weight: 500;
+}
+
+.pillow-peng {
+    position: absolute;
+    width: 10%;
+    right: 0%;
+    top: 0%;
 }
 
 @keyframes down-dash {
