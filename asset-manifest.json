@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.41e2fc33.css",
-    "main.js": "/static/js/main.8d0d8525.js",
+    "main.css": "/static/css/main.1387b9d9.css",
+    "main.js": "/static/js/main.d8b96d61.js",
     "static/media/open-treasure-peng-speak.png": "/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/curr-dash.png": "/static/media/curr-dash.f56b2a92e36a83cba4a3.png",
     "static/media/prac-problem.png": "/static/media/prac-problem.bef7cbd009f68bc7a876.png",
@@ -36,6 +36,7 @@
     "static/media/tea-ping.png": "/static/media/tea-ping.59ddd2488081573ef6f2.png",
     "static/media/scarf-ping.png": "/static/media/scarf-ping.fef7168289272d09d8f4.png",
     "static/media/lying-ping.png": "/static/media/lying-ping.4d381ef749810265f3f5.png",
+    "static/media/WCT.png": "/static/media/WCT.04784630bb669dd06e93.png",
     "static/media/fam-ping.png": "/static/media/fam-ping.4033cc3c0a347b32446f.png",
     "static/media/brown.png": "/static/media/brown.bfab8ac612e834ffb3c0.png",
     "static/media/ping-bubble.png": "/static/media/ping-bubble.95326f37bd8a6a90348a.png",
@@ -70,11 +71,11 @@
     "static/media/fourth-wave.svg": "/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.41e2fc33.css.map": "/static/css/main.41e2fc33.css.map",
-    "main.8d0d8525.js.map": "/static/js/main.8d0d8525.js.map"
+    "main.1387b9d9.css.map": "/static/css/main.1387b9d9.css.map",
+    "main.d8b96d61.js.map": "/static/js/main.d8b96d61.js.map"
   },
   "entrypoints": [
-    "static/css/main.41e2fc33.css",
-    "static/js/main.8d0d8525.js"
+    "static/css/main.1387b9d9.css",
+    "static/js/main.d8b96d61.js"
   ]
 }
