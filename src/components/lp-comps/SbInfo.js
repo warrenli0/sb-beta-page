@@ -103,10 +103,10 @@ export default function SbInfo() {
                         <h3>The most active SAT/ACT online <b style={{color: '#FFB800'}}>community!</b> Study together {'&'} get all your questions answered in minutes — <b style={{color: '#FFB800'}}>anytime, anywhere.</b></h3>
                     </div>
                 </div>
-                <div className="sb-img2" ref={divRef7}>
+                <a href='https://discord.gg/6xbnQPJvxg' target="_blank" className="sb-img2" ref={divRef7}>
                     <img src={discord} className="hidden2"/>
                     <p className="hidden2">click to join!</p>
-                </div>
+                </a>
                 <div className="sb-img" ref={divRef8}>
                     <img src={mock} className="hidden2" id="report"/>
                 </div>

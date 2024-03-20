@@ -469,10 +469,19 @@ body {
     align-items: center;
     justify-content: space-evenly;
 }
-
+.mis-social a {
+    height: 100px;
+}
 .mis-social img{
    max-height: 100%;
+   cursor: pointer;
+   transition: all .2s;
 }
+.mis-social img:hover{
+    scale: 110%;
+    cursor: pointer;
+ }
+ 
 
 .mis-q {
     text-align: center;

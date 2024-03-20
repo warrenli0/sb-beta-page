@@ -10,7 +10,7 @@ import mit from '../images/mit.png';
 import ani from '../images/ani.png';
 import war from '../images/war.png';
 import aru from '../images/aru.png';
-import fb from '../images/fb.png';
+import fb from '../images/tik.png';
 import disc from '../images/gray-disc.png';
 import insta from '../images/insta.png';
 
@@ -366,9 +366,15 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                         <p>We collect and store your information solely for the purpose of sending relevant communications about our platform. We do not sell or share this information with third parties.</p>
                     </div>
                     <div className='mis-social'>
-                        <img draggable="false" src={fb} className=""/>
-                        <img draggable="false" src={disc} className=""/>
-                        <img draggable="false" src={insta} className=""/>
+                        <a href='https://www.tiktok.com/@officialscholarsbeacon'target="_blank">
+                            <img draggable="false" src={fb} className=""/>
+                        </a>
+                        <a href='https://discord.gg/DHgNW3y69M' target="_blank">
+                            <img draggable="false" src={disc} className=""/>
+                        </a>
+                        <a href='https://www.instagram.com/scholarsbeacon/' target="_blank">
+                            <img draggable="false" src={insta} className=""/>
+                        </a>
                     </div>
                      
                     <div className='mis-q'>

@@ -244,7 +244,9 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-e-help" mobile={mobile} format={prob.type}>
                         <h4>Don't understand? Skip {"&"} ask for help in the discord!</h4>
-                        <img src={disc} />
+                        <a href='https://discord.gg/TV7y8KVwW3' target="_blank">
+                            <img src={disc} />
+                        </a> 
                         <img src={arrow} id="the-e-arrow" onClick={() => {nextQ()}}/>
                     </div>
                     <div className="the-e-see" mobile={mobile} format={prob.type}>
@@ -310,7 +312,9 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-e-help" mobile={mobile} format="Image">
                         <h4>Don't understand? Skip {"&"} ask for help in the discord!</h4>
-                        <img src={disc} />
+                        <a href='https://discord.gg/TV7y8KVwW3' target="_blank">
+                            <img src={disc} />
+                        </a>    
                         <img src={arrow} id="the-e-arrow" onClick={() => {nextQ()}}/>
                     </div>
                     <div className="the-e-see" mobile={mobile}>
@@ -373,7 +377,9 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-e-help" mobile={mobile}>
                         <h4>Don't understand? Skip {"&"} ask for help in the discord!</h4>
-                        <img src={disc} />
+                        <a href='https://discord.gg/TV7y8KVwW3' target="_blank">
+                            <img src={disc} />
+                        </a>  
                         <img src={arrow} id="the-e-arrow" onClick={() => {nextQ()}}/>
                     </div>
                     <div className="the-e-see" mobile={mobile}>

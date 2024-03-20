@@ -436,10 +436,15 @@
 .the-e-help img {
     width: 30px;
     height: 30px;
+    cursor: pointer;
+}
+.the-e-help a{
+    display: flex;
+    align-content: center;
+    justify-content: center;
 }
 #the-e-arrow {
     width: 60px;
-    cursor: pointer;
 }
 .the-e-image {
     grid-column-start: 3;

@@ -377,9 +377,11 @@ html, body {
     justify-content: center;
     text-align: center;
     padding: 0 20px;
+    text-decoration: none;
 }
 .sb-img2 p{
     cursor: pointer;
+    color: white;
 }
 .sb-img2 img {
     max-height: 65%;
