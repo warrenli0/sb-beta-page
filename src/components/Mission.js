@@ -67,15 +67,9 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
 
     // WAR
     async function submitEmail() {
-        const ele = document.getElementById("user_email");
-        if (ele.validity.valid && dis!="disabled" && email != "") {
-            setdis("disabled");
-            setheroMsg("Thank you — we will be in touch soon!");
-            setemMsg("Thank you — we will be in touch soon!");
-        }
 
         const data = {
-            email: document.getElementById("user_email"),
+            email: email,
         };
 
         try {
