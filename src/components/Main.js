@@ -34,6 +34,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
       
             // Map backend schema to the frontend schema
             const mappedQuestions = data.map(question => ({
+              id: question._id,
               text: question.problemStatement,
               type: question.category,
               options: question.answerChoices.map((choice, index) => ({
@@ -66,6 +67,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
       
             // Map backend schema to the frontend schema
             const mappedQuestions = data.map(question => ({
+              id: question._id,
               text: question.problemStatement,
               type: question.category === 'Writing' ? 'English' : (question.category === 'Math (no calc)' || question.category === 'Math (calc)' ? 'Math' : question.category),
               options: question.answerChoices.map((choice, index) => ({

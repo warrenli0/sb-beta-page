@@ -10,12 +10,11 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
 
     function nextQ() {
         var setNum = "Set" + currProblemSet;
+        console.log(log);
 
         if (!log[setNum]) {
             log[setNum] = {}; // Initialize it as an empty object
-        }    
-
-        
+        }            
 
         if (exit == '0' || exit == '2') {
             setexit('1');

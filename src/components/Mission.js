@@ -31,7 +31,9 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     const [friendMsg, setfriendMsg] = useState("Share this with friends:");
     const [email, setEmail] = useState("");
     const [friendEmail, setfriendEmail] = useState("");
+    const [friendcount, setfriendcount] = useState(0);
     const [dis, setdis] = useState("");
+    const [frienddis, setfrienddis] = useState(0);
 
     // form states
     const [personType, setpersonType] = useState("Parent");
@@ -39,6 +41,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     const [fedEmail, setfedEmail] = useState("");
     const [fedLoc, setfedLoc] = useState("");
     const [fedMessage, setfedMessage] = useState("");
+    const [feddis, setfeddis] = useState("");
 
     function goHome() {
         setWavesFinished(false);
@@ -100,8 +103,16 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
         const ele = document.getElementById("friend_email");
         if (ele.validity.valid && dis!="disabled" && friendEmail != "") {
             //console.log("friend", friendEmail);
-            setfriendMsg("Share with more friends!");
-            setfriendEmail("");
+            if (friendcount < 4) {
+
+                setfriendMsg("Share with more friends!");
+                setfriendEmail("");
+
+                setfriendcount(friendcount + 1);
+            } else {
+                setfriendMsg("Thanks for sharing!");
+                setfrienddis("disabled");
+            }
         }
 
         const data = {
@@ -174,13 +185,13 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                         <div className='mis-text'>
                             <h1><b>We give students the motivation to score well.</b> Scholars Beacon provides the tools and guidance students need to crack the SAT & ACT.</h1>
                             <div className='hero-email-enter'>
-                                <h1>{heroMsg}</h1>
+                                <h1 style={{color: "black"}}>{heroMsg}</h1>
                                 <input type="email" id="user_email" highlight='1' disabled={dis} placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                                 <h2 className='hero-submit' dis={dis} onClick={() => submitEmail()}>Submit</h2>
                             </div>
                         </div>
                         <div className='mis-vid'>
-                            <iframe src="https://www.youtube.com/embed/IlsD3EM_KSk?si=Cw9E8FOBnJGX_prX&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe src="https://www.youtube.com/embed/IlsD3EM_KSk?si=774i0OKhXNtT_9H_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                         <div className='mis-read'>
                             <h3>Read about our mission below</h3>
@@ -336,9 +347,9 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                         </div>
                         <div className='mis-email-enter'>
                             <h1>{friendMsg}</h1>
-                            <input type="email" id="friend_email" placeholder="Their email" value={friendEmail} onChange={(e) => setfriendEmail(e.target.value)}></input>
+                            <input type="email" id="friend_email" disabled={frienddis} placeholder="Their email" value={friendEmail} onChange={(e) => setfriendEmail(e.target.value)}></input>
                             <div className='mis-submit-cont'>
-                                <h4 className="mis-submit" onClick={() => submitFriendEmail()}>Submit</h4>
+                                <h4 className="mis-submit" dis={frienddis} onClick={() => submitFriendEmail()}>Submit</h4>
                             </div>
                         </div>
                     </div>

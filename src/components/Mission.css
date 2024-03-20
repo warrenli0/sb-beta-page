@@ -44,7 +44,7 @@ body {
 }
 .mis-text h1 {
     font-weight: 600;
-    color: black;
+    color: #03045E;
 }
 .mis-text h4 {
     color: black;
@@ -112,6 +112,9 @@ body {
     visibility: hidden;
 }
 
+.mis-but-cont{
+    text-align: center;
+}
 .mis-button {
     display: inline-block;
     background-color: #03045E;

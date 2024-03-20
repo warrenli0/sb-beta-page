@@ -47,6 +47,7 @@ export default function QGrid({questions, notesArray, setnotesArray, bgNum, setb
     }
 
     useEffect(() => {
+
       // 5 new problems has been selected, reset vars
       if (currProblemSet > 1) {
         //console.log("done1");
