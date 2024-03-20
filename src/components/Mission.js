@@ -68,35 +68,42 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     // WAR
     async function submitEmail() {
 
-        const data = {
-            email: email,
-        };
+        const ele = document.getElementById("user_email");
+        if (ele.validity.valid && dis!="disabled" && email != "") {
+            setdis("disabled");
+            setheroMsg("Thank you!");
+            setemMsg("Thank you!");
 
-        try {
-            const response = await fetch('https://sbapidev.com/submit-email', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
+            const data = {
+                email: email,
+            };
     
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            try {
+                const response = await fetch('https://sbapidev.com/submit-email', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const responseData = await response.json();
+                console.log(responseData.message);
+        
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
-    
-            const responseData = await response.json();
-            // console.log(responseData.message);
-    
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
         }
     }
 
     // WAR
     async function submitFriendEmail() {
         const ele = document.getElementById("friend_email");
-        if (ele.validity.valid && dis!="disabled" && friendEmail != "") {
+        if (ele.validity.valid && frienddis!="disabled" && friendEmail != "") {
             //console.log("friend", friendEmail);
             if (friendcount < 4) {
 
@@ -149,7 +156,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
         if (fn.validity.valid && fe.validity.valid && fm.validity.valid && feddis!="disabled" && fedEmail != "" && fedName != "" && fedMessage != "") {
             setfeddis("disabled");
             setfedTitle("Thank you — we will be in touch shortly!");
-            
+
             const data = {
                 email: fedEmail,
                 personType,
