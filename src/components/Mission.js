@@ -129,6 +129,15 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
         }
     }
 
+    // WAR
+    async function submitFedback(){
+        // personType: Parent, Student, Tutor, Other
+        // fedName
+        // fedEmail
+        // fedLoc
+        // fedMessage
+    }
+
     if (showMission) {
         return (
             <div className='mission-cont'>
@@ -342,7 +351,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                             </div>
                         </div>
                         <textarea className='mis-msg' id="fed_message" placeholder="Message" value={fedMessage} onChange={(e) => setfedMessage(e.target.value)}></textarea> 
-                        <h3 className="fed-submit" onClick={() => submitFriendEmail()}>Submit</h3> 
+                        <h3 className="fed-submit" onClick={() => submitFedback()}>Submit</h3> 
                     </div>
                     <div className='mis-but-cont'>
                         <h2 className='mis-button' onClick={() => goHome()}>Home</h2>

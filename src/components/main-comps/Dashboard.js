@@ -27,6 +27,10 @@ defaults.color = 'white';
     science: [],
 }*/
 
+function goMission() {
+
+}
+
 function ScoreChart({v, actScores, actData, choseSAT, satScores, satData, fin}) {
     const [types, settypes] = useState(['English', 'Math', 'Reading', 'Science']);
     const types2 = ['Reading', 'Writing', 'Math (no calc)', 'Math (calc)'];
@@ -865,7 +869,10 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         <br></br>
                         <h2>- SB Team</h2>
                         <br></br>
-                        <h2><b>We encourage you to join our Discord — learning is expedited with a great community!</b></h2>
+                        <h2><b>We are building the largest community of students & tutors, and it is free to join today!</b></h2>
+                    </div>
+                    <div className='dash-but-cont'>
+                        <h2 className='mis-button' onClick={() => goMission()}>Home</h2>
                     </div>
                 </div>
             </div>

@@ -572,6 +572,10 @@ body {
     top: 0%;
 }
 
+.dash-but-cont {
+    text-align: center;
+}
+
 @keyframes down-dash {
     0% {
         top: calc(-100dvh);
