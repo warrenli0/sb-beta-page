@@ -48,7 +48,7 @@ export default function ThxPage({showThx, setshowThx, choseSAT, actScores, actDa
             }
     
             const responseData = await response.json();
-            console.log(responseData.message);
+            // console.log(responseData.message);
             // Handle success (e.g., show a success message or redirect the user)
     
         } catch (error) {

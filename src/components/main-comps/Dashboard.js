@@ -549,7 +549,6 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             firstBetaButton,
             "log": JSON.stringify(log),
         };
-        console.log(email);
     
         try {
             const response = await fetch('https://sbapidev.com/submit-info', {
@@ -565,11 +564,11 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             }
     
             const responseData = await response.json();
-            console.log(responseData.message);
+            // console.log(responseData.message);
             // Handle success (e.g., show a success message or redirect the user)
     
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            // console.error('There was a problem with the fetch operation:', error);
             // Handle errors (e.g., show an error message)
         }
     }
@@ -595,10 +594,10 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             }
     
             const responseData = await response.json();
-            console.log(responseData.message);
+            // console.log(responseData.message);
     
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            // console.error('There was a problem with the fetch operation:', error);
         }
     }
 
