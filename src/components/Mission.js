@@ -69,7 +69,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     async function submitEmail() {
 
         const ele = document.getElementById("user_email");
-        if (ele.validity.valid && dis!="disabled" && email != "") {
+        if (ele.validity.valid && dis!="disabled" && email != "") { // makes sure email is valid
             setdis("disabled");
             setheroMsg("Thank you!");
             setemMsg("Thank you!");
@@ -103,42 +103,41 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     // WAR
     async function submitFriendEmail() {
         const ele = document.getElementById("friend_email");
-        if (ele.validity.valid && frienddis!="disabled" && friendEmail != "") {
+        if (ele.validity.valid && frienddis!="disabled" && friendEmail != "") { // makes sure friendemail is valid
             //console.log("friend", friendEmail);
             if (friendcount < 4) {
 
                 setfriendMsg("Share with more friends!");
                 setfriendEmail("");
-
                 setfriendcount(friendcount + 1);
+
+                const data = {
+                    email: friendEmail,
+                };
+        
+                try {
+                    const response = await fetch('https://sbapidev.com/submit-referral', { 
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify(data)
+                    });
+            
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+            
+                    const responseData = await response.json();
+                    // console.log(responseData.message);
+            
+                } catch (error) {
+                    console.error('There was a problem with the fetch operation:', error);
+                }
             } else {
                 setfriendMsg("Thanks for sharing!");
                 setfrienddis("disabled");
             }
-        }
-
-        const data = {
-            email: friendEmail,
-        };
-
-        try {
-            const response = await fetch('https://sbapidev.com/submit-referral', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-    
-            const responseData = await response.json();
-            // console.log(responseData.message);
-    
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
         }
     }
 
@@ -202,7 +201,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                             </div>
                         </div>
                         <div className='mis-vid'>
-                            <iframe src="https://www.youtube.com/embed/Ovk0GQlUWQI?si=4m18294xnCMjJ-AK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+                            <iframe src="https://www.youtube.com/embed/Ovk0GQlUWQI?si=4m18294xnCMjJ-AK" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen="allowFullScreen"></iframe></div>
                         <div className='mis-read'>
                             <h3>Read about our mission below</h3>
                         </div>

@@ -104,6 +104,7 @@ body {
     font-weight: 500;
     cursor: pointer;
     transition: color .2s;
+    color: black;
 }
 .hero-submit:hover {
     color: goldenrod; 

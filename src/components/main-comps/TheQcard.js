@@ -1,6 +1,8 @@
 import arrow from "../../images/Arrow.png"
 import React, { useState, useRef } from "react";
 
+import { Textfit } from 'react-textfit';
+
 export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setchosenAnswers, setActData, actData, 
     setActWeightage, actWeightage, seconds, currProblemSet, choseSAT, satWeightage, setsatWeightage, satData, setsatData, log, setlog}) {
     const [showCard, setshowCard] = useState(true);
@@ -10,7 +12,7 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
 
     function nextQ() {
         var setNum = "Set" + currProblemSet;
-        console.log(log);
+        //console.log(log);
 
         if (!log[setNum]) {
             log[setNum] = {}; // Initialize it as an empty object
@@ -197,16 +199,32 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-2line"><div className="the-real-line" format={prob.type}></div></div>
                     <div className="answer-choice" id="the-choice1" format={prob.type}> 
-                        <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}><p>{prob.options[0].text}</p></button>
+                        <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[0].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice2" format={prob.type}>
-                        <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}><p>{prob.options[1].text}</p></button>
+                        <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[1].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice3" format={prob.type}>
-                        <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}><p>{prob.options[2].text}</p></button>
+                        <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[2].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice4" format={prob.type}>
-                        <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}><p>{prob.options[3].text}</p></button>
+                        <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[3].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="the-arrow" format={prob.type}><img src={arrow} chosen={selectedChoice} exit={exit} onClick={() => {nextQ()}}/></div>
                 </div>
@@ -222,16 +240,32 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-line" format='Image'><div className="the-real-line"></div></div>
                     <div className="answer-choice" id="the-choice1" format='Image'>
-                        <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}><p>{prob.options[0].text}</p></button>
+                        <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[0].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice2" format='Image'>
-                        <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}><p>{prob.options[1].text}</p></button>
+                        <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[1].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice3" format='Image'>
-                        <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}><p>{prob.options[2].text}</p></button>
+                        <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[2].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice4" format='Image'>
-                        <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}><p>{prob.options[3].text}</p></button>
+                        <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[3].text}
+                            </Textfit>
+                        </button>
                     </div>
                     {/* on click triggers move up and the removal make sure click can only happen max onc*/}
                     <div className="the-arrow"><img src={arrow} chosen={selectedChoice} exit={exit} onClick={() => {nextQ()}}/></div>
@@ -245,16 +279,32 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-line"><div className="the-real-line"></div></div>
                     <div className="answer-choice" id="the-choice1">
-                        <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}><p>{prob.options[0].text}</p></button>
+                        <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[0].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice2">
-                        <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}><p>{prob.options[1].text}</p></button>
+                        <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[1].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice3">
-                        <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}><p>{prob.options[2].text}</p></button>
+                        <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[2].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="the-choice4">
-                        <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}><p>{prob.options[3].text}</p></button>
+                        <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[3].text}
+                            </Textfit>
+                        </button>
                     </div>
                     {/* on click triggers move up and the removal make sure click can only happen max onc*/}
                     <div className="the-arrow"><img src={arrow} chosen={selectedChoice} exit={exit} onClick={() => {nextQ()}}/></div>

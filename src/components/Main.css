@@ -947,13 +947,16 @@ html, body {
     cursor: pointer;
     transition: background-color .2s;
 }
-
 .the-button p {
     font-size: 25px;
 }
-
 .the-button:hover {
     background-color: #FFD66D;
+}
+.the-button div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #choice1[chosen='1'] {

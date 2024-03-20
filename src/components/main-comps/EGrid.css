@@ -44,11 +44,18 @@
 .ecard-misc h3{
     font-weight: 500;
     text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 5px;
 }
 .ecard-misc[move='11'] {
     transform: translateX(0);
     animation: out-to-left 1s forwards;
     animation-delay: .2s;
+}
+.ecard-misc img {
+    height: 20px;
+    object-fit: contain;
 }
 
 .ecard-notepad {

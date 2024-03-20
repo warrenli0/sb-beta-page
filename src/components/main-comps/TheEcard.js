@@ -4,7 +4,9 @@ import thumbs_up from "../../images/thumbs-up.png"
 import green_thumbs_up from "../../images/green-thumbs-up.png"
 import thumbs_down from "../../images/thumbs-down.png"
 import red_thumbs_down from "../../images/red-thumbs-down.png"
+
 import React, { useState, useRef } from "react";
+import { Textfit } from 'react-textfit';
 
 export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQIndex, chosenAnswers, setActData, actData, setActWeightage, actWeightage,
     currProblemSet, choseSAT, satWeightage, setsatWeightage, satData, setsatData, log, setlog, seconds}) {
@@ -200,16 +202,32 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-2left-e-line" mobile={mobile} format={prob.type}><div className="the-left-e-real-line"></div></div>
                     <div className="answer-choice" id="e-choice1" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
+                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[0].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice2" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
+                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[1].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice3" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
+                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[2].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice4" mobile={mobile} format={prob.type}>
-                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
+                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[3].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="the-e-line" format={prob.type}><div className="the-e-real-line"></div></div>
                     <div className="the-e-explanation" mobile={mobile} format={prob.type}>
@@ -246,16 +264,32 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-left-e-line" format='Image'><div className="the-left-e-real-line"></div></div>
                     <div className="answer-choice" id="e-choice1" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
+                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[0].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice2" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
+                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[1].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice3" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
+                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[2].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice4" mobile={mobile} format='Image'>
-                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
+                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[3].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="the-e-line" format='Image'><div className="the-e-real-line"></div></div>
                     <div className="the-e-image" mobile={mobile} format='Image'>
@@ -296,16 +330,32 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     </div>
                     <div className="the-left-e-line"><div className="the-left-e-real-line"></div></div>
                     <div className="answer-choice" id="e-choice1" mobile={mobile}>
-                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}><p>{prob.options[0].text}</p></button>
+                        <button className="the-e-button" choice="c1" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[0].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[0].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice2" mobile={mobile}>
-                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}><p>{prob.options[1].text}</p></button>
+                        <button className="the-e-button" choice="c2" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[1].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[1].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice3" mobile={mobile}>
-                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}><p>{prob.options[2].text}</p></button>
+                        <button className="the-e-button" choice="c3" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[2].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[2].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="answer-choice" id="e-choice4" mobile={mobile}>
-                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}><p>{prob.options[3].text}</p></button>
+                        <button className="the-e-button" choice="c4" chosen={+(chosenAnswers[currQIndex][1])} bg={""+(prob.options[3].isCorrect)}>
+                            <Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                {prob.options[3].text}
+                            </Textfit>
+                        </button>
                     </div>
                     <div className="the-e-line"><div className="the-e-real-line"></div></div>
                     <div className="the-e-explanation" mobile={mobile}>

@@ -53,7 +53,7 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
         }, 2500);
     }
 
-    function submitEmail() {
+    async function submitEmail() {
         const ele = document.getElementById("user_email");
         //console.log(ele.validity.valid);
         if (ele.validity.valid && dis!="disabled" && email != "") {
@@ -61,6 +61,30 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
             setdis("disabled");
             setemMsg("Thank you — we will be in touch soon!");
             //WAR: email is var with user email
+
+            const data = {
+                email: email,
+            };
+    
+            try {
+                const response = await fetch('https://sbapidev.com/submit-email', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const responseData = await response.json();
+                console.log(responseData.message);
+        
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
         }
     }   
 

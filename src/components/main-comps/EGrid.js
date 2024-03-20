@@ -2,7 +2,21 @@ import './EGrid.css'
 import TheNotepad from './TheNotepad';
 import TheEcard from './TheEcard';
 
+import pic from '../../images/WCT.png';
+
 import React, { useState, useEffect } from "react";
+
+function QuesBy({v}) {
+    if (v == "WCT") {
+        return (
+            <h3>Question by: <img src={pic}/></h3>
+        )
+    } else {
+        return (
+            <h3>Question by: <b>{v}</b></h3>
+        )
+    }
+}
 
 export default function EGrid({questions, notesArray, setnotesArray, bgNum, setbgNum, chosenAnswers, 
     drawingArray, setdrawingArray, setActData, actData, setActWeightage, actWeightage, currProblemSet,
@@ -49,7 +63,7 @@ export default function EGrid({questions, notesArray, setnotesArray, bgNum, setb
                       <h3><i>{questions[currQIndex].type}</i></h3>
                 </div>
                 <div className='ecard-misc' move={+bgNum}> 
-                    <h3>Question by: <b>SB</b></h3>
+                    <QuesBy v={questions[currQIndex].author}/>
                 </div>
                 <div className='ecard-version-note' move={+bgNum}>
                       <h3>experience the full version on a larger screen</h3>
