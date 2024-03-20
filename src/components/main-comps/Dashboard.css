@@ -575,6 +575,18 @@ body {
 .dash-but-cont {
     text-align: center;
 }
+.dash-button {
+    display: inline-block;
+    background-color: #1888FE;
+    color: white;
+    border-radius: 15px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color .2s;
+}
+.dash-button:hover {
+    background-color: #FFB800;
+}
 
 @keyframes down-dash {
     0% {

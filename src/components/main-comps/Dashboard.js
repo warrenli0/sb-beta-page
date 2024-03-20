@@ -872,7 +872,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         <h2><b>We are building the largest community of students & tutors, and it is free to join today!</b></h2>
                     </div>
                     <div className='dash-but-cont'>
-                        <h2 className='mis-button' onClick={() => goMission()}>Home</h2>
+                        <h2 className='dash-button' onClick={() => goMission()}>Home</h2>
                     </div>
                 </div>
             </div>

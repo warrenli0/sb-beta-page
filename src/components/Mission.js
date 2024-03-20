@@ -153,7 +153,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                             </div>
                         </div>
                         <div className='mis-vid'>
-                        <iframe src="https://www.youtube.com/embed/IlsD3EM_KSk?si=3VFm_jeDAJRhG1FL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+                            <iframe src="https://www.youtube.com/embed/IlsD3EM_KSk?si=Cw9E8FOBnJGX_prX&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                         </div>
                         <div className='mis-read'>
                             <h3>Read about our mission below</h3>
