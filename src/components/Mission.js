@@ -29,6 +29,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     const [emMsg, setemMsg] = useState("Know when we release:");
     const [heroMsg, setheroMsg] = useState("Join the waitlist!");
     const [friendMsg, setfriendMsg] = useState("Share this with friends:");
+    const [fedTitle, setfedTitle] = useState("Feedback or Questions?");
     const [email, setEmail] = useState("");
     const [friendEmail, setfriendEmail] = useState("");
     const [friendcount, setfriendcount] = useState(0);
@@ -147,32 +148,41 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
         // fedEmail
         // fedLoc
         // fedMessage
-        const data = {
-            email: fedEmail,
-            personType,
-            name: fedName,
-            location: fedLoc,
-            message: fedMessage,
-        };
 
-        try {
-            const response = await fetch('https://sbapidev.com/submit-feedback', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
+        const fn = document.getElementById("fed_name");
+        const fe = document.getElementById("fed_email");
+        const fm = document.getElementById("fed_message");
+        if (fn.validity.valid && fe.validity.valid && fm.validity.valid && feddis!="disabled" && fedEmail != "" && fedName != "" && fedMessage != "") {
+            setfeddis("disabled");
+            setfedTitle("Thank you — we will be in touch shortly!");
+            
+            const data = {
+                email: fedEmail,
+                personType,
+                name: fedName,
+                location: fedLoc,
+                message: fedMessage,
+            };
     
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+            try {
+                const response = await fetch('https://sbapidev.com/submit-feedback', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const responseData = await response.json();
+                // console.log(responseData.message);
+        
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
-    
-            const responseData = await response.json();
-            // console.log(responseData.message);
-    
-        } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
         }
     }
 
@@ -191,8 +201,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                             </div>
                         </div>
                         <div className='mis-vid'>
-                        <iframe src="https://www.youtube.com/embed/IlsD3EM_KSk?si=774i0OKhXNtT_9H_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                        </div>
+                            <iframe src="https://www.youtube.com/embed/Ovk0GQlUWQI?si=4m18294xnCMjJ-AK" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
                         <div className='mis-read'>
                             <h3>Read about our mission below</h3>
                         </div>
@@ -363,15 +372,15 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                     </div>
                      
                     <div className='mis-q'>
-                        <h2>Feedback or Questions?</h2>
+                        <h2>{fedTitle}</h2>
                     </div>
                     <div className='mis-form'>
                         <div className='mis-inputs'>
                             <div>                            
-                                <input id="fed_name" placeholder="Name" value={fedName} onChange={(e) => setfedName(e.target.value)}></input>
+                                <input id="fed_name" required disabled={feddis} placeholder="Name" value={fedName} onChange={(e) => setfedName(e.target.value)}></input>
                             </div>
                             <div>
-                                <select id="fed_type" onChange={(e=> setpersonType(e.target.value))}>
+                                <select id="fed_type" disabled={feddis} onChange={(e=> setpersonType(e.target.value))}>
                                     <option value = "Parent">Parent</option>
                                     <option value = "Student">Student</option>
                                     <option value = "Tutor">Tutor</option>
@@ -382,14 +391,14 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                         </div>
                         <div className='mis-inputs'>
                             <div>
-                                <input type="email" id="fed_email" placeholder={"Email"} value={fedEmail} onChange={(e) => setfedEmail(e.target.value)}></input>
+                                <input type="email" disabled={feddis} required id="fed_email" placeholder={"Email"} value={fedEmail} onChange={(e) => setfedEmail(e.target.value)}></input>
                             </div>
                             <div>
-                                <input id="fed_loc" placeholder="Company / School" value={fedLoc} onChange={(e) => setfedLoc(e.target.value)}></input>
+                                <input id="fed_loc" disabled={feddis} placeholder="Company / School" value={fedLoc} onChange={(e) => setfedLoc(e.target.value)}></input>
                             </div>
                         </div>
-                        <textarea className='mis-msg' id="fed_message" placeholder="Message" value={fedMessage} onChange={(e) => setfedMessage(e.target.value)}></textarea> 
-                        <h3 className="fed-submit" onClick={() => submitFedback()}>Submit</h3> 
+                        <textarea className='mis-msg' disabled={feddis} required id="fed_message" placeholder="Message" value={fedMessage} onChange={(e) => setfedMessage(e.target.value)}></textarea> 
+                        <h3 className="fed-submit" dis={feddis} onClick={() => submitFedback()}>Submit</h3> 
                     </div>
                     <div className='mis-but-cont'>
                         <h2 className='mis-button' onClick={() => goHome()}>Home</h2>

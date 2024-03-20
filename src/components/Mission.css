@@ -509,7 +509,6 @@ body {
     padding-left: 10px;
 }
 .mis-inputs input:invalid {
-    background-color: ivory;
     border: none;
     outline: 2px solid red;
     border-radius: 5px;
@@ -529,6 +528,10 @@ body {
     background-color: white;
     cursor: pointer;
 }
+.mis-inputs select:disabled {
+    background-color: ivory;
+    cursor: auto;
+}
 .mis-msg {
     width: calc(90% - 20px);
     margin: 0 auto;
@@ -545,6 +548,15 @@ body {
     font-weight: 800;
     font-size: large;
     padding-left: 10px;
+}
+.mis-msg:invalid {
+    border: none;
+    outline: 2px solid red;
+    border-radius: 5px;
+}
+.mis-msg:disabled {
+    background-color: ivory;
+    cursor: auto;
 }
 .fed-submit {
     font-weight: 500;
