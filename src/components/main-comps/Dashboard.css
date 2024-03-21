@@ -572,6 +572,27 @@ body {
     top: 0%;
 }
 
+.flops {
+    position: absolute;
+    width: 10%;
+    left: 0%;
+    top: 20%;
+}
+
+.beach-camera {
+    position: absolute;
+    width: 10%;
+    right: 2%;
+    top: 40%;
+}
+
+.rotated-coco {
+    position: absolute;
+    width: 10%;
+    left: -3%;
+    bottom: 0%;
+}
+
 .dash-but-cont {
     text-align: center;
 }

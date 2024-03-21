@@ -367,6 +367,11 @@
     background-color: white;
     color: black;
 }
+.the-e-button div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .the-e-button[bg='true']{
     background-color: #29F218;
 }

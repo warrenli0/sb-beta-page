@@ -7,6 +7,9 @@ import towel from '../../images/beach-towel.png';
 import lamp from '../../images/lamp-ping.png';
 import book from '../../images/book-ping.png';
 import sleep from '../../images/beach-sleep.png';
+import flops from '../../images/flops.png';
+import cam from '../../images/camera.png';
+import rotated from '../../images/rotated-coco.png';
 
 import React, { useState, useEffect } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
@@ -120,6 +123,9 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     const [feMail, setfriendEmail] = useState("");
     const [dis, setdis] = useState("");
     const [disFriend, setdisFriend] = useState("");
+    const [friendcount, setfriendcount] = useState(0);
+    const [friendMsg, setfriendMsg] = useState("If you like our beta, be sure to tell your friends. We'd appreciate it!");
+    const [heromsg, setheromsg] = useState("As promised, input your email below to be in the first group of students to use the full product in April!");
 
     const [pieData, setpieData] = useState({
         labels: ['English', 'Math', 'Reading', 'Science'],
@@ -539,65 +545,87 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
 
      //WAR : email
      async function submitEmail() {
-        const data = {
-            email,
-            choseSAT,
-            satScores,
-            satWeightage,
-            actScores,
-            actWeightage,
-            firstBetaButton,
-            "log": JSON.stringify(log),
-        };
-    
-        try {
-            const response = await fetch('https://sbapidev.com/submit-info', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+        const ele = document.getElementById("user_email");
+        if (ele.validity.valid && dis!="disabled" && email != "") { // makes sure email is valid
+            setdis("disabled");
+            setheromsg("Thank you — be in touch shortly!");
+
+            const data = {
+                email,
+                choseSAT,
+                satScores,
+                satWeightage,
+                actScores,
+                actWeightage,
+                firstBetaButton,
+                "log": JSON.stringify(log),
+            };
+
+            //console.log(data);
+        
+            try {
+                const response = await fetch('https://sbapidev.com/submit-info', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const responseData = await response.json();
+                // console.log(responseData.message);
+                // Handle success (e.g., show a success message or redirect the user)
+        
+            } catch (error) {
+                // console.error('There was a problem with the fetch operation:', error);
+                // Handle errors (e.g., show an error message)
             }
-    
-            const responseData = await response.json();
-            // console.log(responseData.message);
-            // Handle success (e.g., show a success message or redirect the user)
-    
-        } catch (error) {
-            // console.error('There was a problem with the fetch operation:', error);
-            // Handle errors (e.g., show an error message)
         }
     }
 
     //WAR : fEmail for referral
     async function friendEmail() {    
-        // var: fEmail
-        const data = {
-            feMail,
-        };
 
-        try {
-            const response = await fetch('https://sbapidev.com/submit-referral', { 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-    
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
+        const ele = document.getElementById("friend_email");
+        if (ele.validity.valid && disFriend!="disabled" && feMail != "") { // makes sure friendemail is valid
+            //console.log("friend", friendEmail);
+            if (friendcount == 4) {
+                setfriendMsg("Thanks for sharing!");
+                setdisFriend("disabled");
+            } else {
+                setfriendMsg("Share with more friends!");
+                setfriendEmail("");
+                setfriendcount(friendcount + 1);
             }
-    
-            const responseData = await response.json();
-            // console.log(responseData.message);
-    
-        } catch (error) {
-            // console.error('There was a problem with the fetch operation:', error);
+
+            // var: fEmail
+            const data = { 
+                email: feMail,
+            };
+
+            try {
+                const response = await fetch('https://sbapidev.com/submit-referral', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const responseData = await response.json();
+                // console.log(responseData.message);
+        
+            } catch (error) {
+                // console.error('There was a problem with the fetch operation:', error);
+            }
         }
     }
 
@@ -811,7 +839,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                     </div>
                     <div className='dash-done' fin={fin}>
                         <h1>You have completed the <span style={{color: '#FFB800'}}>Beta!</span></h1>
-                        <h2>As promised, input your email below to be in the first group of students to use the full product in late March.</h2>
+                        <h2>{heromsg}</h2>
                         <input disabled={dis} type="email" id="user_email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
                         <h3 className="dash-submit" dis={dis} onClick={() => submitEmail()}>Submit</h3>
                         <p>read more below</p>
@@ -829,8 +857,8 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                             <img src={towel}/>
                         </div>
                         <div className='dash-friend-cont'>
-                            <h2>If you like our beta, be sure to tell your friends. We'd appreciate it!</h2>
-                            <input disabled={disFriend} type="email" id="friend_email" placeholder="Their email" onChange={(e) => setfriendEmail(e.target.value)}></input>
+                            <h2>{friendMsg}</h2>
+                            <input disabled={disFriend} type="email" id="friend_email" placeholder="Their email" value={feMail} onChange={(e) => setfriendEmail(e.target.value)}></input>
                             <h3 dis={disFriend} onClick={() => friendEmail()}>Submit</h3>
                         </div>
                     </div>
@@ -842,13 +870,13 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                             <h2>You chose to learn and improve, and this is what defines a student who can achieve a great score! We want to provide you with a platform where you can get to the score you want and learn in a fun & engaging manner.</h2>
                         </div>
                         <div>
-                            <img src={lamp}/>
+                            <img draggable="false" src={lamp}/>
                         </div>
                     </div>
                     <h1>Why should you use our platform?</h1>
                     <div className='dash-info2'>
                         <div>
-                            <img src={book}/>
+                            <img draggable="false" src={book}/>
                         </div>
                         <div>
                             <h2>Scoring a <b>1600/36</b> comes down to understanding your mistakes. That's it. Work on your weak areas and reinforce your strong ones.</h2>
@@ -858,6 +886,9 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                     </div>
                     <div className='dash-remain'>
                         <img draggable="false" src={sleep} className="pillow-peng"/>
+                        <img draggable="false" src={flops} className="flops"/>
+                        <img draggable="false" src={cam} className="beach-camera"/>
+                        <img draggable="false" src={rotated} className="rotated-coco"/>
                         <h2>We built this learning platform solely to help you achieve your dream score. <b>Made by students, for students.</b></h2>
                         <br></br>
                         <h2>We want to <span style={{color: "#005AE1"}}><b>simplify</b></span> the entire test preparation experience so that you can save your money and your time.</h2>

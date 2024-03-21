@@ -105,38 +105,37 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
         const ele = document.getElementById("friend_email");
         if (ele.validity.valid && frienddis!="disabled" && friendEmail != "") { // makes sure friendemail is valid
             //console.log("friend", friendEmail);
-            if (friendcount < 4) {
-
+            if (friendcount == 4) {
+                setfriendMsg("Thanks for sharing!");
+                setfrienddis("disabled");
+            } else {
                 setfriendMsg("Share with more friends!");
                 setfriendEmail("");
                 setfriendcount(friendcount + 1);
-
-                const data = {
-                    email: friendEmail,
-                };
+            }
+            
+            const data = {
+                email: friendEmail,
+            };
+    
+            try {
+                const response = await fetch('https://sbapidev.com/submit-referral', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
         
-                try {
-                    const response = await fetch('https://sbapidev.com/submit-referral', { 
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(data)
-                    });
-            
-                    if (!response.ok) {
-                        throw new Error('Network response was not ok');
-                    }
-            
-                    const responseData = await response.json();
-                    // console.log(responseData.message);
-            
-                } catch (error) {
-                    console.error('There was a problem with the fetch operation:', error);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
                 }
-            } else {
-                setfriendMsg("Thanks for sharing!");
-                setfrienddis("disabled");
+        
+                const responseData = await response.json();
+                // console.log(responseData.message);
+        
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
             }
         }
     }
