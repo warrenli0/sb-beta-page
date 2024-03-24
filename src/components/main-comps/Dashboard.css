@@ -609,6 +609,26 @@ body {
     background-color: #FFB800;
 }
 
+.join-disc {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+.join-disc img {
+    height: 100px;
+}
+.join-disc a {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;  
+}
+.join-disc a p {
+    color: black;
+}
+
 @keyframes down-dash {
     0% {
         top: calc(-100dvh);

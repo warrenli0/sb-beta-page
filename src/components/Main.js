@@ -4,9 +4,8 @@ import Display from './main-comps/Display';
 import Dashboard from './main-comps/Dashboard';
 import ThxPage from './main-comps/ThxPage';
 
-import pic from '../images/graph-prob.png';
-
 import React, { useState, useEffect } from "react";
+import { queryAllByLabelText } from '@testing-library/react';
 
 export default function Main({showMain, actScores, setActData, actData, setActWeightage, actWeightage, currProblemSet, setcurrProblemSet, choseSAT,
   satWeightage, setsatWeightage, satScores, satData, setsatData, firstBetaButton, log, setlog}) {
@@ -19,17 +18,38 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
     const [chosenAnswers, setchosenAnswers] = useState([]);
 
     const [questions, setQuestions] = useState([{}]);
+    const [qlist, setqList] = useState([]);
 
     useEffect(() => {
       const fetchQuestions = async () => {
         if (choseSAT) {
           //console.log("Chose SAT");
+
           try {
             // Specify the full URL for the backend endpoint
             const response = await fetch('https://sbapidev.com/five-sat');
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
+
+
+            // prob set has changed, request new problems
+            if (currProblemSet > 1) {
+              console.log(qlist); // make sure new Q ids are not in this list
+              const satTypes = ['Reading', 'Writing', 'Math (no calc)', 'Math (calc)'];
+              let index = 0;
+              let smallest = 100;
+              for(let i = 0; i < satWeightage.length; i++) {
+                if (+satWeightage[i] < smallest) {
+                  smallest = +satWeightage[i];
+                  index = i;
+                }
+              }
+              //satTypes[index] is weakest area
+              // qList is list of all Q ids
+              //WAR
+            }
+
             const data = await response.json();
       
             // Map backend schema to the frontend schema
@@ -50,6 +70,13 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
             }));
 
             //console.log(mappedQuestions);
+            // maintain list of all question idS
+            const tempA = [];
+            mappedQuestions.forEach((q) => (
+              tempA.push(q.id)
+            ));
+            tempA.concat(qlist, tempA);
+            setqList(tempA);
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {
@@ -63,6 +90,22 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
             if (!response.ok) {
               throw new Error('Network response was not ok');
             }
+
+            // prob set has changed, request new problems
+            if (currProblemSet > 1) {
+              const acttypes = ['English', 'Math', 'Reading', 'Science'];
+              let index = 0;
+              let smallest = 100;
+              for(let i = 0; i < actWeightage.length; i++) {
+                if (+actWeightage[i] < smallest) {
+                  smallest = +actWeightage[i];
+                  index = i;
+                }
+              }
+              //acttypes[index] is weakest area
+              //WAR
+            }
+
             const data = await response.json();
       
             // Map backend schema to the frontend schema
@@ -82,6 +125,13 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
             }));
 
             //console.log(mappedQuestions);
+            // maintain list of all question idS
+            const tempA = [];
+            mappedQuestions.forEach((q) => (
+              tempA.push(q.id)
+            ));
+            tempA.concat(qlist, tempA);
+            setqList(tempA);
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {

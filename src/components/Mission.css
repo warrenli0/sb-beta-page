@@ -575,6 +575,9 @@ body {
     display: inline;
     text-align: center;
 }
+.fed-submit[ver='1']{
+    color: black;
+}
 .fed-submit:hover {
     color: goldenrod; 
 }
@@ -584,6 +587,10 @@ body {
 
 .mis-note {
     margin-bottom: 20px;
+}
+.mis-note[ver='1'] {
+    color: black;
+    text-align: center;
 }
 .tower-peng {
     position: absolute;

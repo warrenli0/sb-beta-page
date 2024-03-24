@@ -258,22 +258,50 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     <div className="the-line" format='Image'><div className="the-real-line"></div></div>
                     <div className="answer-choice" id="the-choice1" format='Image'>
                         <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[0].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                             ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                    {prob.options[0].text}
+                                </Textfit>)
+                             : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                    {prob.options[0].text}
+                                </Textfit>)
+                            }
                         </button>
                     </div>
                     <div className="answer-choice" id="the-choice2" format='Image'>
                         <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[1].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                             ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                    {prob.options[1].text}
+                                </Textfit>)
+                             : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                    {prob.options[1].text}
+                                </Textfit>)
+                            }
                         </button>
                     </div>
                     <div className="answer-choice" id="the-choice3" format='Image'>
                         <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[2].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                             ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                    {prob.options[2].text}
+                                </Textfit>)
+                             : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                    {prob.options[2].text}
+                                </Textfit>)
+                            }
                         </button>
                     </div>
                     <div className="answer-choice" id="the-choice4" format='Image'>
                         <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[3].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                             ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                    {prob.options[3].text}
+                                </Textfit>)
+                             : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                    {prob.options[3].text}
+                                </Textfit>)
+                            }
                         </button>
                     </div>
                     {/* on click triggers move up and the removal make sure click can only happen max onc*/}
@@ -289,22 +317,50 @@ export default function TheQcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                     <div className="the-line"><div className="the-real-line"></div></div>
                     <div className="answer-choice" id="the-choice1">
                         <button className="the-button" id="choice1" onClick={() => {setselectedChoice('1')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[0].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                             ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                    {prob.options[0].text}
+                                </Textfit>)
+                             : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                    {prob.options[0].text}
+                                </Textfit>)
+                            }
                         </button>
                     </div>
                     <div className="answer-choice" id="the-choice2">
                         <button className="the-button" id="choice2" onClick={() => {setselectedChoice('2')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[1].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                                ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                        {prob.options[1].text}
+                                    </Textfit>)
+                                : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                        {prob.options[1].text}
+                                    </Textfit>)
+                            }
                         </button>
                     </div>
                     <div className="answer-choice" id="the-choice3">
                         <button className="the-button" id="choice3" onClick={() => {setselectedChoice('3')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[2].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                                ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                        {prob.options[2].text}
+                                    </Textfit>)
+                                : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                        {prob.options[2].text}
+                                    </Textfit>)
+                            }
                         </button>
                     </div>
                     <div className="answer-choice" id="the-choice4">
                         <button className="the-button" id="choice4" onClick={() => {setselectedChoice('4')}} chosen={selectedChoice}>
-                            <ScaleChoice type={prob.type} val={prob.options[3].text} />
+                            {(prob.type.substring(0, 4) == "Math")
+                                ? (<Textfit mode="single" style={{height: '100%'}} max={25}>
+                                        {prob.options[3].text}
+                                    </Textfit>)
+                                : (<Textfit mode="multi" style={{height: '100%'}} max={25}>
+                                        {prob.options[3].text}
+                                    </Textfit>)
+                            }
                         </button>
                     </div>
                     {/* on click triggers move up and the removal make sure click can only happen max onc*/}

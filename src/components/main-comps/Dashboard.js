@@ -10,10 +10,13 @@ import sleep from '../../images/beach-sleep.png';
 import flops from '../../images/flops.png';
 import cam from '../../images/camera.png';
 import rotated from '../../images/rotated-coco.png';
+import tower from '../../images/ping-tower.png';  
+import disc from '../../images/blue-discord.png';  
 
 import React, { useState, useEffect } from "react";
 import { Chart as ChartJS, defaults } from "chart.js/auto";
 import { Pie, Line } from 'react-chartjs-2';
+import { scroller } from 'react-scroll';
 
 defaults.maintainAspectRatio = false;
 defaults.responsive = true;
@@ -126,6 +129,15 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
     const [friendcount, setfriendcount] = useState(0);
     const [friendMsg, setfriendMsg] = useState("If you like our beta, be sure to tell your friends. We'd appreciate it!");
     const [heromsg, setheromsg] = useState("As promised, input your email below to be in the first group of students to use the full product in April!");
+
+    const [fedTitle, setfedTitle] = useState("Feedback or Questions?");
+    const [personType, setpersonType] = useState("Parent");
+    const [fedName, setfedName] = useState("");
+    const [fedEmail, setfedEmail] = useState("");
+    const [fedLoc, setfedLoc] = useState("");
+    const [fedMessage, setfedMessage] = useState("");
+    const [feddis, setfeddis] = useState("");
+
 
     const [pieData, setpieData] = useState({
         labels: ['English', 'Math', 'Reading', 'Science'],
@@ -543,12 +555,69 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
         }
     }
 
+    function goHome() {
+
+    }
+
+    async function submitFedback(){
+        // personType: Parent, Student, Tutor, Other
+        // fedName
+        // fedEmail
+        // fedLoc
+        // fedMessage
+
+        const fn = document.getElementById("fed_name");
+        const fe = document.getElementById("fed_email");
+        const fm = document.getElementById("fed_message");
+        if (fn.validity.valid && fe.validity.valid && fm.validity.valid && feddis!="disabled" && fedEmail != "" && fedName != "" && fedMessage != "") {
+            setfeddis("disabled");
+            setfedTitle("Thank you — we will be in touch shortly!");
+
+            const data = {
+                email: fedEmail,
+                personType,
+                name: fedName,
+                location: fedLoc,
+                message: fedMessage,
+            };
+    
+            try {
+                const response = await fetch('https://sbapidev.com/submit-feedback', { 
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+        
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+        
+                const responseData = await response.json();
+                // console.log(responseData.message);
+        
+            } catch (error) {
+                console.error('There was a problem with the fetch operation:', error);
+            }
+        }
+    }
+
+
+
      //WAR : email
      async function submitEmail() {
         const ele = document.getElementById("user_email");
         if (ele.validity.valid && dis!="disabled" && email != "") { // makes sure email is valid
             setdis("disabled");
             setheromsg("Thank you — be in touch shortly!");
+
+            scroller.scrollTo('read-da-text', {
+            duration: 1500,
+            smooth: 'easeInOutCubic',
+            offset: -100, 
+            // ... other options
+          });
 
             const data = {
                 email,
@@ -851,7 +920,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         <img src={cont} onClick={() => {finish()}}/>
                     </div>
                 </div>
-                <div className='dash-text' fin={fin}>
+                <div className='dash-text' id="read-da-text" fin={fin}>
                     <div className='dash-ref'>   
                         <div>
                             <img src={towel}/>
@@ -862,6 +931,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                             <h3 dis={disFriend} onClick={() => friendEmail()}>Submit</h3>
                         </div>
                     </div>
+                    <p style={{color:"black", textAlign:"center", padding:"0 20%"}}>We collect and store your information solely for the purpose of sending relevant communications about our platform. We do not sell or share this information with third parties.</p>
                     <h1>Why are you here right now?</h1>
                     <div className='dash-info'>
                         <div>
@@ -899,11 +969,51 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         <br></br>
                         <h2>- SB Team</h2>
                         <br></br>
-                        <h2><b>We are building the largest community of students & tutors, and it is free to join today!</b></h2>
+                        <div className='join-disc'>       
+                            <h2><b>We are building the largest community of students & tutors, and it is free to join today!</b></h2>
+                            <a href='https://discord.gg/KV2qTWyYR8' target="_blank">
+                                <img src={disc}/>
+                                <p>click here!</p>
+                            </a>
+                        </div>  
                     </div>
                     <div className='dash-but-cont'>
-                        <h2 className='dash-button' onClick={() => goMission()}>Home</h2>
+                        <h2 className='dash-button' onClick={() => goMission()}>Our Mission</h2>
                     </div>
+                    <div className='mis-q'>
+                        <h2 style={{color:"black"}}>{fedTitle}</h2>
+                    </div>
+                    <div className='mis-form'>
+                        <div className='mis-inputs'>
+                            <div>                            
+                                <input id="fed_name" required disabled={feddis} placeholder="Name" value={fedName} onChange={(e) => setfedName(e.target.value)}></input>
+                            </div>
+                            <div>
+                                <select id="fed_type" disabled={feddis} onChange={(e=> setpersonType(e.target.value))}>
+                                    <option value = "Student">Student</option>
+                                    <option value = "Parent">Parent</option>
+                                    <option value = "Tutor">Tutor</option>
+                                    <option value = "Other">Other</option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div className='mis-inputs'>
+                            <div>
+                                <input type="email" disabled={feddis} required id="fed_email" placeholder={"Email"} value={fedEmail} onChange={(e) => setfedEmail(e.target.value)}></input>
+                            </div>
+                            <div>
+                                <input id="fed_loc" disabled={feddis} placeholder="Company / School" value={fedLoc} onChange={(e) => setfedLoc(e.target.value)}></input>
+                            </div>
+                        </div>
+                        <textarea className='mis-msg' disabled={feddis} required id="fed_message" placeholder="Message" value={fedMessage} onChange={(e) => setfedMessage(e.target.value)}></textarea> 
+                        <h3 className="fed-submit" ver='1' dis={feddis} onClick={() => submitFedback()}>Submit</h3> 
+                    </div>
+                    <div className='dash-but-cont'>
+                        <h2 className='dash-button' onClick={() => goHome()}>Home</h2>
+                    </div>
+                    <p className='mis-note' ver='1'>Copyright @ 2024 Scholars Beacon | scholarsbeacon@gmail.com</p>
+                    <img draggable="false" src={tower} className="tower-peng"/>
                 </div>
             </div>
             

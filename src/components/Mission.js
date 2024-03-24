@@ -365,7 +365,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                         <p>We collect and store your information solely for the purpose of sending relevant communications about our platform. We do not sell or share this information with third parties.</p>
                     </div>
                     <div className='mis-social'>
-                        <a href='https://www.tiktok.com/@officialscholarsbeacon'target="_blank">
+                        <a href='https://www.tiktok.com/@officialscholarsbeacon' target="_blank">
                             <img draggable="false" src={fb} className=""/>
                         </a>
                         <a href='https://discord.gg/DHgNW3y69M' target="_blank">
