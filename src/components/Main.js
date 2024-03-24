@@ -38,14 +38,15 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               console.log(qlist); // make sure new Q ids are not in this list
               const satTypes = ['Reading', 'Writing', 'Math (no calc)', 'Math (calc)'];
               let index = 0;
-              let smallest = 100;
+              let largest = 0;
               for(let i = 0; i < satWeightage.length; i++) {
-                if (+satWeightage[i] < smallest) {
-                  smallest = +satWeightage[i];
+                if (+satWeightage[i] > largest) {
+                  largest = +satWeightage[i];
                   index = i;
                 }
               }
               //satTypes[index] is weakest area
+              console.log(satTypes[index]);
               // qList is list of all Q ids
               //WAR
             }
@@ -75,8 +76,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
             mappedQuestions.forEach((q) => (
               tempA.push(q.id)
             ));
-            tempA.concat(qlist, tempA);
-            setqList(tempA);
+            setqList(qlist.concat(tempA));
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {
@@ -95,10 +95,10 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
             if (currProblemSet > 1) {
               const acttypes = ['English', 'Math', 'Reading', 'Science'];
               let index = 0;
-              let smallest = 100;
+              let largest = 100;
               for(let i = 0; i < actWeightage.length; i++) {
-                if (+actWeightage[i] < smallest) {
-                  smallest = +actWeightage[i];
+                if (+actWeightage[i] > largest) {
+                  largest = +actWeightage[i];
                   index = i;
                 }
               }
@@ -130,8 +130,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
             mappedQuestions.forEach((q) => (
               tempA.push(q.id)
             ));
-            tempA.concat(qlist, tempA);
-            setqList(tempA);
+            setqList(qlist.concat(tempA));
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {
