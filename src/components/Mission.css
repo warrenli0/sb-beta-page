@@ -604,3 +604,145 @@ body {
         border: solid white 0px;
     }
 }
+
+.hero-email-enter2 {
+    display: none;
+}
+
+@media only screen and (max-width: 1042px) {
+    .mis-img-cont {
+        padding-left: 10%;
+
+    }
+}
+
+@media only screen and (max-width: 969px) {
+    .mis-img-cont {
+        padding-left: 0%;
+
+    }
+}
+
+@media only screen and (max-width: 846px) {
+    .mis-text-cont {
+        grid-template-columns: 100%;
+        grid-template-rows: 5% 30% 35% 25% 5%;
+        gap: 2px;  
+    }
+
+    .mis-text {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 2;
+        grid-row-end: 2;
+    }
+    .mis-text div {
+        display: none;
+    }
+    .mis-vid iframe {
+        height: auto;
+        width: auto;
+    }
+    .mis-vid {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+    .mis-read {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 5;
+        grid-row-end: 5;
+    }
+    .hero-email-enter2 {
+        display: block;
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 4;
+        grid-row-end: 4;
+        padding-left: 5%;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .mis-img-cont img {
+        max-height: 80%;
+    }
+    .mis-social {
+        width: 70%;
+    }
+    .tower-peng {
+        height: 150px;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+    .mis-top h1 {
+        font-size: 25px;
+    }
+    .mis-top h2 {
+        font-size: 20px;
+    }
+    .mis-main h1 {
+        font-size: 25px;
+    }
+    .mis-main h2 {
+        font-size: 20px;
+    }
+    .mis-inputs input {
+        padding-left: 5px;
+    }
+    .mis-msg::placeholder {
+        padding-left: 5px;
+    }
+    .tower-peng {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 623px) {
+    .mis-story-img {
+        display: none;
+    }
+    .mis-story {
+        grid-template-columns: 100%;
+    }
+    .fun-img {
+        width: 100px;
+    }
+    .mis-note {
+        text-align: center;
+        font-size: 12px;
+    }
+    .mis-social {
+        width: 100%;
+    }
+    .mis-inputs input::placeholder {
+        font-size: small;
+    }
+    .mis-msg::placeholder {
+        font-size: small;
+    }
+    .mis-inputs select {
+        font-size: small;
+    }
+}
+
+@media only screen and (max-width: 441px) {
+    .mis-top h1 {
+        font-size: 20px;
+    }
+    .mis-main h1 {
+        font-size: 20px;
+    }
+    .fun-img {
+        display: none;
+    }
+    .mission-text {
+        width: 90%;
+    }
+    .mis-imp {
+        width: 90%;
+    }
+}

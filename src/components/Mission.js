@@ -200,7 +200,13 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                             </div>
                         </div>
                         <div className='mis-vid'>
-                            <iframe src="https://www.youtube.com/embed/Ovk0GQlUWQI?si=4m18294xnCMjJ-AK" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen="allowFullScreen"></iframe></div>
+                            <iframe src="https://www.youtube.com/embed/Ovk0GQlUWQI?si=4m18294xnCMjJ-AK" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen="allowFullScreen"></iframe>
+                        </div>
+                        <div className='hero-email-enter hero-email-enter2'>
+                                <h1 style={{color: "black"}}>{heroMsg}</h1>
+                                <input type="email" id="user_email" highlight='1' disabled={dis} placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                                <h2 className='hero-submit' dis={dis} onClick={() => submitEmail()}>Submit</h2>
+                        </div>
                         <div className='mis-read'>
                             <h3>Read about our mission below</h3>
                         </div>
@@ -212,8 +218,8 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                 </div>
                 <div className='mis-main'>
                     <div className='mis-cont-part'>
-                        <img draggable="false" src={sleep} className="sleep-peng"/>
-                        <img draggable="false" src={handup} className="hand-peng"/>
+                        <img draggable="false" src={sleep} className="sleep-peng fun-img"/>
+                        <img draggable="false" src={handup} className="hand-peng fun-img"/>
                         <div className='mission-text'>
                             <h2>We all know the SAT/ACT is important, but why are the vast majority of students so unmotivated to prepare for it?</h2>
                             <h2>Well, test prep is boring. It's tedious. It's lonely having to take exam after exam by yourself for hours on end.</h2>
@@ -280,7 +286,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                                         <h2><b>Arun Khemani</b></h2>
                                         <ul>
                                             <li>Bentley Finance</li>
-                                            <li>Taught 1,000+ students across various subjects</li>
+                                            <li>Taught 1,000+ students</li>
                                             <li>Interned at 3 VC firms</li>
                                         </ul>
                                     </div>
@@ -290,8 +296,8 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                     </div>
                     <div className='mis-divider'></div>
                     <div className='mis-cont-part'>
-                        <img draggable="false" src={lying} className="lying-peng"/>
-                        <img draggable="false" src={tea} className="tea-peng"/>
+                        <img draggable="false" src={lying} className="lying-peng fun-img"/>
+                        <img draggable="false" src={tea} className="tea-peng fun-img"/>
                         <div className='mission-text'>
                             <h1>We know what students need to succeed.</h1>
                             <h2>After talking to <b>hundreds</b> of students, tutors, and parents, we learned that:</h2>
@@ -307,9 +313,9 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                     <div className='mis-divider'></div>
                     <div className='mis-cont-part'>
                     <div className='mission-text'>
-                        <img draggable="false" src={cake} className="cake-peng"/>
-                        <img draggable="false" src={scarf} className="scarf-peng"/>
-                        <img draggable="false" src={fam} className="fam-peng"/>
+                        <img draggable="false" src={cake} className="cake-peng fun-img"/>
+                        <img draggable="false" src={scarf} className="scarf-peng fun-img"/>
+                        <img draggable="false" src={fam} className="fam-peng fun-img"/>
                         <h1>All the tools needed for success.</h1>
                         <div>
                             <h2><b>Repetition:</b> The best way for students to learn from their mistakes is thoroughly reviewing what they didn't understand and repeating the problem until they get it correct.</h2>
