@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.1387b9d9.css",
-    "main.js": "/static/js/main.d8b96d61.js",
+    "main.css": "/static/css/main.df4e493a.css",
+    "main.js": "/static/js/main.f762e434.js",
     "static/media/open-treasure-peng-speak.png": "/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/curr-dash.png": "/static/media/curr-dash.f56b2a92e36a83cba4a3.png",
     "static/media/prac-problem.png": "/static/media/prac-problem.bef7cbd009f68bc7a876.png",
@@ -14,7 +14,7 @@
     "static/media/starsbg.png": "/static/media/starsbg.7bda16ded85c7567649f.png",
     "static/media/coral.png": "/static/media/coral.2546820a4125c06a92e2.png",
     "static/media/database.png": "/static/media/database.d1935e11eb545dcef18e.png",
-    "static/media/graph-prob.png": "/static/media/graph-prob.facd7df9ad3f6c0e2a90.png",
+    "static/media/WCT.png": "/static/media/WCT.46e2d9347bc72ffdeb14.png",
     "static/media/small-closed-treasure.png": "/static/media/small-closed-treasure.4a9ad7576ad62b81821c.png",
     "static/media/figma-beach.png": "/static/media/figma-beach.b1bc637caae5f9a22819.png",
     "static/media/repetition-bubble.png": "/static/media/repetition-bubble.edde269e600e27f1b159.png",
@@ -36,7 +36,6 @@
     "static/media/tea-ping.png": "/static/media/tea-ping.59ddd2488081573ef6f2.png",
     "static/media/scarf-ping.png": "/static/media/scarf-ping.fef7168289272d09d8f4.png",
     "static/media/lying-ping.png": "/static/media/lying-ping.4d381ef749810265f3f5.png",
-    "static/media/WCT.png": "/static/media/WCT.04784630bb669dd06e93.png",
     "static/media/fam-ping.png": "/static/media/fam-ping.4033cc3c0a347b32446f.png",
     "static/media/brown.png": "/static/media/brown.bfab8ac612e834ffb3c0.png",
     "static/media/ping-bubble.png": "/static/media/ping-bubble.95326f37bd8a6a90348a.png",
@@ -47,19 +46,26 @@
     "static/media/hand-up-ping.png": "/static/media/hand-up-ping.f80e89f3dea0af7baba1.png",
     "static/media/ping-sleep.png": "/static/media/ping-sleep.62997e9b805805d0a077.png",
     "static/media/beach-sleep.png": "/static/media/beach-sleep.6c311c1f5cbb03765e28.png",
+    "static/media/camera.png": "/static/media/camera.80970f5459afe20125c1.png",
     "static/media/figma-three-wave.png": "/static/media/figma-three-wave.40819d8297fb5a5639a6.png",
     "static/media/act-reading.png": "/static/media/act-reading.32982e75d5be44224989.png",
+    "static/media/rotated-coco.png": "/static/media/rotated-coco.fa415bf63cff107181c8.png",
     "static/media/main-peng.png": "/static/media/main-peng.530e8da337ba6dee6fb7.png",
     "static/media/act-writing.png": "/static/media/act-writing.297f234ed54856d1d8a9.png",
     "static/media/act-science.png": "/static/media/act-science.d85b3b46aafde35f3674.png",
+    "static/media/cool-peng.png": "/static/media/cool-peng.eab0b7496d9b48773eda.png",
     "static/media/sat-math.png": "/static/media/sat-math.1aed145f6c42b16b5643.png",
     "static/media/beach-umbrella.png": "/static/media/beach-umbrella.8c6dc7e9b50ba8d54741.png",
     "static/media/ping-tower.png": "/static/media/ping-tower.f6f2f99e6fa574e86449.png",
     "static/media/insta.png": "/static/media/insta.2b0552a363cd864d6e7c.png",
     "static/media/act-math.png": "/static/media/act-math.9164da54c1cba3b7fbf8.png",
+    "static/media/flops.png": "/static/media/flops.46e334645e10697b09b2.png",
     "static/media/ping-beach.png": "/static/media/ping-beach.72482f4e95f5d0ec87e0.png",
+    "static/media/coco-down.png": "/static/media/coco-down.71e48004d863740754af.png",
+    "static/media/coco-left.png": "/static/media/coco-left.530a7df2a755677f8828.png",
     "static/media/mock.png": "/static/media/mock.2b29f360305826e4f2c2.png",
     "static/media/purdue.png": "/static/media/purdue.87cd45c25be70c152465.png",
+    "static/media/coco-right.png": "/static/media/coco-right.16d2e45d9062f5698c72.png",
     "static/media/beach-ball.png": "/static/media/beach-ball.a8f1c7b0e555336621e2.png",
     "static/media/discord-bubble.png": "/static/media/discord-bubble.829bb5fa907b4ca77128.png",
     "static/media/yale.png": "/static/media/yale.e133670a4188e923632e.png",
@@ -71,11 +77,11 @@
     "static/media/fourth-wave.svg": "/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.1387b9d9.css.map": "/static/css/main.1387b9d9.css.map",
-    "main.d8b96d61.js.map": "/static/js/main.d8b96d61.js.map"
+    "main.df4e493a.css.map": "/static/css/main.df4e493a.css.map",
+    "main.f762e434.js.map": "/static/js/main.f762e434.js.map"
   },
   "entrypoints": [
-    "static/css/main.1387b9d9.css",
-    "static/js/main.d8b96d61.js"
+    "static/css/main.df4e493a.css",
+    "static/js/main.f762e434.js"
   ]
 }
