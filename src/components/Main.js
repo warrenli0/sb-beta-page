@@ -27,16 +27,16 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
 
           try {
             // Specify the full URL for the backend endpoint
-            const response = await fetch('https://sbapidev.com/five-sat');
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
-
+            // const response = await fetch('https://sbapidev.com/five-sat');
+            // if (!response.ok) {
+            //   throw new Error('Network response was not ok');
+            // }
+            let params = {};
 
             // prob set has changed, request new problems
             if (currProblemSet > 1) {
               console.log(qlist); // make sure new Q ids are not in this list
-              const satTypes = ['Reading', 'Writing', 'Math (no calc)', 'Math (calc)'];
+              const satTypes = ['reading', 'grammar', 'math', 'calc'];
               let index = 0;
               let largest = 0;
               for(let i = 0; i < satWeightage.length; i++) {
@@ -49,6 +49,18 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               console.log(satTypes[index]);
               // qList is list of all Q ids
               //WAR
+              params = {
+                excludedIds: qlist.join(','),
+                area: satTypes[index]
+              };
+            }
+
+            let url = new URL('https://sbapidev.com/five-sat');
+            Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+            const response = await fetch(url.toString());
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
             }
 
             const data = await response.json();
@@ -70,7 +82,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               author: question.author ?? '',
             }));
 
-            //console.log(mappedQuestions);
+            console.log(mappedQuestions);
             // maintain list of all question idS
             const tempA = [];
             mappedQuestions.forEach((q) => (
@@ -86,14 +98,15 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
           //console.log("Chose ACT");
           try {
             // Specify the full URL for the backend endpoint
-            const response = await fetch('https://sbapidev.com/five-act');
-            if (!response.ok) {
-              throw new Error('Network response was not ok');
-            }
+            // const response = await fetch('https://sbapidev.com/five-act');
+            // if (!response.ok) {
+            //   throw new Error('Network response was not ok');
+            // }
+            let params = {};
 
             // prob set has changed, request new problems
             if (currProblemSet > 1) {
-              const acttypes = ['English', 'Math', 'Reading', 'Science'];
+              const actTypes = ['english', 'math', 'reading', 'science'];
               let index = 0;
               let largest = 100;
               for(let i = 0; i < actWeightage.length; i++) {
@@ -104,6 +117,18 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               }
               //acttypes[index] is weakest area
               //WAR
+              params = {
+                excludedIds: qlist.join(','),
+                area: actTypes[index]
+              };
+            }
+
+            let url = new URL('https://sbapidev.com/five-act');
+            Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+
+            const response = await fetch(url.toString());
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
             }
 
             const data = await response.json();
