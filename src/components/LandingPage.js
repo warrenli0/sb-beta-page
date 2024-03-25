@@ -10,6 +10,11 @@ import { useEffect } from "react";
 export default function LandingPage({setShowTopWave, showLP, setshowLandingPage, setWavesFinished, setfirstBetaButton, setshowMission}) {
     // fade in on scroll : https://www.freecodecamp.org/news/reveal-on-scroll-in-react-using-the-intersection-observer-api/
     
+    useEffect(() => {
+      //Runs only on the first render
+      window.scroll(0,0);
+    }, []);
+
     if (showLP) {
         return (
             <div>

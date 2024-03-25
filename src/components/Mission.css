@@ -125,6 +125,10 @@ body {
     cursor: pointer;
     transition: background-color .2s;
 }
+.mis-button a {
+    color: white;
+    text-decoration: none;
+}
 .mis-button:hover {
     background-color: #FFB800;
 }
