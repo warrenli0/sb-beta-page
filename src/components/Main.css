@@ -1376,6 +1376,9 @@ html, body {
     .the-question {
         font-size: 10px;
     }
+    .the-button {
+        width: 100%;
+    }
     .the-button p {
         font-size: 15px;
     }

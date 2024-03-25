@@ -749,4 +749,7 @@ body {
     .mis-imp {
         width: 90%;
     }
+    .mis-read h3 {
+        font-size: 15px;
+    }
 }

@@ -1189,13 +1189,34 @@ body {
         padding-right: 20px;
     }
     .dash-ref {
-        grid-template-columns: 30% 70%;
+        grid-template-columns: 100%;
         padding: 0 5%;
+    }
+    .dash-friend-cont {
+        align-items: center;
+    }
+    .dash-friend-cont h2{
+        text-align: center;
     }
     .dash-info img {
         display: none;
     }
     .dash-info2 img {
+        display: none;
+    }
+    .pillow-peng {
+        display: none;
+    }
+    .flops {
+        display: none;
+    }
+    .beach-camera {
+        display: none;
+    }
+    .rotated-coco {
+        display: none;
+    }
+    .towel-cont {
         display: none;
     }
     .dash-info {
