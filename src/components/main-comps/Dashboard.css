@@ -235,7 +235,7 @@ body {
     gap: 4px;
 }
 .line-header select {
-    background-color: transparent;
+    background-color: black;
     color: white;
     cursor: pointer;
     border: solid white 2px;
@@ -331,7 +331,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translateY(30dvh);
+    transform: translateY(40dvh);
     animation: pop-from-bottom 2s forwards;
     animation-delay: 23s;
 }
@@ -772,6 +772,10 @@ body {
 .coco-cool[ani='7'] {
     display: block;
 }
+.coco-cool[fin='1'][ani='7'] {
+    display: block;
+    animation: mid-to-left 3s forwards;
+}
 
 .dash-coco-text {
     font-family: 'Poppins', sans-serif;
@@ -893,7 +897,7 @@ body {
 
 @keyframes pop-from-bottom  {
     0% {
-        transform: translateY(30dvh);
+        transform: translateY(40dvh);
     }
     100% {
         transform: translateY(0dvh);

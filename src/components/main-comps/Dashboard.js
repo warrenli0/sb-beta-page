@@ -539,6 +539,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
         
     }, [showDashoard]); 
 
+    // animation stuff
     useEffect(() => {
         if (showDashoard) {
             if (currProblemSet > 1) {
@@ -762,7 +763,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         <img src={coco} className="coco-down" ani={ani}/>
                         <img src={coco_left} className="coco-left" ani={ani}/>
                         <img src={coco_right} className="coco-right" ani={ani}/>
-                        <img src={cool} className="coco-cool" ani={ani}/>
+                        <img src={cool} className="coco-cool" ani={ani} fin={fin}/>
                         <div className='dash-coco-text' ani={ani}>
                             <h3>{cocotext}</h3>
                         </div>
