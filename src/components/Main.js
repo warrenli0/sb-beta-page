@@ -35,7 +35,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
 
             // prob set has changed, request new problems
             if (currProblemSet > 1) {
-              //console.log(qlist); // make sure new Q ids are not in this list
+              // console.log(qlist); // make sure new Q ids are not in this list
               const satTypes = ['reading', 'grammar', 'math', 'calc'];
               let index = 0;
               let largest = 0;
@@ -46,7 +46,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
                 }
               }
               //satTypes[index] is weakest area
-              //console.log(satTypes[index]);
+              // console.log(satTypes[index]);
               // qList is list of all Q ids
               //WAR
               params = {
@@ -82,7 +82,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               author: question.author ?? '',
             }));
 
-            //console.log(mappedQuestions);
+            // console.log(mappedQuestions);
             // maintain list of all question idS
             const tempA = [];
             mappedQuestions.forEach((q) => (
@@ -92,7 +92,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
       
             setQuestions(mappedQuestions); // Ensure this state setter is correctly named (capitalization)
           } catch (error) {
-            console.error('Error fetching SAT questions:', error);
+            // console.error('Error fetching SAT questions:', error);
           }
         } else {
           //console.log("Chose ACT");
@@ -150,7 +150,7 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
               author: question.author ?? '',
             }));
 
-            //console.log(mappedQuestions);
+            // console.log(mappedQuestions);
             // maintain list of all question idS
             const tempA = [];
             mappedQuestions.forEach((q) => (
