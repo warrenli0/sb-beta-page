@@ -1032,6 +1032,9 @@ body {
     .dash-header {
         grid-column-start: 1;
         grid-column-end: 5;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
     }
     .dash-header p {
         display: block;
@@ -1039,6 +1042,7 @@ body {
     .dash-cont {
         grid-column-start: 4;
         grid-column-end: 4;
+        display: flex;
         animation: none;
         transform: translateY(0px);
     }
@@ -1079,6 +1083,10 @@ body {
         height: 80%;
         top: -10px;
     }
+    .dash-try {
+        transform: translateY(0);
+        animation: none
+    }
 }
 
 @media only screen and (max-width: 724px) {
@@ -1099,11 +1107,6 @@ body {
     }
     .dashboard-bg h1 {
         font-size: 25px;
-    }
-    .dash-header{
-        display: flex;
-        flex-direction: column;
-        text-align: center;
     }
     .dash-tree-container[fin='1'] {
         display: none;
@@ -1182,6 +1185,8 @@ body {
     .dash-cont {
         grid-column-start: 2;
         grid-column-end: 2;
+        justify-content: flex-end;
+        padding-right: 20px;
     }
     .dash-ref {
         grid-template-columns: 30% 70%;
