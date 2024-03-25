@@ -38,10 +38,6 @@ defaults.color = 'white';
     science: [],
 }*/
 
-function goMission() {
-
-}
-
 function ScoreChart({v, actScores, actData, choseSAT, satScores, satData, fin, ani}) {
     const [types, settypes] = useState(['English', 'Math', 'Reading', 'Science']);
     const types2 = ['Reading', 'Writing', 'Math (no calc)', 'Math (calc)'];
@@ -122,7 +118,8 @@ function ScoreChart({v, actScores, actData, choseSAT, satScores, satData, fin, a
 }
 
 export default function Dashboard({showDashoard, setshowDashoard, actScores, actData, actWeightage, currProblemSet, setcurrProblemSet, choseSAT,
-    satWeightage, satScores, satData, setshowThx, log, setlog, firstBetaButton}) {
+    satWeightage, satScores, satData, setshowThx, log, setlog, firstBetaButton, setShowTopWave, setshowLandingPage, setWavesFinished, setshowMission,
+    setshowwholeStart, setshowMain}) {
     const [graphID, setgraphID] = useState('1');
     const [exit, setexit] = useState('0');
     const [fin, setfin] = useState('0');
@@ -145,6 +142,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
 
     const [ani, setani] = useState("0");
     const [cocotext, setcocotext] = useState("This is your overall performance!");
+    const [tryGone, settryGone] = useState("0");
 
     const [pieData, setpieData] = useState({
         labels: ['English', 'Math', 'Reading', 'Science'],
@@ -593,6 +591,9 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                 setshowDashoard(false);
                 setexit('0');
                 setgraphID('1');
+                if (currProblemSet == 2) {
+                    settryGone("1"); // remove try 5 new
+                }
             }, 6100);
         }
     };
@@ -608,8 +609,30 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
         }
     }
 
-    function goHome() {
+    function goMission() {
+        setWavesFinished(false); // trigger the wave
+        setShowTopWave(1); // indicates to c
+        setTimeout(function(){
+            setshowMission(true); // show mission page
+            window.scrollTo(0, 0);
+            setshowDashoard(false);
+            setshowwholeStart(true); // needed for start page to work again
+            setshowMain('0'); // ^
+            setcurrProblemSet(1);
+        }, 2500);
+    };
 
+    function goHome() {
+        setWavesFinished(false); // trigger the wave
+        setShowTopWave(1); // indicates to c
+        setTimeout(function(){
+            setshowLandingPage(true); // show mission page
+            window.scrollTo(0, 0);
+            setshowDashoard(false);
+            setshowwholeStart(true); // needed for start page to work again
+            setshowMain('0');
+            setcurrProblemSet(1);
+        }, 2500);
     }
 
     async function submitFedback(){
@@ -655,8 +678,6 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             }
         }
     }
-
-
 
      //WAR : email
      async function submitEmail() {
@@ -769,7 +790,8 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         </div>
                     </div>
                     <div className='dash-header' fin={fin}>
-                        <h1>Let's <span style={{color: "#FFB800"}}>analyze</span>  how you did...</h1>
+                        <h1>Let's <span style={{color: "#FFB800"}}>analyze</span> how you did...</h1>
+                        <p>experience the full version on a larger screen</p>
                     </div>
                     <div className='eng-header' version={+(choseSAT)} fin={fin} ani={ani}>
                         <h2>English</h2> 
@@ -961,9 +983,12 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                             </div>
                         </div>*/}
                     </div>
-                    <div className='dash-try' fin={fin} ani={ani}>
+                    <div className='dash-try' fin={fin} ani={ani} cur={tryGone}>
                         <h1 onClick={() => {tryFive()}}>Try <span style={{color: "#FFB800"}}>5 new</span> problems</h1>
                         <h4><i>adjusted to fit your algorithm!</i></h4>
+                    </div>
+                    <div className='dash-try2' fin={fin} cur={tryGone}>
+                        <h1>Be sure to click 'finish' when done!</h1>
                     </div>
                         <div className='dash-tree-container' fin={fin}>
                         <img src={ping_tree} className="coconut-tree"/>

@@ -11,12 +11,17 @@ export default function FirstWave({showfirstwave, setshowfirstwave, currProblemS
       }, []);
 
     useEffect(() => {
-        if (currProblemSet > 1) {
+        if (currProblemSet == 1) { //for the rerun
+            setTimeout(function(){
+                setshowfirstwave(false);
+            }, 6100);
+        }
+        else if (currProblemSet > 1) {
           setshowfirstwave(true);
 
           setTimeout(function(){
             setshowfirstwave(false);
-        }, 6100);
+            }, 6100);
         }
     }, [currProblemSet]);
 

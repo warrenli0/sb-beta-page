@@ -8,7 +8,8 @@ import React, { useState, useEffect } from "react";
 import { queryAllByLabelText } from '@testing-library/react';
 
 export default function Main({showMain, actScores, setActData, actData, setActWeightage, actWeightage, currProblemSet, setcurrProblemSet, choseSAT,
-  satWeightage, setsatWeightage, satScores, satData, setsatData, firstBetaButton, log, setlog}) {
+  satWeightage, setsatWeightage, satScores, satData, setsatData, firstBetaButton, log, setlog, setShowTopWave, setshowLandingPage, setWavesFinished,
+  setshowMission, setshowwholeStart, setshowMain}) {
     const [showfirstwave, setshowfirstwave] = useState(true); // req T
     const [showQCards, setshowQCards] = useState(true); // req T
     const [showDashoard, setshowDashoard] = useState(false);
@@ -21,6 +22,16 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
     const [qlist, setqList] = useState([]);
 
     useEffect(() => {
+      if (showMain == '0') { // for the reeset
+        setshowfirstwave(true);
+        setshowQCards(true);
+        setshowDashoard(false);
+        setqList([]); // reset
+      };
+    }, [showMain]);    
+
+    useEffect(() => {
+
       const fetchQuestions = async () => {
         if (choseSAT) {
           //console.log("Chose SAT");
@@ -182,7 +193,9 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
                 <Dashboard showDashoard={showDashoard} setshowDashoard={setshowDashoard} actScores={actScores} actData={actData} 
                 actWeightage={actWeightage} currProblemSet={currProblemSet} setcurrProblemSet={setcurrProblemSet} choseSAT={choseSAT}
                 satWeightage={satWeightage} satScores={satScores} satData={satData} setshowThx={setshowThx} log={log} setlog={setlog}
-                firstBetaButton={firstBetaButton}/>
+                firstBetaButton={firstBetaButton} setShowTopWave={setShowTopWave} setshowLandingPage={setshowLandingPage} 
+                setWavesFinished={setWavesFinished} setshowMission={setshowMission} setshowwholeStart={setshowwholeStart}
+                setshowMain={setshowMain}/>
 
                 <ThxPage showThx={showThx} setshowThx={setshowThx} choseSAT={choseSAT} actScores={actScores} actData={actData} 
                 actWeightage={actWeightage} currProblemSet={currProblemSet} satWeightage={satWeightage} satScores={satScores} 

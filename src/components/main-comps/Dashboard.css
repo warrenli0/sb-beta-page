@@ -64,6 +64,7 @@ body {
 .eng-header[ani='-1'] {
     display: flex;
     transform: translateX(0);
+    animation: none;
 }
 .eng-header[fin='1'] {
     animation: mid-to-left 3s forwards;
@@ -90,6 +91,7 @@ body {
 .mat-header[ani='-1'] {
     display: flex;
     transform: translateX(0);
+    animation: none;
 }
 .mat-header[fin='1'] {
     animation: mid-to-left 3s forwards;
@@ -110,11 +112,12 @@ body {
     animation: right-to-mid 2s forwards;
     animation-delay: 10.5s;
 }
-.dash-pie[fin='1'] {
-    animation: mid-to-left 3s forwards;
-}
 .dash-pie[ani='-1'] {
     transform: translateX(0);
+    animation: none;
+}
+.dash-pie[fin='1'] {
+    animation: mid-to-left 3s forwards;
 }
 .dash-pie h4 {
     font-weight: 500;
@@ -165,12 +168,13 @@ body {
     animation: left-to-mid 1.5s forwards;
     animation-delay: 4.0s;
 }
-.score-style[fin='1'] {
-    animation: mid-to-left 3s forwards;
-}
 .score-style[ani='-1'] {
     display: flex;
     transform: translateX(0);
+    animation: none;
+}
+.score-style[fin='1'] {
+    animation: mid-to-left 3s forwards;
 }
 .score-cont0 {
     grid-column-start: 1;
@@ -256,11 +260,12 @@ body {
     animation: left-to-mid 2s forwards;
     animation-delay: 17s;
 }
-.line-chart[fin='1'] {
-    animation: mid-to-left 3s forwards;
-}
 .line-chart[ani='-1'] {
     transform: translateX(0); 
+    animation: none;
+}
+.line-chart[fin='1'] {
+    animation: mid-to-left 3s forwards;
 }
 .line-chart h3 {
     color: white;
@@ -335,8 +340,12 @@ body {
     animation: pop-from-bottom 2s forwards;
     animation-delay: 23s;
 }
+.dash-try[cur='1'] {
+    display: none;
+}
 .dash-try[ani='-1'] {
     transform: translateY(0);
+    animation: none;
 }
 .dash-try[fin='1'] {
     animation: mid-to-left 3s forwards;
@@ -357,6 +366,32 @@ body {
 }
 .dash-try h4 {
     font-weight: 500;
+}
+
+.dash-try2{
+    grid-column-start: 3;
+    grid-column-end: 5;
+    grid-row-start: 3;
+    grid-row-end: 3;
+    color: white;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dash-try2 h1 {
+    font-weight: 400;
+    position: relative;
+    z-index: 3;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+}
+.dash-try2[cur='1'] {
+    display: flex;
+}
+.dash-try2[fin='1'] {
+    animation: mid-to-left 3s forwards;
 }
 
 .dash-beach {
@@ -978,5 +1013,100 @@ body {
     }
     100% {
         visibility: visible;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .dash-coco {
+        display: none;
+    }
+    .dash-pie {
+        display: none;
+    }
+    .dashboard-bg {
+        grid-template-columns: 25% 25% 25% 25%;
+    }
+    .dash-header {
+        grid-column-start: 1;
+        grid-column-end: 5;
+    }
+    .dash-cont {
+        grid-column-start: 4;
+        grid-column-end: 4;
+        animation: none;
+    }
+    .line-chart {
+        animation: none;
+        transform: translateX(0);
+    }
+    .score-style {
+        animation: none;
+        transform: translateX(0);
+    }
+    .eng-header {
+        animation: none;
+        transform: translateX(0);
+    }
+    .mat-header {
+        animation: none;
+        transform: translateX(0);
+    }
+}
+
+@media only screen and (max-width: 724px) {
+    .eng-header[ani='-1'] {
+        display: none;
+    }
+    .mat-header[ani='-1'] {
+        display: none;
+    }
+    .dash-try h1 {
+        padding: 2px 4px;
+    }
+    .dashboard-bg h1 {
+        font-size: 25px;
+    }
+    .dash-header{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .dash-try {
+        display: none;
+    }
+    .line-chart {
+        display: none;
+    }
+    .dashboard-bg {
+        grid-template-columns: 50% 50%;
+    }
+    .dash-header {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .score-cont2 {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+    .score-cont3 {
+        grid-column-start: 2;
+        grid-column-end: 2;
+        grid-row-start: 3;
+        grid-row-end: 3;
+    }
+    .dash-cont {
+        grid-column-start: 2;
+        grid-column-end: 2;
+    }
+}
+
+@media only screen and (max-width: 451px) {
+    .dashboard-bg h1 {
+        font-size: 20px;
     }
 }

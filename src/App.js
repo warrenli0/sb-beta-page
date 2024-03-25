@@ -62,7 +62,8 @@ function App() {
       <Main showMain={showMain} actScores={actScores} setActData={setActData} actData={actData} setActWeightage={setActWeightage} 
       actWeightage={actWeightage} currProblemSet={currProblemSet} setcurrProblemSet={setcurrProblemSet} choseSAT={choseSAT}
       satWeightage={satWeightage} setsatWeightage={setsatWeightage} satScores={satScores} satData={satData} setsatData={setsatData}
-      firstBetaButton={firstBetaButton} log={log} setlog={setlog}/>
+      firstBetaButton={firstBetaButton} log={log} setlog={setlog} setShowTopWave={setShowTopWave} setshowLandingPage={setshowLandingPage} 
+      setWavesFinished={setWavesFinished} setshowMission={setshowMission} setshowwholeStart={setshowwholeStart} setshowMain={setshowMain}/>
       <Mission showMission={showMission} setshowMission={setshowMission} setWavesFinished={setWavesFinished} setShowTopWave={setShowTopWave}
       setshowLandingPage={setshowLandingPage}/>
     </div>

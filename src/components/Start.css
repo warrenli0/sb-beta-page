@@ -473,7 +473,11 @@ body {
     animation-delay: .4s;
     text-align: center;
 }
-
+.begin-container div {
+  height: 80%;
+  font-weight: 400;
+    color: white;
+}
 .begin-container h1 {
     font-weight: 400;
     font-size: 36px;
