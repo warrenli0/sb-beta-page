@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+        var redirectPath = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirectPath) window.location.href = redirectPath;
+    </script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        sessionStorage.redirect = location.pathname;
+        location.replace('/');
+    </script>
+</body>
+
+</html>
