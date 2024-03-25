@@ -1191,6 +1191,7 @@ html, body {
     .review-button-cont h1 {
         top: 25%;
         left: 0%;
+        border: none;
     }
     .review-button-cont img {
         display: none;

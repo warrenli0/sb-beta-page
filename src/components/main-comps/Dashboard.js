@@ -1009,7 +1009,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                 </div>
                 <div className='dash-text' id="read-da-text" fin={fin}>
                     <div className='dash-ref'>   
-                        <div>
+                        <div className='towel-cont'>
                             <img src={towel}/>
                         </div>
                         <div className='dash-friend-cont'>
@@ -1035,7 +1035,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                         <div>
                             <img draggable="false" src={book}/>
                         </div>
-                        <div>
+                        <div className='dash-text-2'>
                             <h2>Scoring a <b>1600/36</b> comes down to understanding your mistakes. That's it. Work on your weak areas and reinforce your strong ones.</h2>
                             <br></br>
                             <h2>You chose to learn and improve, and this is what defines a student who can achieve a great score! We want to provide you with a platform where you can get to the score you want and learn in a fun & engaging manner.</h2>

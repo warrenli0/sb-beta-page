@@ -1051,6 +1051,23 @@ body {
         animation: none;
         transform: translateX(0);
     }
+    .dash-done {
+        position: relative;
+        left: 30%;
+        grid-column-start: 2;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 4;
+        z-index: 4;
+    }
+    .dash-info img {
+        height: 80%;
+        top: -10px;
+    }
+    .dash-info2 img {
+        height: 80%;
+        top: -10px;
+    }
 }
 
 @media only screen and (max-width: 724px) {
@@ -1058,6 +1075,12 @@ body {
         display: none;
     }
     .mat-header[ani='-1'] {
+        display: none;
+    }
+    .eng-header[version='1'] {
+        display: none;
+    }
+    .mat-header[version='1'] {
         display: none;
     }
     .dash-try h1 {
@@ -1070,6 +1093,52 @@ body {
         display: flex;
         flex-direction: column;
         text-align: center;
+    }
+    .dash-tree-container[fin='1'] {
+        display: none;
+    }
+    .dash-done {
+        position: absolute;
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+        grid-row-end: 5;
+        top: 10%;
+        left: 5%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@media only screen and (max-width: 823px) {
+    .dash-info img {
+        height: 60%;
+        top: 80px;
+    }
+    .dash-info2 img {
+        height: 60%;
+        top: 80px;
+    }
+}
+
+@media only screen and (max-width: 716px) {
+    .dash-info img {
+        height: 50%;
+        top: 80px;
+    }
+    .dash-info2 img {
+        height: 50%;
+        top: 80px;
+    }
+}
+
+@media only screen and (max-width: 640px) {
+    .dash-info img {
+        height: 40%;
+        top: 80px;
+    }
+    .dash-info2 img {
+        height: 40%;
+        top: 80px;
     }
 }
 
@@ -1103,10 +1172,39 @@ body {
         grid-column-start: 2;
         grid-column-end: 2;
     }
+    .dash-ref {
+        grid-template-columns: 30% 70%;
+        padding: 0 5%;
+    }
+    .dash-info img {
+        display: none;
+    }
+    .dash-info2 img {
+        display: none;
+    }
+    .dash-info {
+        grid-template-columns: 100%;
+    }
+    .dash-info2 {
+        grid-template-columns: 100%;
+        padding: 0 10px;
+    }
+    .dash-text-2 {
+        grid-column-start: 1;
+        grid-column-end: 1;
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
 }
 
 @media only screen and (max-width: 451px) {
     .dashboard-bg h1 {
         font-size: 20px;
+    }
+    .dash-text h1 {
+        font-size: 20px;
+    }
+    .dash-text h2 {
+        font-size: 15px;
     }
 }
