@@ -39,6 +39,9 @@ body {
     align-items: center;
     justify-content: center;
 }
+.dash-header p {
+    display: none;
+}
 .dash-header[fin='1'] {
     animation: mid-to-left 3s forwards;
 }
@@ -1030,10 +1033,18 @@ body {
         grid-column-start: 1;
         grid-column-end: 5;
     }
+    .dash-header p {
+        display: block;
+    }
     .dash-cont {
         grid-column-start: 4;
         grid-column-end: 4;
         animation: none;
+        transform: translateY(0px);
+    }
+    .dash-cont[ani='7'] {
+        animation: none;
+        transform: translateY(0px);
     }
     .line-chart {
         animation: none;
