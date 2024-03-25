@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.3dcb76c1.css",
+    "main.css": "/static/css/main.a0a1651a.css",
     "main.js": "/static/js/main.cc8021d8.js",
     "static/media/open-treasure-peng-speak.png": "/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/curr-dash.png": "/static/media/curr-dash.f56b2a92e36a83cba4a3.png",
@@ -77,11 +77,11 @@
     "static/media/fourth-wave.svg": "/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.3dcb76c1.css.map": "/static/css/main.3dcb76c1.css.map",
+    "main.a0a1651a.css.map": "/static/css/main.a0a1651a.css.map",
     "main.cc8021d8.js.map": "/static/js/main.cc8021d8.js.map"
   },
   "entrypoints": [
-    "static/css/main.3dcb76c1.css",
+    "static/css/main.a0a1651a.css",
     "static/js/main.cc8021d8.js"
   ]
 }
