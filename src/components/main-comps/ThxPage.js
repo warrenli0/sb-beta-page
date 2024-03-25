@@ -6,20 +6,20 @@ export default function ThxPage({showThx, setshowThx, choseSAT, actScores, actDa
         const [email, setemail] = useState("");
         const [fEmail, setfriendEmail] = useState("");
 
-    function ShowData() {
+    // function ShowData() {
         
-        if (choseSAT) { // SAT
-            console.log("SAT");
-            console.log(satScores);
-            console.log(satWeightage);
-        } else { // ACT
-            console.log("ACT");
-            console.log(actScores);
-            console.log(actWeightage);
-        }
-        console.log(log);
-        console.log("first beta button pushed:", firstBetaButton);
-    }
+    //     if (choseSAT) { // SAT
+    //         console.log("SAT");
+    //         console.log(satScores);
+    //         console.log(satWeightage);
+    //     } else { // ACT
+    //         console.log("ACT");
+    //         console.log(actScores);
+    //         console.log(actWeightage);
+    //     }
+    //     console.log(log);
+    //     console.log("first beta button pushed:", firstBetaButton);
+    // }
     
     async function Enter() {
         const data = {
@@ -32,7 +32,7 @@ export default function ThxPage({showThx, setshowThx, choseSAT, actScores, actDa
             firstBetaButton,
             "log": JSON.stringify(log),
         };
-        console.log(email);
+        // console.log(email);
     
         try {
             const response = await fetch('https://sbapidev.com/submit-info', {
@@ -52,7 +52,7 @@ export default function ThxPage({showThx, setshowThx, choseSAT, actScores, actDa
             // Handle success (e.g., show a success message or redirect the user)
     
         } catch (error) {
-            console.error('There was a problem with the fetch operation:', error);
+            // console.error('There was a problem with the fetch operation:', error);
             // Handle errors (e.g., show an error message)
         }
     }

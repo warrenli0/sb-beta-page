@@ -8,7 +8,7 @@ import OurMission from './OurMission';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={'https://scholarsbeacon.net'}>
       <Routes>
         <Route path="/" element={<App/>}></Route>
         <Route path="/our-mission" element={<OurMission/>}></Route>

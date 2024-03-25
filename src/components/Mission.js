@@ -92,10 +92,10 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                 }
         
                 const responseData = await response.json();
-                console.log(responseData.message);
+                // console.log(responseData.message);
         
             } catch (error) {
-                console.error('There was a problem with the fetch operation:', error);
+                // console.error('There was a problem with the fetch operation:', error);
             }
         }
     }
@@ -135,7 +135,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                 // console.log(responseData.message);
         
             } catch (error) {
-                console.error('There was a problem with the fetch operation:', error);
+                // console.error('There was a problem with the fetch operation:', error);
             }
         }
     }
@@ -180,7 +180,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
                 // console.log(responseData.message);
         
             } catch (error) {
-                console.error('There was a problem with the fetch operation:', error);
+                // console.error('There was a problem with the fetch operation:', error);
             }
         }
     }
