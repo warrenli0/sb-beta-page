@@ -405,13 +405,10 @@ html, body {
     color: white;
 }
 .sb-img2 img {
-    /*
     max-width: 65%;
     max-height: 65%;
     aspect-ratio: 1 / 1;
-    cursor: pointer;*/
-    max-height: 95%;
-    max-width: 95%;
+    cursor: pointer;
 }
 .sb-img2 img:hover {
 }
@@ -436,6 +433,13 @@ html, body {
 
     .sb-item-text h3{
         font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .sb-img2 img {
+        max-width: 100px;
+        max-height: 100px;
     }
 }
 
