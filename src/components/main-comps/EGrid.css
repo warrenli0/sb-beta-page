@@ -69,9 +69,25 @@
     text-align: center;
 }
 .the-notepad[move='6'] {
-    transform: translateX(-120%);
-    animation: in-from-left 1s forwards;
+    /*transform: translateX(-120%);
+    animation: in-from-left 1s forwards;*/
     animation-delay: 2.1s;
+}
+.the-notepad[move='7'] {
+    transform: translateX(0);
+    animation: none;
+}
+.the-notepad[move='8'] {
+    transform: translateX(0);
+    animation: none;
+}
+.the-notepad[move='9'] {
+    transform: translateX(0);
+    animation: none;
+}
+.the-notepad[move='10'] {
+    transform: translateX(0);
+    animation: none;
 }
 
 .ecard-container {
@@ -201,6 +217,12 @@
     display: flex;
     align-items: center;
 }
+.the-right-e-line[format="Reading"] {
+    grid-row-start: 7;
+    grid-row-end: 7;
+    display: flex;
+    align-items: center;
+}
 .the-e-line {
     grid-column-start: 2;
     grid-column-end: 2;
@@ -236,7 +258,7 @@
 }
 .the-e-explanation[format='Reading'] {
     grid-row-start: 1;
-    grid-row-end: 8;
+    grid-row-end: 7;
 }
 .the-e-explanation[format='Image'] {
     grid-row-start: 2;

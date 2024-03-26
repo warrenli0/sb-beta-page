@@ -692,16 +692,16 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             }
 
             scroller.scrollTo('read-da-text', {
-            duration: 1500,
-            smooth: 'easeInOutCubic',
-            offset: -100, 
-            // ... other options
-          });
+                duration: 1500,
+                smooth: 'easeInOutCubic',
+                offset: -100, 
+                // ... other options
+            });
 
-          const em = ele.value;
+            const email = ele.value;
 
             const data = {
-                em,
+                email,
                 choseSAT,
                 satScores,
                 satWeightage,

@@ -20,7 +20,7 @@ export default function Begin({showStart, setshowMain, setshowwholeStart}) {
     if (showStart) {
         return (
             <div className="begin-container">
-                <Textfit mode="multi" style={{height: '80%'}} max={36}>
+                <Textfit mode="multi" style={{height: '80%'}} max={50}>
                         In our full product, we will give you daily practice problems based off a personalized algorithm. This is a mini-version of it - <span style={{color: "#FFF48F"}}>Try 5 practice problems!</span>
                 </Textfit>
                 <h2 className='begin-con'><span onClick={() => {beginThing()}}>Begin</span></h2>

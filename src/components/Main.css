@@ -51,7 +51,7 @@ html, body {
 .first-wave-bottom {
     position: absolute;
     top: calc(197px + 0px);
-    height: calc(101dvh);
+    height: calc(102dvh);
     width: 100vw;
     background: #1888FE;
 }
@@ -190,7 +190,7 @@ html, body {
 .surf-wave-bottom {
     position: absolute;
     top: calc(100dvh + 197px + 100px);
-    height: calc(100dvh + 1px);
+    height: calc(102dvh + 1px);
     width: 100vw;
     background: linear-gradient(#48CAE4, #00B4D8);
     animation: up 6s forwards;
@@ -227,7 +227,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(100dvh + 1px);
+    height: calc(102dvh);
     width: 100vw;
     background: linear-gradient(#00B4D8, #0096C7);
     animation: up-bg 2s forwards;
@@ -261,7 +261,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(100dvh + 1px);
+    height: calc(102dvh);
     width: 100vw;
     background: linear-gradient(#0096C7, #0077B6);
     animation: up-bg 2s forwards;
@@ -290,7 +290,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(100dvh + 1px);
+    height: calc(102dvh);
     width: 100vw;
     background: linear-gradient(#0077B6, #023E8A);
     animation: up-bg 2s forwards;
@@ -318,7 +318,7 @@ html, body {
     display: none;
     position: absolute;
     top: calc(100dvh);
-    height: calc(100dvh + 1px);
+    height: calc(102dvh);
     width: 100vw;
     background: linear-gradient(#023E8A, #03045E);
     animation: up-bg 2s forwards;
@@ -1010,7 +1010,7 @@ html, body {
     display: block;
     position: absolute;
     top: calc(100dvh);
-    height: calc(101dvh);
+    height: calc(102dvh);
     width: 100vw;
     background: linear-gradient(#03045E, #000138);
     animation: up-bg 3s forwards;

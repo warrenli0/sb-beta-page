@@ -238,6 +238,7 @@ export default function TheEcard({prob, bgNum, setbgNum, currQIndex, setcurrQInd
                         <img src={thumbs_down} className="thumbs-down" version={thumbDown} onClick={() => {clickThumbsDown()}}/>
                         <img src={red_thumbs_down} className="red-thumbs-down" version={thumbDown} onClick={() => {clickThumbsDown()}}/>
                     </div>
+                    <div className="the-right-e-line" format="Reading"><div className="the-left-e-real-line"></div></div>
                     <div className="the-e-check" mobile={mobile} format={prob.type}>
                         <input type="checkbox" id="e-understood" name="check" checked={checked} onChange={() => {setchecked(!checked)}}/>
                         <label><h2>I understand this problem</h2></label>

@@ -477,6 +477,8 @@ body {
   height: 80%;
   font-weight: 400;
     color: white;
+    display: flex;
+    align-items: center;
 }
 .begin-container h1 {
     font-weight: 400;
