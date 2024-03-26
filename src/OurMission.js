@@ -1,5 +1,5 @@
 import './components/Mission.css'
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { scroller } from 'react-scroll';
 
@@ -61,13 +61,13 @@ export default function Mission({}) {
     async function submitEmail() {
 
         const ele = document.getElementById("user_email");
-        if (ele.validity.valid && dis!="disabled" && email != "") { // makes sure email is valid
+        if (ele.validity.valid && dis!="disabled" && ele.value != "") { // makes sure email is valid
             setdis("disabled");
             setheroMsg("Thank you!");
             setemMsg("Thank you!");
 
             const data = {
-                email: email,
+                email: ele.value,
             };
     
             try {
@@ -95,7 +95,7 @@ export default function Mission({}) {
     // WAR
     async function submitFriendEmail() {
         const ele = document.getElementById("friend_email");
-        if (ele.validity.valid && frienddis!="disabled" && friendEmail != "") { // makes sure friendemail is valid
+        if (ele.validity.valid && frienddis!="disabled" && ele.value != "") { // makes sure friendemail is valid
             //console.log("friend", friendEmail);
             if (friendcount == 4) {
                 setfriendMsg("Thanks for sharing!");
@@ -107,7 +107,7 @@ export default function Mission({}) {
             }
             
             const data = {
-                email: friendEmail,
+                email: ele.value,
             };
     
             try {
@@ -131,6 +131,27 @@ export default function Mission({}) {
             }
         }
     }
+
+    useEffect(() => {
+        if (true) {
+
+            const inputField = document.getElementById("user_email");
+            inputField.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    // Call your function here
+                    submitEmail();
+                }
+            });
+
+            const inputField2 = document.getElementById("friend_email");
+            inputField2.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    // Call your function here
+                    submitFriendEmail();
+                }
+            });
+        }
+      }, []);
 
     // WAR
     async function submitFedback(){

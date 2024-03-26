@@ -9,7 +9,7 @@ import { queryAllByLabelText } from '@testing-library/react';
 
 export default function Main({showMain, actScores, setActData, actData, setActWeightage, actWeightage, currProblemSet, setcurrProblemSet, choseSAT,
   satWeightage, setsatWeightage, satScores, satData, setsatData, firstBetaButton, log, setlog, setShowTopWave, setshowLandingPage, setWavesFinished,
-  setshowMission, setshowwholeStart, setshowMain}) {
+  setshowMission, setshowwholeStart, setshowMain, overallEmail, setoverallEmail, overallDis, setoverallDis}) {
     const [showfirstwave, setshowfirstwave] = useState(true); // req T
     const [showQCards, setshowQCards] = useState(true); // req T
     const [showDashoard, setshowDashoard] = useState(false);
@@ -195,7 +195,8 @@ export default function Main({showMain, actScores, setActData, actData, setActWe
                 satWeightage={satWeightage} satScores={satScores} satData={satData} setshowThx={setshowThx} log={log} setlog={setlog}
                 firstBetaButton={firstBetaButton} setShowTopWave={setShowTopWave} setshowLandingPage={setshowLandingPage} 
                 setWavesFinished={setWavesFinished} setshowMission={setshowMission} setshowwholeStart={setshowwholeStart}
-                setshowMain={setshowMain}/>
+                setshowMain={setshowMain} overallEmail={overallEmail} setoverallEmail={setoverallEmail}
+                overallDis={overallDis} setoverallDis={setoverallDis}/>
 
                 <ThxPage showThx={showThx} setshowThx={setshowThx} choseSAT={choseSAT} actScores={actScores} actData={actData} 
                 actWeightage={actWeightage} currProblemSet={currProblemSet} satWeightage={satWeightage} satScores={satScores} 

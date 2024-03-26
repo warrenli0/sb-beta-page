@@ -591,6 +591,8 @@ body {
 
 .mis-note {
     margin-bottom: 20px;
+
+    text-align: center;
 }
 .mis-note[ver='1'] {
     color: black;

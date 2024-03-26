@@ -24,7 +24,8 @@ import fam from '../images/fam-ping.png';
 import tower from '../images/ping-tower.png';   
 
 
-export default function Mission({showMission, setshowMission, setWavesFinished, setShowTopWave, setshowLandingPage}) {
+export default function Mission({showMission, setshowMission, setWavesFinished, setShowTopWave, setshowLandingPage, overallEmail, setoverallEmail,
+    overallDis, setoverallDis}) {
     const [showStory, setshowStory] = useState('0');
     const [emMsg, setemMsg] = useState("Know when we release:");
     const [heroMsg, setheroMsg] = useState("Join the waitlist!");
@@ -69,13 +70,14 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     async function submitEmail() {
 
         const ele = document.getElementById("user_email");
-        if (ele.validity.valid && dis!="disabled" && email != "") { // makes sure email is valid
-            setdis("disabled");
+        if (ele.validity.valid && dis!="disabled" && ele.value != "") { // makes sure email is valid
+            setoverallDis("disabled");
             setheroMsg("Thank you!");
             setemMsg("Thank you!");
+            setoverallEmail(email);
 
             const data = {
-                email: email,
+                email: ele.value,
             };
     
             try {
@@ -103,7 +105,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
     // WAR
     async function submitFriendEmail() {
         const ele = document.getElementById("friend_email");
-        if (ele.validity.valid && frienddis!="disabled" && friendEmail != "") { // makes sure friendemail is valid
+        if (ele.validity.valid && frienddis!="disabled" && ele.value != "") { // makes sure friendemail is valid
             //console.log("friend", friendEmail);
             if (friendcount == 4) {
                 setfriendMsg("Thanks for sharing!");
@@ -115,7 +117,7 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
             }
             
             const data = {
-                email: friendEmail,
+                email: ele.value,
             };
     
             try {
@@ -139,6 +141,37 @@ export default function Mission({showMission, setshowMission, setWavesFinished, 
             }
         }
     }
+
+    useEffect(() => {
+        if (showMission) {
+
+            const inputField = document.getElementById("user_email");
+            inputField.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    // Call your function here
+                    submitEmail();
+                }
+            });
+
+            const inputField2 = document.getElementById("friend_email");
+            inputField2.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    // Call your function here
+                    submitFriendEmail();
+                }
+            });
+        }
+      }, [showMission]);
+
+      useEffect(() => {
+
+        setEmail(overallEmail);
+      }, [overallEmail]);
+
+      useEffect(() => {
+
+        setdis(overallDis);
+      }, [overallDis]);
 
     // WAR
     async function submitFedback(){

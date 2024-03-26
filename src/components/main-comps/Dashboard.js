@@ -119,7 +119,7 @@ function ScoreChart({v, actScores, actData, choseSAT, satScores, satData, fin, a
 
 export default function Dashboard({showDashoard, setshowDashoard, actScores, actData, actWeightage, currProblemSet, setcurrProblemSet, choseSAT,
     satWeightage, satScores, satData, setshowThx, log, setlog, firstBetaButton, setShowTopWave, setshowLandingPage, setWavesFinished, setshowMission,
-    setshowwholeStart, setshowMain}) {
+    setshowwholeStart, setshowMain,  overallEmail, setoverallEmail, overallDis, setoverallDis}) {
     const [graphID, setgraphID] = useState('1');
     const [exit, setexit] = useState('0');
     const [fin, setfin] = useState('0');
@@ -682,9 +682,14 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
      //WAR : email
      async function submitEmail() {
         const ele = document.getElementById("user_email");
-        if (ele.validity.valid && dis!="disabled" && email != "") { // makes sure email is valid
+        if (ele.validity.valid && dis!="disabled" && ele.value != "") { // makes sure email is valid
             setdis("disabled");
             setheromsg("Thank you — be in touch shortly!");
+
+            if (overallEmail == "") {
+                setoverallEmail(ele.value);
+                setoverallDis("disabled");
+            }
 
             scroller.scrollTo('read-da-text', {
             duration: 1500,
@@ -693,8 +698,10 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
             // ... other options
           });
 
+          const em = ele.value;
+
             const data = {
-                email,
+                em,
                 choseSAT,
                 satScores,
                 satWeightage,
@@ -730,11 +737,32 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
         }
     }
 
+    useEffect(() => {
+        if (showDashoard) {
+
+            const inputField = document.getElementById("user_email");
+            inputField.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    // Call your function here
+                    submitEmail();
+                }
+            });
+
+            const inputField2 = document.getElementById("friend_email");
+            inputField2.addEventListener("keydown", function(event) {
+                if (event.key === "Enter") {
+                    // Call your function here
+                    friendEmail();
+                }
+            });
+        }
+      }, [showDashoard]);
+
     //WAR : fEmail for referral
     async function friendEmail() {    
 
         const ele = document.getElementById("friend_email");
-        if (ele.validity.valid && disFriend!="disabled" && feMail != "") { // makes sure friendemail is valid
+        if (ele.validity.valid && disFriend!="disabled" && ele.value != "") { // makes sure friendemail is valid
             //console.log("friend", friendEmail);
             if (friendcount == 4) {
                 setfriendMsg("Thanks for sharing!");
@@ -747,7 +775,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
 
             // var: fEmail
             const data = { 
-                email: feMail,
+                email: ele.value,
             };
 
             try {
@@ -996,7 +1024,7 @@ export default function Dashboard({showDashoard, setshowDashoard, actScores, act
                     <div className='dash-done' fin={fin}>
                         <h1>You have completed the <span style={{color: '#FFB800'}}>Beta!</span></h1>
                         <h2>{heromsg}</h2>
-                        <input disabled={dis} type="email" id="user_email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
+                        <input disabled={dis} type="email" id="user_email" placeholder="Your email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                         <h3 className="dash-submit" dis={dis} onClick={() => submitEmail()}>Submit</h3>
                         <p>read more below</p>
                         </div>

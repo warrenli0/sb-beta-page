@@ -8,9 +8,10 @@ import open_treasure from '../../images/open-treasure-peng-speak.png';
 import book_bubble from '../../images/bubble-book-peng.png';
 import grad_bubble from '../../images/bubble-grad-peng.png';
 import useFadeIn from '../../hooks/useFadeIn';
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFinished, setfirstBetaButton, setshowMission}) {
+export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFinished, setfirstBetaButton, setshowMission, overallEmail, setoverallEmail,
+    overallDis, setoverallDis}) {
 
     const divRef = useRef(null);
     useFadeIn(divRef);
@@ -51,19 +52,19 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
             window.scrollTo(0, 0);
             setshowLandingPage(false);
         }, 2500);
-    }
+    };
 
     async function submitEmail() {
         const ele = document.getElementById("user_email");
-        //console.log(ele.validity.valid);
-        if (ele.validity.valid && dis!="disabled" && email != "") {
+        if (ele.validity.valid && dis!="disabled" && ele.value != "") {
             //console.log("valid,", email);
-            setdis("disabled");
+            setoverallDis("disabled");
             setemMsg("Thank you — we will be in touch soon!");
+            setoverallEmail(ele.value);
             //WAR: email is var with user email
 
             const data = {
-                email: email,
+                email: ele.value,
             };
     
             try {
@@ -86,7 +87,29 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
                 // console.error('There was a problem with the fetch operation:', error);
             }
         }
-    }   
+    };
+
+    useEffect(() => {
+        //Runs only on the first render
+
+        const inputField = document.getElementById("user_email");
+        inputField.addEventListener("keydown", function(event) {
+            if (event.key === "Enter") {
+                // Call your function here
+                submitEmail();
+            }
+        });
+      }, []);
+
+      useEffect(() => {
+
+        setEmail(overallEmail);
+      }, [overallEmail]);
+
+      useEffect(() => {
+
+        setdis(overallDis);
+      }, [overallDis]);
 
     return (
         <div className="ocean-bottom">
@@ -118,7 +141,7 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
                 </div>
                 <div className="ocean-text five-probs" ref={divRef4}>
                     <h2 className="hidden">{emMsg}</h2>
-                    <input className="hidden" disabled={dis} type="email" id="user_email" placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
+                    <input className="hidden" disabled={dis} type="email" id="user_email" value={email} placeholder="Your email" onChange={(e) => setEmail(e.target.value)}></input>
                     <div className="hidden"> 
                         <h4 className="ocean-submit" dis={dis} onClick={() => submitEmail()}>Submit</h4>
                     </div>
