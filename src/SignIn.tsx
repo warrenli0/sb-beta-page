@@ -73,10 +73,11 @@ export default function SignIn({}) {
         }
 
         // send over scores 
+        /*
         console.log(engScore);
         console.log(matScore);
         console.log(examDate);
-        console.log(userGoal);
+        console.log(userGoal);*/
 
         //setloginCount(loginCount + 1);
     }
