@@ -7,6 +7,11 @@ import cool from './images/cool-peng.png';
 import ball from './images/beach-ball.png';
 import umbrella from './images/beach-umbrella.png';
 import flag from './images/flagged.png';
+import bottomBeach from './images/home-beach.png';
+
+import fb from './images/fb.png';
+import disc from './images/gray-disc.png';
+import insta from './images/insta.png';
 
 import NavBar from './NavBar.tsx';
 
@@ -18,7 +23,7 @@ export default function Home({}) {
 
     return (
         <div className='home-cont'>
-            <NavBar />
+            <NavBar under="1"/>
             <div className='home-main'>
                 <div className='home-card'>
                     <div className='home-card-head'>
@@ -203,7 +208,16 @@ export default function Home({}) {
                 </div>
             </div>
             <div className='home-foot'>
-                
+                <img id="home-beach" src={bottomBeach}/>
+                <div className='foot-meta'>
+                    <h4>TOS | Privacy Policy</h4>
+                    <h4>Copyright @ 2024 Scholars Beacon | scholarsbeacon@gmail.com</h4>
+                </div>
+                <div className='foot-info'>
+                    <img src={fb}/>
+                    <img src={disc}/>
+                    <img src={insta}/>
+                </div>
             </div>
         </div>
     )

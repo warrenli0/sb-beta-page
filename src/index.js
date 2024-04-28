@@ -7,6 +7,7 @@ import OurMission from './OurMission';
 import SignIn from './SignIn.tsx';
 import Profile from './Profile.tsx';
 import Home from './Home.tsx';
+import Modules from './Modules.tsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,6 +19,7 @@ root.render(
         <Route path="/sign" element={<SignIn/>}></Route>
         <Route path="/profile" element={<Profile/>}></Route>
         <Route path="/home" element={<Home/>}></Route>
+        <Route path="/modules" element={<Modules/>}></Route>
       </Routes>
     </HashRouter>
   </React.StrictMode>
