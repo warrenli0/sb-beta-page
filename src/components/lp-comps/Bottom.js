@@ -124,7 +124,7 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
             </div>
             <div className="ocean-content">
                 <div className='ocean-header' ref={divRef}>
-                    <h1 className="hidden">Launching in early April! Stay tuned!</h1>
+                    <h1 className="hidden">Launching in May! Stay tuned!</h1>
                     <h3 className="hidden">let's achieve your dream score.</h3>
                 </div>
                 <div className="ocean-img ocean-scuba-png" ref={divRef2}>
