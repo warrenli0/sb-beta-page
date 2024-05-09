@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.38cca015.css",
-    "main.js": "/static/js/main.073def59.js",
+    "main.css": "/static/css/main.6b12ec2d.css",
+    "main.js": "/static/js/main.a8a73ef3.js",
     "static/media/open-treasure-peng-speak.png": "/static/media/open-treasure-peng-speak.62c20a508f7fb9569a18.png",
     "static/media/curr-dash.png": "/static/media/curr-dash.f56b2a92e36a83cba4a3.png",
     "static/media/prac-problem.png": "/static/media/prac-problem.bef7cbd009f68bc7a876.png",
@@ -14,6 +14,7 @@
     "static/media/starsbg.png": "/static/media/starsbg.7bda16ded85c7567649f.png",
     "static/media/coral.png": "/static/media/coral.2546820a4125c06a92e2.png",
     "static/media/database.png": "/static/media/database.d1935e11eb545dcef18e.png",
+    "static/media/chair-beach-peng.png": "/static/media/chair-beach-peng.75b66f2b08c0c3d84841.png",
     "static/media/WCT.png": "/static/media/WCT.46e2d9347bc72ffdeb14.png",
     "static/media/small-closed-treasure.png": "/static/media/small-closed-treasure.4a9ad7576ad62b81821c.png",
     "static/media/figma-beach.png": "/static/media/figma-beach.b1bc637caae5f9a22819.png",
@@ -30,6 +31,7 @@
     "static/media/ACT.png": "/static/media/ACT.a788bb011691d4e1f35c.png",
     "static/media/SAT.png": "/static/media/SAT.9b9fa99777ae5f393bc1.png",
     "static/media/georgia.png": "/static/media/georgia.7e4bf747f2b63b983d45.png",
+    "static/media/out-beach.png": "/static/media/out-beach.f5dbb0e5ddc38f8326d9.png",
     "static/media/war.png": "/static/media/war.f395c9131021a1a24bd4.png",
     "static/media/figma-bottom-beach.png": "/static/media/figma-bottom-beach.e5e9b451681c6f173534.png",
     "static/media/huge-whale.png": "/static/media/huge-whale.fd2cc3e3756725ab942b.png",
@@ -42,12 +44,14 @@
     "static/media/sat-english.png": "/static/media/sat-english.aa9503cf9127d4f63875.png",
     "static/media/cake-ping.png": "/static/media/cake-ping.3473981614b5dd3c4ca8.png",
     "static/media/figma-hook-wave.png": "/static/media/figma-hook-wave.92cebda024dfc59f274e.png",
+    "static/media/in-beach.png": "/static/media/in-beach.067aa341ab0dd04c0d2a.png",
     "static/media/mission-beach.png": "/static/media/mission-beach.7af6a7c547e468335786.png",
     "static/media/hand-up-ping.png": "/static/media/hand-up-ping.f80e89f3dea0af7baba1.png",
     "static/media/ping-sleep.png": "/static/media/ping-sleep.62997e9b805805d0a077.png",
     "static/media/beach-sleep.png": "/static/media/beach-sleep.6c311c1f5cbb03765e28.png",
     "static/media/camera.png": "/static/media/camera.80970f5459afe20125c1.png",
     "static/media/figma-three-wave.png": "/static/media/figma-three-wave.40819d8297fb5a5639a6.png",
+    "static/media/home-beach.png": "/static/media/home-beach.6bcb5f3ce1afbd5991a0.png",
     "static/media/act-reading.png": "/static/media/act-reading.32982e75d5be44224989.png",
     "static/media/rotated-coco.png": "/static/media/rotated-coco.fa415bf63cff107181c8.png",
     "static/media/main-peng.png": "/static/media/main-peng.530e8da337ba6dee6fb7.png",
@@ -57,6 +61,7 @@
     "static/media/sat-math.png": "/static/media/sat-math.1aed145f6c42b16b5643.png",
     "static/media/beach-umbrella.png": "/static/media/beach-umbrella.8c6dc7e9b50ba8d54741.png",
     "static/media/ping-tower.png": "/static/media/ping-tower.f6f2f99e6fa574e86449.png",
+    "static/media/pet_beach.png": "/static/media/pet_beach.175d50d93f226f688fae.png",
     "static/media/insta.png": "/static/media/insta.2b0552a363cd864d6e7c.png",
     "static/media/act-math.png": "/static/media/act-math.9164da54c1cba3b7fbf8.png",
     "static/media/flops.png": "/static/media/flops.46e334645e10697b09b2.png",
@@ -69,7 +74,9 @@
     "static/media/beach-ball.png": "/static/media/beach-ball.a8f1c7b0e555336621e2.png",
     "static/media/discord-bubble.png": "/static/media/discord-bubble.829bb5fa907b4ca77128.png",
     "static/media/yale.png": "/static/media/yale.e133670a4188e923632e.png",
+    "static/media/googsvg.svg": "/static/media/googsvg.e9a9751cede23097df5da534f5ff1d65.svg",
     "index.html": "/index.html",
+    "static/media/facesvg.svg": "/static/media/facesvg.0119c04912db915deedb1f6a94119fe4.svg",
     "static/media/begin-surf-wave.svg": "/static/media/begin-surf-wave.18dde032feab220bf3b4.svg",
     "static/media/begin-wave.svg": "/static/media/begin-wave.254399402bc7d710c04b.svg",
     "static/media/behind-dash-wave.svg": "/static/media/behind-dash-wave.a23370857d0e742ee33d.svg",
@@ -77,11 +84,11 @@
     "static/media/fourth-wave.svg": "/static/media/fourth-wave.1ec06e00ff62dea4a6b4.svg",
     "static/media/second-wave.svg": "/static/media/second-wave.18dde032feab220bf3b4.svg",
     "static/media/third-wave.svg": "/static/media/third-wave.ee77016635d556354d16.svg",
-    "main.38cca015.css.map": "/static/css/main.38cca015.css.map",
-    "main.073def59.js.map": "/static/js/main.073def59.js.map"
+    "main.6b12ec2d.css.map": "/static/css/main.6b12ec2d.css.map",
+    "main.a8a73ef3.js.map": "/static/js/main.a8a73ef3.js.map"
   },
   "entrypoints": [
-    "static/css/main.38cca015.css",
-    "static/js/main.073def59.js"
+    "static/css/main.6b12ec2d.css",
+    "static/js/main.a8a73ef3.js"
   ]
 }
