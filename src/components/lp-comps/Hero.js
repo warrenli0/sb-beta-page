@@ -21,7 +21,7 @@ export default function Hero({setShowTopWave, setshowLandingPage, setWavesFinish
                     <h1>Scholars Beacon</h1>
                     <h2><span style={{color: '#025B9B'}}>Stand out</span> from the crowd — let’s improve your SAT/ACT score!</h2>
                     <h4>Digital SAT {"&"} ACT preparation with analytics-driven learning and a student-powered community</h4>
-                    <button onClick={() => waveTime()}>try the beta!</button>
+                    {/* <button onClick={() => waveTime()}>try the beta!</button> */}
                     <p>learn more below...</p>
                 </div>
             </div>

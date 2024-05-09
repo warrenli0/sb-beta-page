@@ -129,9 +129,9 @@ export default function Bottom({setShowTopWave, setshowLandingPage, setWavesFini
                 </div>
                 <div className="ocean-img ocean-scuba-png" ref={divRef2}>
                     <img src={book_bubble} className="hidden scuba-peng seawweedo"/>
-                    <div className='hidden'>
+                    {/* <div className='hidden'>
                         <h2 className='ocean-button' onClick={() => waveTime()}>Try Our Beta</h2>
-                    </div>
+                    </div> */}
                 </div>
                 <div className="ocean-img ocean-scuba-png grad-peng" ref={divRef3}>
                     <img src={grad_bubble} className="hidden2 scuba-peng seawweedo2"/>
